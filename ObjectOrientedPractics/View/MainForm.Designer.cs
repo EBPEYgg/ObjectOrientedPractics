@@ -28,12 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.itemsTabs1 = new ObjectOrientedPractics.View.Tabs.ItemsTabs();
+            this.SuspendLayout();
+            // 
+            // itemsTabs1
+            // 
+            this.itemsTabs1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.itemsTabs1.Location = new System.Drawing.Point(0, 0);
+            this.itemsTabs1.Margin = new System.Windows.Forms.Padding(0);
+            this.itemsTabs1.MinimumSize = new System.Drawing.Size(697, 445);
+            this.itemsTabs1.Name = "itemsTabs1";
+            this.itemsTabs1.Size = new System.Drawing.Size(697, 445);
+            this.itemsTabs1.TabIndex = 0;
+            // 
+            // MainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(697, 444);
+            this.Controls.Add(this.itemsTabs1);
+            this.MinimumSize = new System.Drawing.Size(713, 483);
+            this.Name = "MainForm";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private View.Tabs.ItemsTabs itemsTabs1;
     }
 }
