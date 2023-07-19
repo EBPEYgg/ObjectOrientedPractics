@@ -89,5 +89,25 @@ namespace ObjectOrientedPractics.Model
             Info = info;
             Cost = cost;
         }
+
+        /// <summary>
+        /// Переопределение метода ToString() для класса <see cref="Item"/>.
+        /// </summary>
+        /// <returns>Строка: "Уникальный идентификатор / Стоимость / Название товара ".</returns>
+        public override string ToString()
+        {
+            return $"{_id} / " +
+                $"{Cost} / " +
+                $"{Name}";
+        }
+
+        /// <summary>
+        /// Клонирование объекта класса для редактирования его через TextBox.
+        /// </summary>
+        /// <returns>Клонированный объект класса.</returns>
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }
