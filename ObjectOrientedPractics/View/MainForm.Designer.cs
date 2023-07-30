@@ -29,56 +29,55 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.TabControl = new System.Windows.Forms.TabControl();
-            this.ItemsTabPage = new System.Windows.Forms.TabPage();
-            this.itemsTabs1 = new ObjectOrientedPractics.View.Tabs.ItemsTabs();
-            this.TabControl.SuspendLayout();
-            this.ItemsTabPage.SuspendLayout();
-            this.SuspendLayout();
+            TabControl = new TabControl();
+            ItemsTabPage = new TabPage();
+            itemsTabs1 = new View.Tabs.ItemsTabs();
+            TabControl.SuspendLayout();
+            ItemsTabPage.SuspendLayout();
+            SuspendLayout();
             // 
             // TabControl
             // 
-            this.TabControl.Controls.Add(this.ItemsTabPage);
-            this.TabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TabControl.Location = new System.Drawing.Point(0, 0);
-            this.TabControl.Name = "TabControl";
-            this.TabControl.SelectedIndex = 0;
-            this.TabControl.Size = new System.Drawing.Size(697, 444);
-            this.TabControl.TabIndex = 0;
+            TabControl.Controls.Add(ItemsTabPage);
+            TabControl.Dock = DockStyle.Fill;
+            TabControl.Location = new Point(0, 0);
+            TabControl.Name = "TabControl";
+            TabControl.SelectedIndex = 0;
+            TabControl.Size = new Size(697, 482);
+            TabControl.TabIndex = 0;
             // 
             // ItemsTabPage
             // 
-            this.ItemsTabPage.Controls.Add(this.itemsTabs1);
-            this.ItemsTabPage.Location = new System.Drawing.Point(4, 24);
-            this.ItemsTabPage.Name = "ItemsTabPage";
-            this.ItemsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.ItemsTabPage.Size = new System.Drawing.Size(689, 416);
-            this.ItemsTabPage.TabIndex = 2;
-            this.ItemsTabPage.Text = "Items";
-            this.ItemsTabPage.UseVisualStyleBackColor = true;
+            ItemsTabPage.Controls.Add(itemsTabs1);
+            ItemsTabPage.Location = new Point(4, 24);
+            ItemsTabPage.Name = "ItemsTabPage";
+            ItemsTabPage.Padding = new Padding(3);
+            ItemsTabPage.Size = new Size(689, 454);
+            ItemsTabPage.TabIndex = 2;
+            ItemsTabPage.Text = "Items";
+            ItemsTabPage.UseVisualStyleBackColor = true;
             // 
             // itemsTabs1
             // 
-            this.itemsTabs1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.itemsTabs1.Location = new System.Drawing.Point(3, 3);
-            this.itemsTabs1.Name = "itemsTabs1";
-            this.itemsTabs1.Size = new System.Drawing.Size(683, 410);
-            this.itemsTabs1.TabIndex = 0;
+            itemsTabs1.Dock = DockStyle.Fill;
+            itemsTabs1.Location = new Point(3, 3);
+            itemsTabs1.Name = "itemsTabs1";
+            itemsTabs1.Size = new Size(683, 448);
+            itemsTabs1.TabIndex = 0;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(697, 444);
-            this.Controls.Add(this.TabControl);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(713, 483);
-            this.Name = "MainForm";
-            this.Text = "Object Oriented Practics";
-            this.TabControl.ResumeLayout(false);
-            this.ItemsTabPage.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(697, 482);
+            Controls.Add(TabControl);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MinimumSize = new Size(713, 0);
+            Name = "MainForm";
+            Text = "Object Oriented Practics";
+            TabControl.ResumeLayout(false);
+            ItemsTabPage.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion

@@ -182,8 +182,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void ApplyButton_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(IdTextBox.Text) ||
-                string.IsNullOrEmpty(CostTextBox.Text) ||
+            if (string.IsNullOrEmpty(CostTextBox.Text) ||
                 string.IsNullOrEmpty(NameRichTextBox.Text) ||
                 string.IsNullOrEmpty(DescriptionRichTextBox.Text))
             {
@@ -218,7 +217,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 ToggleInputBoxes(false);
                 _cloneCurrentItem = (Item)_itemsList[ItemsListBox.SelectedIndex].Clone();
-                //IdTextBox.Text = _cloneCurrentItem.Id.ToString();
+                IdTextBox.Text = _cloneCurrentItem.Id.ToString();
                 CostTextBox.Text = _cloneCurrentItem.Cost.ToString();
                 NameRichTextBox.Text = _cloneCurrentItem.Name.ToString();
                 DescriptionRichTextBox.Text = _cloneCurrentItem.Info.ToString();
@@ -285,7 +284,7 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void UpdateItemInfo()
         {
-            //IdTextBox.Text = _currentItem.Id.ToString();
+            IdTextBox.Text = _currentItem.Id.ToString();
             CostTextBox.Text = _currentItem.Cost.ToString();
             NameRichTextBox.Text = _currentItem.Name.ToString();
             DescriptionRichTextBox.Text = _currentItem.Info.ToString();
