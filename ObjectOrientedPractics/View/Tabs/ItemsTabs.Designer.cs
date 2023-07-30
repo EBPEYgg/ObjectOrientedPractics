@@ -141,7 +141,7 @@
             SelectedItemGroupBox.Size = new Size(342, 439);
             SelectedItemGroupBox.TabIndex = 1;
             SelectedItemGroupBox.TabStop = false;
-            SelectedItemGroupBox.Text = "Selected Item";
+            SelectedItemGroupBox.Text = "Selected item";
             // 
             // ApplyButton
             // 

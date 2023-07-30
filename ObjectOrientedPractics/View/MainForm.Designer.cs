@@ -31,7 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             TabControl = new TabControl();
             ItemsTabPage = new TabPage();
-            itemsTabs1 = new View.Tabs.ItemsTabs();
+            ItemsTabs = new View.Tabs.ItemsTabs();
+            CustomersTabPage = new TabPage();
             TabControl.SuspendLayout();
             ItemsTabPage.SuspendLayout();
             SuspendLayout();
@@ -39,6 +40,7 @@
             // TabControl
             // 
             TabControl.Controls.Add(ItemsTabPage);
+            TabControl.Controls.Add(CustomersTabPage);
             TabControl.Dock = DockStyle.Fill;
             TabControl.Location = new Point(0, 0);
             TabControl.Name = "TabControl";
@@ -48,7 +50,7 @@
             // 
             // ItemsTabPage
             // 
-            ItemsTabPage.Controls.Add(itemsTabs1);
+            ItemsTabPage.Controls.Add(ItemsTabs);
             ItemsTabPage.Location = new Point(4, 24);
             ItemsTabPage.Name = "ItemsTabPage";
             ItemsTabPage.Padding = new Padding(3);
@@ -57,13 +59,23 @@
             ItemsTabPage.Text = "Items";
             ItemsTabPage.UseVisualStyleBackColor = true;
             // 
-            // itemsTabs1
+            // ItemsTabs
             // 
-            itemsTabs1.Dock = DockStyle.Fill;
-            itemsTabs1.Location = new Point(3, 3);
-            itemsTabs1.Name = "itemsTabs1";
-            itemsTabs1.Size = new Size(683, 448);
-            itemsTabs1.TabIndex = 0;
+            ItemsTabs.Dock = DockStyle.Fill;
+            ItemsTabs.Location = new Point(3, 3);
+            ItemsTabs.Name = "ItemsTabs";
+            ItemsTabs.Size = new Size(683, 448);
+            ItemsTabs.TabIndex = 0;
+            // 
+            // CustomersTabPage
+            // 
+            CustomersTabPage.Location = new Point(4, 24);
+            CustomersTabPage.Name = "CustomersTabPage";
+            CustomersTabPage.Padding = new Padding(3);
+            CustomersTabPage.Size = new Size(689, 454);
+            CustomersTabPage.TabIndex = 3;
+            CustomersTabPage.Text = "Customers";
+            CustomersTabPage.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -84,6 +96,7 @@
 
         private TabControl TabControl;
         private TabPage ItemsTabPage;
-        private View.Tabs.ItemsTabs itemsTabs1;
+        private View.Tabs.ItemsTabs ItemsTabs;
+        private TabPage CustomersTabPage;
     }
 }
