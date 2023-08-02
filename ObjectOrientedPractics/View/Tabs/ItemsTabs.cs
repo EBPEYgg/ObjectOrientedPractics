@@ -261,7 +261,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             _indexBeforeSort = ItemsListBox.SelectedIndex;
             ItemsListBox.SelectedIndexChanged -= ItemsListBox_SelectedIndexChanged;
-            _itemsList = _itemsList.OrderBy(book => book.ToString()).ToList();
+            _itemsList = _itemsList.OrderBy(item => item.ToString()).ToList();
             ItemsListBox.DataSource = _itemsList;
             ItemsListBox.SelectedIndex = _indexBeforeSort;
             ItemsListBox.SelectedIndexChanged += ItemsListBox_SelectedIndexChanged;
