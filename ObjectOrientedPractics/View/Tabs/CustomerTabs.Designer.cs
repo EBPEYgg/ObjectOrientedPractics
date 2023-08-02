@@ -139,7 +139,7 @@
             SelectedItemGroupBox.Size = new Size(342, 439);
             SelectedItemGroupBox.TabIndex = 1;
             SelectedItemGroupBox.TabStop = false;
-            SelectedItemGroupBox.Text = "Selected item";
+            SelectedItemGroupBox.Text = "Selected customer";
             // 
             // panel1
             // 
