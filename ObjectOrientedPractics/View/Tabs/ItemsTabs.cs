@@ -200,6 +200,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 Sort();
                 SaveItem();
                 ToggleInputBoxes(false);
+                ClearItemsInfo();
                 return;
             }
 

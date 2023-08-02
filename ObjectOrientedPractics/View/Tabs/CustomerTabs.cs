@@ -166,6 +166,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 Sort();
                 SaveCustomer();
                 ToggleInputBoxes(false);
+                ClearCustomersInfo();
                 return;
             }
 
