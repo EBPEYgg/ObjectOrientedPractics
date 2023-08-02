@@ -93,7 +93,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 if (!string.IsNullOrEmpty(AddressRichTextBox.Text))
                 {
-                    if (Validator.CheckStringContainsOnlyEnglishLetters(AddressRichTextBox.Text))
+                    if (Validator.CheckStringContainsAddress(AddressRichTextBox.Text))
                     {
                         _cloneCurrentCustomer.Address = AddressRichTextBox.Text;
                         AddressRichTextBox.BackColor = Color.White;
@@ -160,8 +160,8 @@ namespace ObjectOrientedPractics.View.Tabs
             if (_selectedIndex == -1)
             {
                 _currentCustomer = new Customer(
-                    FullNameTextBox.Text.ToString(),
-                    AddressRichTextBox.Text.ToString());
+                    FullNameTextBox.Text.ToString().Trim(),
+                    AddressRichTextBox.Text.ToString().Trim());
                 _customersList.Add(_currentCustomer);
                 Sort();
                 SaveCustomer();

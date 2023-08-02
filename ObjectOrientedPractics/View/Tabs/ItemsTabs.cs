@@ -193,8 +193,8 @@ namespace ObjectOrientedPractics.View.Tabs
             if (_selectedIndex == -1)
             {
                 _currentItem = new Item(
-                    NameRichTextBox.Text.ToString(),
-                    DescriptionRichTextBox.Text.ToString(),
+                    NameRichTextBox.Text.ToString().Trim(),
+                    DescriptionRichTextBox.Text.ToString().Trim(),
                     Convert.ToInt32(CostTextBox.Text));
                 _itemsList.Add(_currentItem);
                 Sort();
