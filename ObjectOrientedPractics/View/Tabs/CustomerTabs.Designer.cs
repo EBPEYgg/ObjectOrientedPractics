@@ -30,11 +30,12 @@
         {
             CustomersTableLayoutPanel = new TableLayoutPanel();
             CustomersGroupBox = new GroupBox();
-            SelectedItemGroupBox = new GroupBox();
-            CustomersListBox = new ListBox();
-            AddButton = new Button();
-            DeleteButton = new Button();
             SaveButton = new Button();
+            DeleteButton = new Button();
+            AddButton = new Button();
+            CustomersListBox = new ListBox();
+            SelectedItemGroupBox = new GroupBox();
+            panel1 = new Panel();
             ApplyButton = new Button();
             EditButton = new Button();
             AddressRichTextBox = new RichTextBox();
@@ -43,7 +44,6 @@
             IdTextBox = new TextBox();
             FullNameLabel = new Label();
             IdLabel = new Label();
-            panel1 = new Panel();
             CustomersTableLayoutPanel.SuspendLayout();
             CustomersGroupBox.SuspendLayout();
             SelectedItemGroupBox.SuspendLayout();
@@ -78,6 +78,50 @@
             CustomersGroupBox.TabStop = false;
             CustomersGroupBox.Text = "Customers";
             // 
+            // SaveButton
+            // 
+            SaveButton.Anchor = AnchorStyles.Bottom;
+            SaveButton.Location = new Point(230, 392);
+            SaveButton.Name = "SaveButton";
+            SaveButton.Size = new Size(106, 41);
+            SaveButton.TabIndex = 3;
+            SaveButton.Text = "Save";
+            SaveButton.UseVisualStyleBackColor = true;
+            SaveButton.Click += SaveButton_Click;
+            // 
+            // DeleteButton
+            // 
+            DeleteButton.Anchor = AnchorStyles.Bottom;
+            DeleteButton.Location = new Point(118, 392);
+            DeleteButton.Name = "DeleteButton";
+            DeleteButton.Size = new Size(106, 41);
+            DeleteButton.TabIndex = 2;
+            DeleteButton.Text = "Delete";
+            DeleteButton.UseVisualStyleBackColor = true;
+            DeleteButton.Click += DeleteButton_Click;
+            // 
+            // AddButton
+            // 
+            AddButton.Anchor = AnchorStyles.Bottom;
+            AddButton.Location = new Point(6, 392);
+            AddButton.Name = "AddButton";
+            AddButton.Size = new Size(106, 41);
+            AddButton.TabIndex = 1;
+            AddButton.Text = "Add";
+            AddButton.UseVisualStyleBackColor = true;
+            AddButton.Click += AddButton_Click;
+            // 
+            // CustomersListBox
+            // 
+            CustomersListBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            CustomersListBox.FormattingEnabled = true;
+            CustomersListBox.ItemHeight = 15;
+            CustomersListBox.Location = new Point(6, 22);
+            CustomersListBox.Name = "CustomersListBox";
+            CustomersListBox.Size = new Size(330, 364);
+            CustomersListBox.TabIndex = 0;
+            CustomersListBox.SelectedIndexChanged += CustomersListBox_SelectedIndexChanged;
+            // 
             // SelectedItemGroupBox
             // 
             SelectedItemGroupBox.Controls.Add(panel1);
@@ -97,41 +141,12 @@
             SelectedItemGroupBox.TabStop = false;
             SelectedItemGroupBox.Text = "Selected item";
             // 
-            // CustomersListBox
+            // panel1
             // 
-            CustomersListBox.FormattingEnabled = true;
-            CustomersListBox.ItemHeight = 15;
-            CustomersListBox.Location = new Point(6, 22);
-            CustomersListBox.Name = "CustomersListBox";
-            CustomersListBox.Size = new Size(330, 364);
-            CustomersListBox.TabIndex = 0;
-            // 
-            // AddButton
-            // 
-            AddButton.Location = new Point(6, 392);
-            AddButton.Name = "AddButton";
-            AddButton.Size = new Size(106, 41);
-            AddButton.TabIndex = 1;
-            AddButton.Text = "Add";
-            AddButton.UseVisualStyleBackColor = true;
-            // 
-            // DeleteButton
-            // 
-            DeleteButton.Location = new Point(118, 392);
-            DeleteButton.Name = "DeleteButton";
-            DeleteButton.Size = new Size(106, 41);
-            DeleteButton.TabIndex = 2;
-            DeleteButton.Text = "Delete";
-            DeleteButton.UseVisualStyleBackColor = true;
-            // 
-            // SaveButton
-            // 
-            SaveButton.Location = new Point(230, 392);
-            SaveButton.Name = "SaveButton";
-            SaveButton.Size = new Size(106, 41);
-            SaveButton.TabIndex = 3;
-            SaveButton.Text = "Save";
-            SaveButton.UseVisualStyleBackColor = true;
+            panel1.Location = new Point(6, 293);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(330, 140);
+            panel1.TabIndex = 21;
             // 
             // ApplyButton
             // 
@@ -143,6 +158,7 @@
             ApplyButton.Text = "Apply";
             ApplyButton.UseVisualStyleBackColor = true;
             ApplyButton.Visible = false;
+            ApplyButton.Click += ApplyButton_Click;
             // 
             // EditButton
             // 
@@ -153,6 +169,7 @@
             EditButton.TabIndex = 19;
             EditButton.Text = "Edit";
             EditButton.UseVisualStyleBackColor = true;
+            EditButton.Click += EditButton_Click;
             // 
             // AddressRichTextBox
             // 
@@ -163,6 +180,7 @@
             AddressRichTextBox.Size = new Size(264, 96);
             AddressRichTextBox.TabIndex = 16;
             AddressRichTextBox.Text = "";
+            AddressRichTextBox.TextChanged += AddressRichTextBox_TextChanged;
             // 
             // AddressLabel
             // 
@@ -180,6 +198,7 @@
             FullNameTextBox.Name = "FullNameTextBox";
             FullNameTextBox.Size = new Size(100, 23);
             FullNameTextBox.TabIndex = 14;
+            FullNameTextBox.TextChanged += FullNameTextBox_TextChanged;
             // 
             // IdTextBox
             // 
@@ -206,13 +225,6 @@
             IdLabel.Size = new Size(21, 15);
             IdLabel.TabIndex = 11;
             IdLabel.Text = "ID:";
-            // 
-            // panel1
-            // 
-            panel1.Location = new Point(6, 293);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(330, 140);
-            panel1.TabIndex = 21;
             // 
             // CustomerTabs
             // 

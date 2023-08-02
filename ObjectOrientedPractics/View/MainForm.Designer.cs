@@ -33,8 +33,10 @@
             ItemsTabPage = new TabPage();
             ItemsTabs = new View.Tabs.ItemsTabs();
             CustomersTabPage = new TabPage();
+            customerTabs1 = new View.Tabs.CustomerTabs();
             TabControl.SuspendLayout();
             ItemsTabPage.SuspendLayout();
+            CustomersTabPage.SuspendLayout();
             SuspendLayout();
             // 
             // TabControl
@@ -69,6 +71,7 @@
             // 
             // CustomersTabPage
             // 
+            CustomersTabPage.Controls.Add(customerTabs1);
             CustomersTabPage.Location = new Point(4, 24);
             CustomersTabPage.Name = "CustomersTabPage";
             CustomersTabPage.Padding = new Padding(3);
@@ -77,6 +80,14 @@
             CustomersTabPage.Text = "Customers";
             CustomersTabPage.UseVisualStyleBackColor = true;
             // 
+            // customerTabs1
+            // 
+            customerTabs1.Dock = DockStyle.Fill;
+            customerTabs1.Location = new Point(3, 3);
+            customerTabs1.Name = "customerTabs1";
+            customerTabs1.Size = new Size(683, 448);
+            customerTabs1.TabIndex = 0;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -84,11 +95,12 @@
             ClientSize = new Size(697, 482);
             Controls.Add(TabControl);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            MinimumSize = new Size(713, 0);
+            MinimumSize = new Size(713, 521);
             Name = "MainForm";
             Text = "Object Oriented Practics";
             TabControl.ResumeLayout(false);
             ItemsTabPage.ResumeLayout(false);
+            CustomersTabPage.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -98,5 +110,6 @@
         private TabPage ItemsTabPage;
         private View.Tabs.ItemsTabs ItemsTabs;
         private TabPage CustomersTabPage;
+        private View.Tabs.CustomerTabs customerTabs1;
     }
 }
