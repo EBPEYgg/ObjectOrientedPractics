@@ -75,26 +75,17 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает счетчик товаров.
         /// </summary>
-        public static int AllItemsCount
-        {
-            get => _allItemsCount;
-            private set
-            {
-                _allItemsCount = value;
-            }
-        }
+        public static int AllItemsCount { get; private set; }
 
         /// <summary>
         /// Возвращает уникальный идентификатор товара.
         /// </summary>
-        public int Id
-        {
-            get => _id;
-            private set
-            {
-                _id = value;
-            }
-        }
+        public int Id { get; private set; }
+
+        /// <summary>
+        /// Возвращает и задает категорию товара.
+        /// </summary>
+        public Category Category { get; set; }
 
         /// <summary>
         /// Создает пустой экземпляр класса <see cref="Item"/>.
@@ -112,13 +103,15 @@ namespace ObjectOrientedPractics.Model
         /// <param name="info">Описание товара. Должно иметь длину до 1000 символов.</param>
         /// <param name="cost">Стоимость товара. 
         /// Значение должно находиться в диапазоне от 0 до 100000 (не включительно).</param>
-        public Item(string name, string info, int cost)
+        /// <param name="category">Категория товара.</param>
+        public Item(string name, string info, int cost, Category category)
         {
             Name = name;
             Info = info;
             Cost = cost;
             _allItemsCount++;
             Id = _allItemsCount;
+            Category = category;
         }
 
         /// <summary>
