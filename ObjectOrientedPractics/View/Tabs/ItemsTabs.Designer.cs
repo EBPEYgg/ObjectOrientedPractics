@@ -35,6 +35,8 @@
             AddButton = new Button();
             ItemsListBox = new ListBox();
             SelectedItemGroupBox = new GroupBox();
+            CategoryComboBox = new ComboBox();
+            CategoryLabel = new Label();
             ApplyButton = new Button();
             EditButton = new Button();
             DescriptionRichTextBox = new RichTextBox();
@@ -125,6 +127,8 @@
             // 
             // SelectedItemGroupBox
             // 
+            SelectedItemGroupBox.Controls.Add(CategoryComboBox);
+            SelectedItemGroupBox.Controls.Add(CategoryLabel);
             SelectedItemGroupBox.Controls.Add(ApplyButton);
             SelectedItemGroupBox.Controls.Add(EditButton);
             SelectedItemGroupBox.Controls.Add(DescriptionRichTextBox);
@@ -142,6 +146,25 @@
             SelectedItemGroupBox.TabIndex = 1;
             SelectedItemGroupBox.TabStop = false;
             SelectedItemGroupBox.Text = "Selected item";
+            // 
+            // CategoryComboBox
+            // 
+            CategoryComboBox.Enabled = false;
+            CategoryComboBox.FormattingEnabled = true;
+            CategoryComboBox.Location = new Point(70, 97);
+            CategoryComboBox.Name = "CategoryComboBox";
+            CategoryComboBox.Size = new Size(123, 23);
+            CategoryComboBox.TabIndex = 12;
+            CategoryComboBox.SelectedIndexChanged += CategoryComboBox_SelectedIndexChanged;
+            // 
+            // CategoryLabel
+            // 
+            CategoryLabel.AutoSize = true;
+            CategoryLabel.Location = new Point(6, 100);
+            CategoryLabel.Name = "CategoryLabel";
+            CategoryLabel.Size = new Size(58, 15);
+            CategoryLabel.TabIndex = 11;
+            CategoryLabel.Text = "Category:";
             // 
             // ApplyButton
             // 
@@ -170,9 +193,9 @@
             // 
             DescriptionRichTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             DescriptionRichTextBox.Enabled = false;
-            DescriptionRichTextBox.Location = new Point(6, 235);
+            DescriptionRichTextBox.Location = new Point(6, 248);
             DescriptionRichTextBox.Name = "DescriptionRichTextBox";
-            DescriptionRichTextBox.Size = new Size(330, 96);
+            DescriptionRichTextBox.Size = new Size(330, 80);
             DescriptionRichTextBox.TabIndex = 8;
             DescriptionRichTextBox.Text = "";
             DescriptionRichTextBox.TextChanged += DescriptionRichTextBox_TextChanged;
@@ -180,7 +203,7 @@
             // DescriptionLabel
             // 
             DescriptionLabel.AutoSize = true;
-            DescriptionLabel.Location = new Point(6, 217);
+            DescriptionLabel.Location = new Point(6, 230);
             DescriptionLabel.Name = "DescriptionLabel";
             DescriptionLabel.Size = new Size(70, 15);
             DescriptionLabel.TabIndex = 7;
@@ -190,9 +213,9 @@
             // 
             NameRichTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             NameRichTextBox.Enabled = false;
-            NameRichTextBox.Location = new Point(6, 118);
+            NameRichTextBox.Location = new Point(6, 147);
             NameRichTextBox.Name = "NameRichTextBox";
-            NameRichTextBox.Size = new Size(330, 96);
+            NameRichTextBox.Size = new Size(330, 80);
             NameRichTextBox.TabIndex = 6;
             NameRichTextBox.Text = "";
             NameRichTextBox.TextChanged += NameRichTextBox_TextChanged;
@@ -200,7 +223,7 @@
             // NameLabel
             // 
             NameLabel.AutoSize = true;
-            NameLabel.Location = new Point(6, 100);
+            NameLabel.Location = new Point(6, 129);
             NameLabel.Name = "NameLabel";
             NameLabel.Size = new Size(42, 15);
             NameLabel.TabIndex = 4;
@@ -209,18 +232,18 @@
             // CostTextBox
             // 
             CostTextBox.Enabled = false;
-            CostTextBox.Location = new Point(48, 68);
+            CostTextBox.Location = new Point(70, 68);
             CostTextBox.Name = "CostTextBox";
-            CostTextBox.Size = new Size(100, 23);
+            CostTextBox.Size = new Size(123, 23);
             CostTextBox.TabIndex = 3;
             CostTextBox.TextChanged += CostTextBox_TextChanged;
             // 
             // IdTextBox
             // 
             IdTextBox.Enabled = false;
-            IdTextBox.Location = new Point(48, 39);
+            IdTextBox.Location = new Point(70, 39);
             IdTextBox.Name = "IdTextBox";
-            IdTextBox.Size = new Size(100, 23);
+            IdTextBox.Size = new Size(123, 23);
             IdTextBox.TabIndex = 2;
             // 
             // CostLabel
@@ -274,5 +297,7 @@
         private Button SaveButton;
         private Button ApplyButton;
         private Button EditButton;
+        private Label CategoryLabel;
+        private ComboBox CategoryComboBox;
     }
 }
