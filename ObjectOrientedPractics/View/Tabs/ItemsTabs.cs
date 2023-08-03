@@ -43,9 +43,11 @@ namespace ObjectOrientedPractics.View.Tabs
         public ItemsTabs()
         {
             InitializeComponent();
-            LoadItemsInfo();
-            ClearItemsInfo();
+            LoadItemsInfo();        // загрузка сохраненных данных из JSON файла
+            ClearItemsInfo();       // очистка TextBox и ComboBox
             ItemsListBox.SelectedIndex = -1;
+            CategoryComboBox.DataSource = Enum.GetValues(typeof(Category));     // заполнение CategoryComboBox
+            CategoryComboBox.SelectedIndex = -1;
         }
 
         /// <summary>
@@ -90,6 +92,14 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 CostTextBox.BackColor = Color.LightPink;
                 //ErrorToolTip.SetToolTip((Control)sender, ex.Message);
+            }
+        }
+
+        private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CategoryComboBox.SelectedIndex != -1 && _cloneCurrentItem.Category != null)
+            {
+                _cloneCurrentItem.Category = (Category)CategoryComboBox.SelectedItem;
             }
         }
 
@@ -195,7 +205,8 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentItem = new Item(
                     NameRichTextBox.Text.ToString().Trim(),
                     DescriptionRichTextBox.Text.ToString().Trim(),
-                    Convert.ToInt32(CostTextBox.Text));
+                    Convert.ToInt32(CostTextBox.Text),
+                    (Category)CategoryComboBox.SelectedItem);
                 _itemsList.Add(_currentItem);
                 Sort();
                 SaveItem();
@@ -222,6 +233,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 CostTextBox.Text = _cloneCurrentItem.Cost.ToString();
                 NameRichTextBox.Text = _cloneCurrentItem.Name.ToString();
                 DescriptionRichTextBox.Text = _cloneCurrentItem.Info.ToString();
+                CategoryComboBox.SelectedItem = _cloneCurrentItem.Category;
             }
         }
 
@@ -244,12 +256,13 @@ namespace ObjectOrientedPractics.View.Tabs
         }
 
         /// <summary>
-        /// Метод, который очищает текстовые поля.
+        /// Метод, который очищает текстовые поля и ComboBox.
         /// </summary>
         private void ClearItemsInfo()
         {
             IdTextBox.Clear();
             CostTextBox.Clear();
+            CategoryComboBox.SelectedIndex = -1;
             NameRichTextBox.Clear();
             DescriptionRichTextBox.Clear();
         }
@@ -269,7 +282,7 @@ namespace ObjectOrientedPractics.View.Tabs
         }
 
         /// <summary>
-        /// Метод, который включает или отключает все TextBox и ApplyButton.
+        /// Метод, который включает или отключает все TextBox, ComboBox и ApplyButton.
         /// </summary>
         /// <param name="value">True or false.</param>
         private void ToggleInputBoxes(bool value)
@@ -277,6 +290,7 @@ namespace ObjectOrientedPractics.View.Tabs
             CostTextBox.Enabled = value;
             NameRichTextBox.Enabled = value;
             DescriptionRichTextBox.Enabled = value;
+            CategoryComboBox.Enabled = value;
             ApplyButton.Visible = value;
         }
 
