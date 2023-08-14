@@ -5,7 +5,7 @@ namespace ObjectOrientedPractics.Model
     /// <summary>
     /// Класс, описывающий адрес покупателя.
     /// </summary>
-    internal class Address
+    public class Address
     {
         /// <summary>
         /// Почтовый индекс покупателя.
@@ -142,6 +142,15 @@ namespace ObjectOrientedPractics.Model
             Street = street;
             Building = building;
             Apartment = apartment;
+        }
+
+        /// <summary>
+        /// Клонирование объекта класса для редактирования его через TextBox.
+        /// </summary>
+        /// <returns>Клонированный объект класса.</returns>
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
     }
 }
