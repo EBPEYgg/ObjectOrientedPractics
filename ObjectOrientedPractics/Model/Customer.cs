@@ -1,5 +1,4 @@
 ﻿using ObjectOrientedPractics.Services;
-using System.Xml.Linq;
 
 namespace ObjectOrientedPractics.Model
 {
@@ -24,11 +23,6 @@ namespace ObjectOrientedPractics.Model
         private string _fullname;
 
         /// <summary>
-        /// Адрес доставки покупателя.
-        /// </summary>
-        private string _address;
-
-        /// <summary>
         /// Возвращает и задает ФИО покупателя. Должно иметь длину до 200 символов.
         /// </summary>
         public string Fullname
@@ -42,17 +36,9 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
-        /// Возвращает и задает адрес доставки покупателя. Должно иметь длину до 500 символов.
+        /// Возвращает и задает адрес доставки покупателя.
         /// </summary>
-        public string Address
-        {
-            get => _address;
-            set
-            {
-                Validator.AssertStringOnLength(value, 200, Address);
-                _address = value;
-            }
-        }
+        public Address Address { get; set; }
 
         /// <summary>
         /// Возвращает счетчик покупателей.
@@ -90,11 +76,17 @@ namespace ObjectOrientedPractics.Model
         /// Создает экземпляр класса <see cref="Customer"/>.
         /// </summary>
         /// <param name="fullname">ФИО покупателя. Должно иметь длину до 200 символов.</param>
-        /// <param name="address">Адрес доставки покупателя. Должно иметь длину до 500 символов.</param>
-        public Customer(string fullname, string address)
+        /// <param name="index">Почтовый индекс покупателя. Должно быть целым шестизначным числом.</param>
+        /// <param name="country">Страна покупателя. Должно иметь длину до 50 символов.</param>
+        /// <param name="city">Город покупателя. Должно иметь длину до 50 символов.</param>
+        /// <param name="street">Улица покупателя. Должно иметь длину до 50 символов.</param>
+        /// <param name="building">Номер дома покупателя. Должно иметь длину до 5 символов.</param>
+        /// <param name="apartment">Номер квартиры покупателя. Должно иметь длину до 5 символов.</param>
+        public Customer(string fullname, int index, string country, 
+            string city, string street, string building, string apartment)
         {
             Fullname = fullname;
-            Address = address;
+            Address = new Address(index, country, city, street, building, apartment);
             _allCustomersCount++;
             Id = _allCustomersCount;
         }
