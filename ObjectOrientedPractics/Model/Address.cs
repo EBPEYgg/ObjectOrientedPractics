@@ -143,14 +143,5 @@ namespace ObjectOrientedPractics.Model
             Building = building;
             Apartment = apartment;
         }
-
-        /// <summary>
-        /// Клонирование объекта класса для редактирования его через TextBox.
-        /// </summary>
-        /// <returns>Клонированный объект класса.</returns>
-        public object Clone()
-        {
-            return this.MemberwiseClone();
-        }
     }
 }
