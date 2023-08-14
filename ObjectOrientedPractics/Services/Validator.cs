@@ -91,18 +91,7 @@
             bool flag = true;
             if (!string.IsNullOrWhiteSpace(value))
             {
-                for (int i = 1; i < value.Length; i++)     // проверка на две запятые подряд
-                {
-                    if (value[i] == value[i - 1])
-                    {
-                        if (value[i] == ',')
-                        {
-                            return false;
-                        }
-                    }
-                }
-
-                foreach (char c in value)       // проверка на латиницу
+                foreach (char c in value)
                 {
                     if (!(((c >= 'a') && (c <= 'z')) || ((c >= 'A') && (c <= 'Z')) || (c == ' ') || (c == ',') ||
                         ((c >= '0') && (c <= '9'))))
