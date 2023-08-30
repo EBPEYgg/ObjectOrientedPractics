@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
+using ObjectOrientedPractics.View.Controls;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -39,6 +40,8 @@ namespace ObjectOrientedPractics.View.Tabs
         /// Название файла для сохранения или загрузки данных.
         /// </summary>
         private string _fileName = "Customers.json";
+
+        AddressControl AddressControl;
 
         public CustomerTabs()
         {
@@ -82,35 +85,7 @@ namespace ObjectOrientedPractics.View.Tabs
             catch (ArgumentException ex)
             {
                 FullNameTextBox.BackColor = Color.LightPink;
-                //TODO: ToolTip.
-                //ErrorToolTip.SetToolTip((Control)sender, ex.Message);
-            }
-        }
-
-        private void AddressRichTextBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (!string.IsNullOrEmpty(AddressRichTextBox.Text))
-                {
-                    if (Validator.CheckStringContainsAddress(AddressRichTextBox.Text))
-                    {
-                        _cloneCurrentCustomer.Address = AddressRichTextBox.Text;
-                        AddressRichTextBox.BackColor = Color.White;
-                        return;
-                    }
-
-                    else
-                    {
-                        AddressRichTextBox.BackColor = Color.LightPink;
-                    }
-                }
-            }
-            catch (ArgumentException ex)
-            {
-                AddressRichTextBox.BackColor = Color.LightPink;
-                //TODO: ToolTip.
-                //ErrorToolTip.SetToolTip((Control)sender, ex.Message);
+                ErrorToolTip.SetToolTip((Control)sender, ex.Message);
             }
         }
 
@@ -150,8 +125,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void ApplyButton_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(FullNameTextBox.Text) ||
-                string.IsNullOrEmpty(AddressRichTextBox.Text))
+            if (string.IsNullOrEmpty(FullNameTextBox.Text))
             {
                 MessageBox.Show("Заполните все поля.", "Ошибка ввода");
                 return;
@@ -159,9 +133,10 @@ namespace ObjectOrientedPractics.View.Tabs
 
             if (_selectedIndex == -1)
             {
-                _currentCustomer = new Customer(
-                    FullNameTextBox.Text.ToString().Trim(),
-                    AddressRichTextBox.Text.ToString().Trim());
+                _currentCustomer = new Customer(FullNameTextBox.Text.Trim(),
+                    AddressControl.Address.Index, AddressControl.Address.Country,
+                    AddressControl.Address.City, AddressControl.Address.Street,
+                    AddressControl.Address.Building, AddressControl.Address.Apartment);
                 _customersList.Add(_currentCustomer);
                 Sort();
                 SaveCustomer();
@@ -186,7 +161,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 _cloneCurrentCustomer = (Customer)_customersList[CustomersListBox.SelectedIndex].Clone();
                 IdTextBox.Text = _cloneCurrentCustomer.Id.ToString();
                 FullNameTextBox.Text = _cloneCurrentCustomer.Fullname.ToString();
-                AddressRichTextBox.Text = _cloneCurrentCustomer.Address.ToString();
+                //AddressRichTextBox.Text = _cloneCurrentCustomer.Address.ToString();
             }
         }
 
@@ -215,7 +190,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             IdTextBox.Clear();
             FullNameTextBox.Clear();
-            AddressRichTextBox.Clear();
+            //PostIndexTextBox.Clear();
         }
 
         /// <summary>
@@ -239,7 +214,7 @@ namespace ObjectOrientedPractics.View.Tabs
         private void ToggleInputBoxes(bool value)
         {
             FullNameTextBox.Enabled = value;
-            AddressRichTextBox.Enabled = value;
+            //PostIndexTextBox.Enabled = value;
             ApplyButton.Visible = value;
         }
 
@@ -250,7 +225,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             IdTextBox.Text = _currentCustomer.Id.ToString();
             FullNameTextBox.Text = _currentCustomer.Fullname.ToString();
-            AddressRichTextBox.Text = _currentCustomer.Address.ToString();
+            //PostIndexTextBox.Text = _currentAddress.Index.ToString();
         }
     }
 }
