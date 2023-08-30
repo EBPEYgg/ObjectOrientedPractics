@@ -10,7 +10,12 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Уникальный номер товара.
         /// </summary>
-        private readonly int _id;
+        private int _id;
+
+        /// <summary>
+        /// Счетчик товаров.
+        /// </summary>
+        private static int _allItemsCount = 0;
 
         /// <summary>
         /// Название товара.
@@ -68,6 +73,30 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
+        /// Возвращает счетчик товаров.
+        /// </summary>
+        public static int AllItemsCount
+        {
+            get => _allItemsCount;
+            private set
+            {
+                _allItemsCount = value;
+            }
+        }
+
+        /// <summary>
+        /// Возвращает уникальный идентификатор товара.
+        /// </summary>
+        public int Id
+        {
+            get => _id;
+            private set
+            {
+                _id = value;
+            }
+        }
+
+        /// <summary>
         /// Создает пустой экземпляр класса <see cref="Item"/>.
         /// </summary>
         public Item()
@@ -88,6 +117,8 @@ namespace ObjectOrientedPractics.Model
             Name = name;
             Info = info;
             Cost = cost;
+            _allItemsCount++;
+            Id = _allItemsCount;
         }
 
         /// <summary>

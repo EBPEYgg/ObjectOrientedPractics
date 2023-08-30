@@ -182,8 +182,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void ApplyButton_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(IdTextBox.Text) ||
-                string.IsNullOrEmpty(CostTextBox.Text) ||
+            if (string.IsNullOrEmpty(CostTextBox.Text) ||
                 string.IsNullOrEmpty(NameRichTextBox.Text) ||
                 string.IsNullOrEmpty(DescriptionRichTextBox.Text))
             {
@@ -194,13 +193,14 @@ namespace ObjectOrientedPractics.View.Tabs
             if (_selectedIndex == -1)
             {
                 _currentItem = new Item(
-                    NameRichTextBox.Text.ToString(),
-                    DescriptionRichTextBox.Text.ToString(),
+                    NameRichTextBox.Text.ToString().Trim(),
+                    DescriptionRichTextBox.Text.ToString().Trim(),
                     Convert.ToInt32(CostTextBox.Text));
                 _itemsList.Add(_currentItem);
                 Sort();
                 SaveItem();
                 ToggleInputBoxes(false);
+                ClearItemsInfo();
                 return;
             }
 
@@ -218,7 +218,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 ToggleInputBoxes(false);
                 _cloneCurrentItem = (Item)_itemsList[ItemsListBox.SelectedIndex].Clone();
-                //IdTextBox.Text = _cloneCurrentItem.Id.ToString();
+                IdTextBox.Text = _cloneCurrentItem.Id.ToString();
                 CostTextBox.Text = _cloneCurrentItem.Cost.ToString();
                 NameRichTextBox.Text = _cloneCurrentItem.Name.ToString();
                 DescriptionRichTextBox.Text = _cloneCurrentItem.Info.ToString();
@@ -262,7 +262,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             _indexBeforeSort = ItemsListBox.SelectedIndex;
             ItemsListBox.SelectedIndexChanged -= ItemsListBox_SelectedIndexChanged;
-            _itemsList = _itemsList.OrderBy(book => book.ToString()).ToList();
+            _itemsList = _itemsList.OrderBy(item => item.ToString()).ToList();
             ItemsListBox.DataSource = _itemsList;
             ItemsListBox.SelectedIndex = _indexBeforeSort;
             ItemsListBox.SelectedIndexChanged += ItemsListBox_SelectedIndexChanged;
@@ -285,7 +285,7 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void UpdateItemInfo()
         {
-            //IdTextBox.Text = _currentItem.Id.ToString();
+            IdTextBox.Text = _currentItem.Id.ToString();
             CostTextBox.Text = _currentItem.Cost.ToString();
             NameRichTextBox.Text = _currentItem.Name.ToString();
             DescriptionRichTextBox.Text = _currentItem.Info.ToString();

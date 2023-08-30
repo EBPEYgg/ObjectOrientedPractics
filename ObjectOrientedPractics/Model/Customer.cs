@@ -1,4 +1,5 @@
 ﻿using ObjectOrientedPractics.Services;
+using System.Xml.Linq;
 
 namespace ObjectOrientedPractics.Model
 {
@@ -10,7 +11,12 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Уникальный номер покупателя.
         /// </summary>
-        private readonly string _id;
+        private int _id;
+
+        /// <summary>
+        /// Счетчик покупателей.
+        /// </summary>
+        private static int _allCustomersCount = 0;
 
         /// <summary>
         /// Полное ФИО покупателя.
@@ -49,6 +55,30 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
+        /// Возвращает счетчик покупателей.
+        /// </summary>
+        public static int AllItemsCount
+        {
+            get => _allCustomersCount;
+            private set
+            {
+                _allCustomersCount = value;
+            }
+        }
+
+        /// <summary>
+        /// Возвращает уникальный идентификатор покупателя.
+        /// </summary>
+        public int Id
+        {
+            get => _id;
+            private set
+            {
+                _id = value;
+            }
+        }
+
+        /// <summary>
         /// Создает пустой экземпляр класса <see cref="Customer"/>.
         /// </summary>
         public Customer()
@@ -65,6 +95,28 @@ namespace ObjectOrientedPractics.Model
         {
             Fullname = fullname;
             Address = address;
+            _allCustomersCount++;
+            Id = _allCustomersCount;
+        }
+
+        /// <summary>
+        /// Переопределение метода ToString() для класса <see cref="Customer"/>.
+        /// </summary>
+        /// <returns>Строка: "Уникальный идентификатор / Полное имя / Адрес ".</returns>
+        public override string ToString()
+        {
+            return $"{_id} / " +
+            $"{Fullname} / " +
+                $"{Address}";
+        }
+
+        /// <summary>
+        /// Клонирование объекта класса для редактирования его через TextBox.
+        /// </summary>
+        /// <returns>Клонированный объект класса.</returns>
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
     }
 }

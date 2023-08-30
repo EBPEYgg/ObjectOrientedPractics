@@ -82,6 +82,41 @@
         }
 
         /// <summary>
+        /// Метод, который проверяет входяшую строку на наличие адреса на латинице.
+        /// </summary>
+        /// <param name="value">Строка.</param>
+        /// <returns>True or false.</returns>
+        public static bool CheckStringContainsAddress(string? value)
+        {
+            bool flag = true;
+            if (!string.IsNullOrWhiteSpace(value))
+            {
+                for (int i = 1; i < value.Length; i++)     // проверка на две запятые подряд
+                {
+                    if (value[i] == value[i - 1])
+                    {
+                        if (value[i] == ',')
+                        {
+                            return false;
+                        }
+                    }
+                }
+
+                foreach (char c in value)       // проверка на латиницу
+                {
+                    if (!(((c >= 'a') && (c <= 'z')) || ((c >= 'A') && (c <= 'Z')) || (c == ' ') || (c == ',') ||
+                        ((c >= '0') && (c <= '9'))))
+                    {
+                        flag = false;
+                        break;
+                    }
+                }
+            }
+
+            return flag;
+        }
+
+        /// <summary>
         /// Метод, который сравнивает длину входящей строки и максимально возможную ее длину.
         /// </summary>
         /// <param name="value">Входящая строка.</param>
