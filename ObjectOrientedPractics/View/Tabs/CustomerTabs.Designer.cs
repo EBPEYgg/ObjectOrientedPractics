@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             CustomersTableLayoutPanel = new TableLayoutPanel();
             CustomersGroupBox = new GroupBox();
             SaveButton = new Button();
@@ -35,15 +36,15 @@
             AddButton = new Button();
             CustomersListBox = new ListBox();
             SelectedItemGroupBox = new GroupBox();
+            addressControl1 = new Controls.AddressControl();
             panel1 = new Panel();
             ApplyButton = new Button();
             EditButton = new Button();
-            AddressRichTextBox = new RichTextBox();
-            AddressLabel = new Label();
             FullNameTextBox = new TextBox();
             IdTextBox = new TextBox();
             FullNameLabel = new Label();
             IdLabel = new Label();
+            ErrorToolTip = new ToolTip(components);
             CustomersTableLayoutPanel.SuspendLayout();
             CustomersGroupBox.SuspendLayout();
             SelectedItemGroupBox.SuspendLayout();
@@ -61,7 +62,7 @@
             CustomersTableLayoutPanel.Name = "CustomersTableLayoutPanel";
             CustomersTableLayoutPanel.RowCount = 1;
             CustomersTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            CustomersTableLayoutPanel.Size = new Size(696, 445);
+            CustomersTableLayoutPanel.Size = new Size(761, 445);
             CustomersTableLayoutPanel.TabIndex = 0;
             // 
             // CustomersGroupBox
@@ -73,7 +74,7 @@
             CustomersGroupBox.Dock = DockStyle.Fill;
             CustomersGroupBox.Location = new Point(3, 3);
             CustomersGroupBox.Name = "CustomersGroupBox";
-            CustomersGroupBox.Size = new Size(342, 439);
+            CustomersGroupBox.Size = new Size(374, 439);
             CustomersGroupBox.TabIndex = 0;
             CustomersGroupBox.TabStop = false;
             CustomersGroupBox.Text = "Customers";
@@ -81,7 +82,7 @@
             // SaveButton
             // 
             SaveButton.Anchor = AnchorStyles.Bottom;
-            SaveButton.Location = new Point(230, 392);
+            SaveButton.Location = new Point(246, 392);
             SaveButton.Name = "SaveButton";
             SaveButton.Size = new Size(106, 41);
             SaveButton.TabIndex = 3;
@@ -92,7 +93,7 @@
             // DeleteButton
             // 
             DeleteButton.Anchor = AnchorStyles.Bottom;
-            DeleteButton.Location = new Point(118, 392);
+            DeleteButton.Location = new Point(134, 392);
             DeleteButton.Name = "DeleteButton";
             DeleteButton.Size = new Size(106, 41);
             DeleteButton.TabIndex = 2;
@@ -103,7 +104,7 @@
             // AddButton
             // 
             AddButton.Anchor = AnchorStyles.Bottom;
-            AddButton.Location = new Point(6, 392);
+            AddButton.Location = new Point(22, 392);
             AddButton.Name = "AddButton";
             AddButton.Size = new Size(106, 41);
             AddButton.TabIndex = 1;
@@ -118,42 +119,49 @@
             CustomersListBox.ItemHeight = 15;
             CustomersListBox.Location = new Point(6, 22);
             CustomersListBox.Name = "CustomersListBox";
-            CustomersListBox.Size = new Size(330, 364);
+            CustomersListBox.Size = new Size(362, 364);
             CustomersListBox.TabIndex = 0;
             CustomersListBox.SelectedIndexChanged += CustomersListBox_SelectedIndexChanged;
             // 
             // SelectedItemGroupBox
             // 
+            SelectedItemGroupBox.Controls.Add(addressControl1);
             SelectedItemGroupBox.Controls.Add(panel1);
             SelectedItemGroupBox.Controls.Add(ApplyButton);
             SelectedItemGroupBox.Controls.Add(EditButton);
-            SelectedItemGroupBox.Controls.Add(AddressRichTextBox);
-            SelectedItemGroupBox.Controls.Add(AddressLabel);
             SelectedItemGroupBox.Controls.Add(FullNameTextBox);
             SelectedItemGroupBox.Controls.Add(IdTextBox);
             SelectedItemGroupBox.Controls.Add(FullNameLabel);
             SelectedItemGroupBox.Controls.Add(IdLabel);
             SelectedItemGroupBox.Dock = DockStyle.Fill;
-            SelectedItemGroupBox.Location = new Point(351, 3);
+            SelectedItemGroupBox.Location = new Point(383, 3);
             SelectedItemGroupBox.Name = "SelectedItemGroupBox";
-            SelectedItemGroupBox.Size = new Size(342, 439);
+            SelectedItemGroupBox.Size = new Size(375, 439);
             SelectedItemGroupBox.TabIndex = 1;
             SelectedItemGroupBox.TabStop = false;
             SelectedItemGroupBox.Text = "Selected customer";
             // 
+            // addressControl1
+            // 
+            addressControl1.Address = null;
+            addressControl1.Location = new Point(-3, 97);
+            addressControl1.Name = "addressControl1";
+            addressControl1.Size = new Size(381, 145);
+            addressControl1.TabIndex = 22;
+            // 
             // panel1
             // 
-            panel1.Location = new Point(6, 293);
+            panel1.Location = new Point(6, 342);
             panel1.Name = "panel1";
-            panel1.Size = new Size(330, 140);
+            panel1.Size = new Size(363, 91);
             panel1.TabIndex = 21;
             // 
             // ApplyButton
             // 
             ApplyButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            ApplyButton.Location = new Point(6, 246);
+            ApplyButton.Location = new Point(6, 295);
             ApplyButton.Name = "ApplyButton";
-            ApplyButton.Size = new Size(330, 41);
+            ApplyButton.Size = new Size(363, 41);
             ApplyButton.TabIndex = 20;
             ApplyButton.Text = "Apply";
             ApplyButton.UseVisualStyleBackColor = true;
@@ -163,49 +171,29 @@
             // EditButton
             // 
             EditButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            EditButton.Location = new Point(6, 199);
+            EditButton.Location = new Point(6, 248);
             EditButton.Name = "EditButton";
-            EditButton.Size = new Size(330, 41);
+            EditButton.Size = new Size(363, 41);
             EditButton.TabIndex = 19;
             EditButton.Text = "Edit";
             EditButton.UseVisualStyleBackColor = true;
             EditButton.Click += EditButton_Click;
             // 
-            // AddressRichTextBox
-            // 
-            AddressRichTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            AddressRichTextBox.Enabled = false;
-            AddressRichTextBox.Location = new Point(72, 97);
-            AddressRichTextBox.Name = "AddressRichTextBox";
-            AddressRichTextBox.Size = new Size(264, 96);
-            AddressRichTextBox.TabIndex = 16;
-            AddressRichTextBox.Text = "";
-            AddressRichTextBox.TextChanged += AddressRichTextBox_TextChanged;
-            // 
-            // AddressLabel
-            // 
-            AddressLabel.AutoSize = true;
-            AddressLabel.Location = new Point(6, 100);
-            AddressLabel.Name = "AddressLabel";
-            AddressLabel.Size = new Size(52, 15);
-            AddressLabel.TabIndex = 15;
-            AddressLabel.Text = "Address:";
-            // 
             // FullNameTextBox
             // 
             FullNameTextBox.Enabled = false;
-            FullNameTextBox.Location = new Point(72, 68);
+            FullNameTextBox.Location = new Point(79, 68);
             FullNameTextBox.Name = "FullNameTextBox";
-            FullNameTextBox.Size = new Size(100, 23);
+            FullNameTextBox.Size = new Size(93, 23);
             FullNameTextBox.TabIndex = 14;
             FullNameTextBox.TextChanged += FullNameTextBox_TextChanged;
             // 
             // IdTextBox
             // 
             IdTextBox.Enabled = false;
-            IdTextBox.Location = new Point(72, 39);
+            IdTextBox.Location = new Point(79, 39);
             IdTextBox.Name = "IdTextBox";
-            IdTextBox.Size = new Size(100, 23);
+            IdTextBox.Size = new Size(93, 23);
             IdTextBox.TabIndex = 13;
             // 
             // FullNameLabel
@@ -232,7 +220,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(CustomersTableLayoutPanel);
             Name = "CustomerTabs";
-            Size = new Size(696, 445);
+            Size = new Size(761, 445);
             CustomersTableLayoutPanel.ResumeLayout(false);
             CustomersGroupBox.ResumeLayout(false);
             SelectedItemGroupBox.ResumeLayout(false);
@@ -251,12 +239,12 @@
         private Button AddButton;
         private Button ApplyButton;
         private Button EditButton;
-        private RichTextBox AddressRichTextBox;
-        private Label AddressLabel;
         private TextBox FullNameTextBox;
         private TextBox IdTextBox;
         private Label FullNameLabel;
         private Label IdLabel;
         private Panel panel1;
+        private Controls.AddressControl addressControl1;
+        private ToolTip ErrorToolTip;
     }
 }

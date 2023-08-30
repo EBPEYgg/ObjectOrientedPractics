@@ -56,7 +56,7 @@
             TabControl.Location = new Point(0, 0);
             TabControl.Name = "TabControl";
             TabControl.SelectedIndex = 0;
-            TabControl.Size = new Size(697, 482);
+            TabControl.Size = new Size(754, 482);
             TabControl.TabIndex = 0;
             // 
             // ItemsTabPage
@@ -83,7 +83,7 @@
             ItemsTabPage.Location = new Point(4, 24);
             ItemsTabPage.Name = "ItemsTabPage";
             ItemsTabPage.Padding = new Padding(3);
-            ItemsTabPage.Size = new Size(689, 454);
+            ItemsTabPage.Size = new Size(746, 454);
             ItemsTabPage.TabIndex = 2;
             ItemsTabPage.Text = "Items";
             ItemsTabPage.UseVisualStyleBackColor = true;
@@ -93,7 +93,7 @@
             ItemsTabs.Dock = DockStyle.Fill;
             ItemsTabs.Location = new Point(3, 3);
             ItemsTabs.Name = "ItemsTabs";
-            ItemsTabs.Size = new Size(683, 448);
+            ItemsTabs.Size = new Size(740, 448);
             ItemsTabs.TabIndex = 0;
             // 
             // CustomersTabPage
@@ -102,7 +102,7 @@
             CustomersTabPage.Location = new Point(4, 24);
             CustomersTabPage.Name = "CustomersTabPage";
             CustomersTabPage.Padding = new Padding(3);
-            CustomersTabPage.Size = new Size(689, 454);
+            CustomersTabPage.Size = new Size(746, 454);
             CustomersTabPage.TabIndex = 3;
             CustomersTabPage.Text = "Customers";
             CustomersTabPage.UseVisualStyleBackColor = true;
@@ -112,7 +112,7 @@
             customerTabs1.Dock = DockStyle.Fill;
             customerTabs1.Location = new Point(3, 3);
             customerTabs1.Name = "customerTabs1";
-            customerTabs1.Size = new Size(683, 448);
+            customerTabs1.Size = new Size(740, 448);
             customerTabs1.TabIndex = 0;
 >>>>>>> 95a8cda86700a5ac3aaca6c3389103d4d5758009
             // 
@@ -120,7 +120,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(697, 482);
+            ClientSize = new Size(754, 482);
             Controls.Add(TabControl);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MinimumSize = new Size(713, 521);
