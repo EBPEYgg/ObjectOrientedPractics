@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.TabControl = new System.Windows.Forms.TabControl();
             this.ItemsTabPage = new System.Windows.Forms.TabPage();
-            this.itemsTabs1 = new ObjectOrientedPractics.View.Tabs.ItemsTabs();
+            this.ItemsTabs = new ObjectOrientedPractics.View.Tabs.ItemsTabs();
             this.TabControl.SuspendLayout();
             this.ItemsTabPage.SuspendLayout();
             this.SuspendLayout();
@@ -48,7 +48,7 @@
             // 
             // ItemsTabPage
             // 
-            this.ItemsTabPage.Controls.Add(this.itemsTabs1);
+            this.ItemsTabPage.Controls.Add(this.ItemsTabs);
             this.ItemsTabPage.Location = new System.Drawing.Point(4, 24);
             this.ItemsTabPage.Name = "ItemsTabPage";
             this.ItemsTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -57,13 +57,13 @@
             this.ItemsTabPage.Text = "Items";
             this.ItemsTabPage.UseVisualStyleBackColor = true;
             // 
-            // itemsTabs1
+            // ItemsTabs
             // 
-            this.itemsTabs1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.itemsTabs1.Location = new System.Drawing.Point(3, 3);
-            this.itemsTabs1.Name = "itemsTabs1";
-            this.itemsTabs1.Size = new System.Drawing.Size(683, 410);
-            this.itemsTabs1.TabIndex = 0;
+            this.ItemsTabs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ItemsTabs.Location = new System.Drawing.Point(3, 3);
+            this.ItemsTabs.Name = "ItemsTabs";
+            this.ItemsTabs.Size = new System.Drawing.Size(683, 410);
+            this.ItemsTabs.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -85,6 +85,6 @@
 
         private TabControl TabControl;
         private TabPage ItemsTabPage;
-        private View.Tabs.ItemsTabs itemsTabs1;
+        private View.Tabs.ItemsTabs ItemsTabs;
     }
 }
