@@ -20,12 +20,12 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Название товара.
         /// </summary>
-        private string? _name;
+        private string _name;
 
         /// <summary>
         /// Описание товара.
         /// </summary>
-        private string? _info;
+        private string _info;
 
         /// <summary>
         /// Стоимость товара.
@@ -35,7 +35,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает и задает название товара. Должно иметь длину до 200 символов.
         /// </summary>
-        public string? Name
+        public string Name
         {
             get => _name;
             set 
@@ -48,7 +48,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает и задает описание товара. Должно иметь длину до 1000 символов.
         /// </summary>
-        public string? Info
+        public string Info
         {
             get => _info;
             set
@@ -80,7 +80,11 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает уникальный идентификатор товара.
         /// </summary>
-        public int Id { get; private set; }
+        public int Id
+        {
+            get => _id;
+            set => _id = value;
+        }
 
         /// <summary>
         /// Возвращает и задает категорию товара.
