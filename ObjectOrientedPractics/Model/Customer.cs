@@ -20,18 +20,21 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Полное ФИО покупателя.
         /// </summary>
-        private string _fullname;
+        private string? _fullname;
 
         /// <summary>
         /// Возвращает и задает ФИО покупателя. Должно иметь длину до 200 символов.
         /// </summary>
-        public string Fullname
+        public string? Fullname
         {
             get => _fullname;
             set
             {
-                Validator.AssertStringOnLength(value, 200, Fullname);
-                _fullname = value;
+                if (Fullname != null)
+                {
+                    Validator.AssertStringOnLength(value, 200, Fullname);
+                    _fullname = value;
+                }
             }
         }
 

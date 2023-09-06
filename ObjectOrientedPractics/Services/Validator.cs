@@ -9,6 +9,7 @@
         /// Метод, который проверяет число на положительность.
         /// </summary>
         /// <returns>Возвращает true or false.</returns>
+        /// <exception cref="ArgumentException">Число не является положительным.</exception>
         public static void AssertOnPositiveValue(int number, string propertyName)
         {
             if (number <= 0)
@@ -21,7 +22,7 @@
         /// Метод, который проверяет число на положительность.
         /// </summary>
         /// <returns>Возвращает true or false.</returns>
-        public static void AssertOnPositiveValue(double number, int propertyName)
+        public static void AssertOnPositiveValue(double number, string propertyName)
         {
             if (number <= 0)
             {
@@ -111,12 +112,16 @@
         /// <param name="value">Входящая строка.</param>
         /// <param name="maxLength">Максимальная длина строки.</param>
         /// <param name="propertyName">Имя свойства, в котором вызвали этот метод.</param>
-        public static void AssertStringOnLength(string value, int maxLength, string propertyName)
+        public static void AssertStringOnLength(string? value, int maxLength, string propertyName)
         {
-            if (value.Length > maxLength)
+            if (value != null)
             {
-                throw new ArgumentException(
-                    $"{propertyName} должен быть меньше {maxLength} символов");
+
+                if (value.Length > maxLength)
+                {
+                    throw new ArgumentException(
+                        $"{propertyName} должен быть меньше {maxLength} символов");
+                }
             }
         }
     }
