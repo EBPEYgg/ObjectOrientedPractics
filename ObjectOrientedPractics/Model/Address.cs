@@ -15,27 +15,27 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Страна покупателя.
         /// </summary>
-        private string? _country;
+        private string _country;
 
         /// <summary>
         /// Город покупателя.
         /// </summary>
-        private string? _city;
+        private string _city;
 
         /// <summary>
         /// Улица покупателя.
         /// </summary>
-        private string? _street;
+        private string _street;
 
         /// <summary>
         /// Номер дома покупателя.
         /// </summary>
-        private string? _building;
+        private string _building;
 
         /// <summary>
         /// Номер квартиры покупателя.
         /// </summary>
-        private string? _apartment;
+        private string _apartment;
 
         /// <summary>
         /// Возвращает и задает почтовый индекс покупателя. Должно быть целым шестизначным числом.
@@ -55,80 +55,65 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает и задает страну покупателя. Должно иметь длину до 50 символов.
         /// </summary>
-        public string? Country
+        public string Country
         {
             get => _country;
             set
             {
-                if (Country != null)
-                {
-                    Validator.AssertStringOnLength(value, 50, Country);
-                    _country = value;
-                }
+                Validator.AssertStringOnLength(value, 50, Country);
+                _country = value;
             }
         }
 
         /// <summary>
         /// Возвращает и задает город покупателя. Должно иметь длину до 50 символов.
         /// </summary>
-        public string? City
+        public string City
         {
             get => _city;
             set
             {
-                if (City != null)
-                {
-                    Validator.AssertStringOnLength(value, 50, City);
-                    _city = value;
-                }
+                Validator.AssertStringOnLength(value, 50, City);
+                _city = value;
             }
         }
 
         /// <summary>
         /// Возвращает и задает улицу покупателя. Должно иметь длину до 50 символов.
         /// </summary>
-        public string? Street
+        public string Street
         {
             get => _street;
             set
             {
-                if (Street != null)
-                {
-                    Validator.AssertStringOnLength(value, 50, Street);
-                    _street = value;
-                }
+                Validator.AssertStringOnLength(value, 50, Street);
+                _street = value;
             }
         }
 
         /// <summary>
         /// Возвращает и задает номер дома покупателя. Должно иметь длину до 5 символов.
         /// </summary>
-        public string? Building
+        public string Building
         {
             get => _building;
             set
             {
-                if (Building != null)
-                {
-                    Validator.AssertStringOnLength(value, 5, Building);
-                    _building = value;
-                }
+                Validator.AssertStringOnLength(value, 5, Building);
+                _building = value;
             }
         }
 
         /// <summary>
         /// Возвращает и задает номер квартиры покупателя. Должно иметь длину до 5 символов.
         /// </summary>
-        public string? Apartment
+        public string Apartment
         {
             get => _apartment;
             set
             {
-                if (Apartment != null)
-                {
-                    Validator.AssertStringOnLength(value, 5, Apartment);
-                    _apartment = value;
-                }
+                Validator.AssertStringOnLength(value, 5, Apartment);
+                _apartment = value;
             }
         }
 
