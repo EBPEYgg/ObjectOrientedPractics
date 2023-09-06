@@ -245,8 +245,6 @@ namespace ObjectOrientedPractics.View.Tabs
         /// Метод, который построчно считывает текстовый файл 
         /// для заполнения <see cref="ItemsListBox"/> и <see cref="_itemsList"/>.
         /// </summary>
-        // TODO: при десериализации неправильно задаются ID-шники.
-        // если использовать guid, все нормально
         private void LoadItemsInfo()
         {
             if (File.Exists(_fileName))
