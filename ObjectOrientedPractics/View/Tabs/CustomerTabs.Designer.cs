@@ -28,204 +28,219 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            CustomersTableLayoutPanel = new TableLayoutPanel();
-            CustomersGroupBox = new GroupBox();
-            SaveButton = new Button();
-            DeleteButton = new Button();
-            AddButton = new Button();
-            CustomersListBox = new ListBox();
-            SelectedItemGroupBox = new GroupBox();
-            addressControl1 = new Controls.AddressControl();
-            panel1 = new Panel();
-            ApplyButton = new Button();
-            EditButton = new Button();
-            FullNameTextBox = new TextBox();
-            IdTextBox = new TextBox();
-            FullNameLabel = new Label();
-            IdLabel = new Label();
-            ErrorToolTip = new ToolTip(components);
-            CustomersTableLayoutPanel.SuspendLayout();
-            CustomersGroupBox.SuspendLayout();
-            SelectedItemGroupBox.SuspendLayout();
-            SuspendLayout();
+            this.components = new System.ComponentModel.Container();
+            ObjectOrientedPractics.Model.Address address1 = new ObjectOrientedPractics.Model.Address();
+            this.CustomersTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.CustomersGroupBox = new System.Windows.Forms.GroupBox();
+            this.SaveButton = new System.Windows.Forms.Button();
+            this.DeleteButton = new System.Windows.Forms.Button();
+            this.AddButton = new System.Windows.Forms.Button();
+            this.CustomersListBox = new System.Windows.Forms.ListBox();
+            this.SelectedItemGroupBox = new System.Windows.Forms.GroupBox();
+            this.AddressControl = new ObjectOrientedPractics.View.Controls.AddressControl();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.ApplyButton = new System.Windows.Forms.Button();
+            this.EditButton = new System.Windows.Forms.Button();
+            this.FullNameTextBox = new System.Windows.Forms.TextBox();
+            this.IdTextBox = new System.Windows.Forms.TextBox();
+            this.FullNameLabel = new System.Windows.Forms.Label();
+            this.IdLabel = new System.Windows.Forms.Label();
+            this.ErrorToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.CustomersTableLayoutPanel.SuspendLayout();
+            this.CustomersGroupBox.SuspendLayout();
+            this.SelectedItemGroupBox.SuspendLayout();
+            this.SuspendLayout();
             // 
             // CustomersTableLayoutPanel
             // 
-            CustomersTableLayoutPanel.ColumnCount = 2;
-            CustomersTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            CustomersTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            CustomersTableLayoutPanel.Controls.Add(CustomersGroupBox, 0, 0);
-            CustomersTableLayoutPanel.Controls.Add(SelectedItemGroupBox, 1, 0);
-            CustomersTableLayoutPanel.Dock = DockStyle.Fill;
-            CustomersTableLayoutPanel.Location = new Point(0, 0);
-            CustomersTableLayoutPanel.Name = "CustomersTableLayoutPanel";
-            CustomersTableLayoutPanel.RowCount = 1;
-            CustomersTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            CustomersTableLayoutPanel.Size = new Size(761, 445);
-            CustomersTableLayoutPanel.TabIndex = 0;
+            this.CustomersTableLayoutPanel.ColumnCount = 2;
+            this.CustomersTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.CustomersTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.CustomersTableLayoutPanel.Controls.Add(this.CustomersGroupBox, 0, 0);
+            this.CustomersTableLayoutPanel.Controls.Add(this.SelectedItemGroupBox, 1, 0);
+            this.CustomersTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CustomersTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.CustomersTableLayoutPanel.Name = "CustomersTableLayoutPanel";
+            this.CustomersTableLayoutPanel.RowCount = 1;
+            this.CustomersTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.CustomersTableLayoutPanel.Size = new System.Drawing.Size(761, 445);
+            this.CustomersTableLayoutPanel.TabIndex = 0;
             // 
             // CustomersGroupBox
             // 
-            CustomersGroupBox.Controls.Add(SaveButton);
-            CustomersGroupBox.Controls.Add(DeleteButton);
-            CustomersGroupBox.Controls.Add(AddButton);
-            CustomersGroupBox.Controls.Add(CustomersListBox);
-            CustomersGroupBox.Dock = DockStyle.Fill;
-            CustomersGroupBox.Location = new Point(3, 3);
-            CustomersGroupBox.Name = "CustomersGroupBox";
-            CustomersGroupBox.Size = new Size(374, 439);
-            CustomersGroupBox.TabIndex = 0;
-            CustomersGroupBox.TabStop = false;
-            CustomersGroupBox.Text = "Customers";
+            this.CustomersGroupBox.Controls.Add(this.SaveButton);
+            this.CustomersGroupBox.Controls.Add(this.DeleteButton);
+            this.CustomersGroupBox.Controls.Add(this.AddButton);
+            this.CustomersGroupBox.Controls.Add(this.CustomersListBox);
+            this.CustomersGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CustomersGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.CustomersGroupBox.Name = "CustomersGroupBox";
+            this.CustomersGroupBox.Size = new System.Drawing.Size(374, 439);
+            this.CustomersGroupBox.TabIndex = 0;
+            this.CustomersGroupBox.TabStop = false;
+            this.CustomersGroupBox.Text = "Customers";
             // 
             // SaveButton
             // 
-            SaveButton.Anchor = AnchorStyles.Bottom;
-            SaveButton.Location = new Point(246, 392);
-            SaveButton.Name = "SaveButton";
-            SaveButton.Size = new Size(106, 41);
-            SaveButton.TabIndex = 3;
-            SaveButton.Text = "Save";
-            SaveButton.UseVisualStyleBackColor = true;
-            SaveButton.Click += SaveButton_Click;
+            this.SaveButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.SaveButton.Location = new System.Drawing.Point(247, 392);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(106, 41);
+            this.SaveButton.TabIndex = 3;
+            this.SaveButton.Text = "Save";
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // DeleteButton
             // 
-            DeleteButton.Anchor = AnchorStyles.Bottom;
-            DeleteButton.Location = new Point(134, 392);
-            DeleteButton.Name = "DeleteButton";
-            DeleteButton.Size = new Size(106, 41);
-            DeleteButton.TabIndex = 2;
-            DeleteButton.Text = "Delete";
-            DeleteButton.UseVisualStyleBackColor = true;
-            DeleteButton.Click += DeleteButton_Click;
+            this.DeleteButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.DeleteButton.Location = new System.Drawing.Point(135, 392);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(106, 41);
+            this.DeleteButton.TabIndex = 2;
+            this.DeleteButton.Text = "Delete";
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // AddButton
             // 
-            AddButton.Anchor = AnchorStyles.Bottom;
-            AddButton.Location = new Point(22, 392);
-            AddButton.Name = "AddButton";
-            AddButton.Size = new Size(106, 41);
-            AddButton.TabIndex = 1;
-            AddButton.Text = "Add";
-            AddButton.UseVisualStyleBackColor = true;
-            AddButton.Click += AddButton_Click;
+            this.AddButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.AddButton.Location = new System.Drawing.Point(23, 392);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(106, 41);
+            this.AddButton.TabIndex = 1;
+            this.AddButton.Text = "Add";
+            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // CustomersListBox
             // 
-            CustomersListBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            CustomersListBox.FormattingEnabled = true;
-            CustomersListBox.ItemHeight = 15;
-            CustomersListBox.Location = new Point(6, 22);
-            CustomersListBox.Name = "CustomersListBox";
-            CustomersListBox.Size = new Size(362, 364);
-            CustomersListBox.TabIndex = 0;
-            CustomersListBox.SelectedIndexChanged += CustomersListBox_SelectedIndexChanged;
+            this.CustomersListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CustomersListBox.FormattingEnabled = true;
+            this.CustomersListBox.ItemHeight = 15;
+            this.CustomersListBox.Location = new System.Drawing.Point(6, 22);
+            this.CustomersListBox.Name = "CustomersListBox";
+            this.CustomersListBox.Size = new System.Drawing.Size(363, 364);
+            this.CustomersListBox.TabIndex = 0;
+            this.CustomersListBox.Click += new System.EventHandler(this.CustomersListBox_SelectedIndexChanged);
             // 
             // SelectedItemGroupBox
             // 
-            SelectedItemGroupBox.Controls.Add(addressControl1);
-            SelectedItemGroupBox.Controls.Add(panel1);
-            SelectedItemGroupBox.Controls.Add(ApplyButton);
-            SelectedItemGroupBox.Controls.Add(EditButton);
-            SelectedItemGroupBox.Controls.Add(FullNameTextBox);
-            SelectedItemGroupBox.Controls.Add(IdTextBox);
-            SelectedItemGroupBox.Controls.Add(FullNameLabel);
-            SelectedItemGroupBox.Controls.Add(IdLabel);
-            SelectedItemGroupBox.Dock = DockStyle.Fill;
-            SelectedItemGroupBox.Location = new Point(383, 3);
-            SelectedItemGroupBox.Name = "SelectedItemGroupBox";
-            SelectedItemGroupBox.Size = new Size(375, 439);
-            SelectedItemGroupBox.TabIndex = 1;
-            SelectedItemGroupBox.TabStop = false;
-            SelectedItemGroupBox.Text = "Selected customer";
+            this.SelectedItemGroupBox.Controls.Add(this.AddressControl);
+            this.SelectedItemGroupBox.Controls.Add(this.panel1);
+            this.SelectedItemGroupBox.Controls.Add(this.ApplyButton);
+            this.SelectedItemGroupBox.Controls.Add(this.EditButton);
+            this.SelectedItemGroupBox.Controls.Add(this.FullNameTextBox);
+            this.SelectedItemGroupBox.Controls.Add(this.IdTextBox);
+            this.SelectedItemGroupBox.Controls.Add(this.FullNameLabel);
+            this.SelectedItemGroupBox.Controls.Add(this.IdLabel);
+            this.SelectedItemGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SelectedItemGroupBox.Location = new System.Drawing.Point(383, 3);
+            this.SelectedItemGroupBox.Name = "SelectedItemGroupBox";
+            this.SelectedItemGroupBox.Size = new System.Drawing.Size(375, 439);
+            this.SelectedItemGroupBox.TabIndex = 1;
+            this.SelectedItemGroupBox.TabStop = false;
+            this.SelectedItemGroupBox.Text = "Selected customer";
             // 
-            // addressControl1
+            // AddressControl
             // 
-            addressControl1.Address = null;
-            addressControl1.Location = new Point(-3, 97);
-            addressControl1.Name = "addressControl1";
-            addressControl1.Size = new Size(381, 145);
-            addressControl1.TabIndex = 22;
+            this.AddressControl.AccessibleDescription = "";
+            address1.Apartment = null;
+            address1.Building = null;
+            address1.City = null;
+            address1.Country = null;
+            address1.Index = 0;
+            address1.Street = null;
+            this.AddressControl.Address = address1;
+            this.AddressControl.Location = new System.Drawing.Point(-3, 97);
+            this.AddressControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.AddressControl.Name = "AddressControl";
+            this.AddressControl.Size = new System.Drawing.Size(381, 145);
+            this.AddressControl.TabIndex = 22;
             // 
             // panel1
             // 
-            panel1.Location = new Point(6, 342);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(363, 91);
-            panel1.TabIndex = 21;
+            this.panel1.Location = new System.Drawing.Point(6, 342);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(363, 91);
+            this.panel1.TabIndex = 21;
             // 
             // ApplyButton
             // 
-            ApplyButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            ApplyButton.Location = new Point(6, 295);
-            ApplyButton.Name = "ApplyButton";
-            ApplyButton.Size = new Size(363, 41);
-            ApplyButton.TabIndex = 20;
-            ApplyButton.Text = "Apply";
-            ApplyButton.UseVisualStyleBackColor = true;
-            ApplyButton.Visible = false;
-            ApplyButton.Click += ApplyButton_Click;
+            this.ApplyButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ApplyButton.Location = new System.Drawing.Point(6, 295);
+            this.ApplyButton.Name = "ApplyButton";
+            this.ApplyButton.Size = new System.Drawing.Size(363, 41);
+            this.ApplyButton.TabIndex = 20;
+            this.ApplyButton.Text = "Apply";
+            this.ApplyButton.UseVisualStyleBackColor = true;
+            this.ApplyButton.Visible = false;
+            this.ApplyButton.Click += new System.EventHandler(this.ApplyButton_Click);
             // 
             // EditButton
             // 
-            EditButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            EditButton.Location = new Point(6, 248);
-            EditButton.Name = "EditButton";
-            EditButton.Size = new Size(363, 41);
-            EditButton.TabIndex = 19;
-            EditButton.Text = "Edit";
-            EditButton.UseVisualStyleBackColor = true;
-            EditButton.Click += EditButton_Click;
+            this.EditButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EditButton.Location = new System.Drawing.Point(6, 248);
+            this.EditButton.Name = "EditButton";
+            this.EditButton.Size = new System.Drawing.Size(363, 41);
+            this.EditButton.TabIndex = 19;
+            this.EditButton.Text = "Edit";
+            this.EditButton.UseVisualStyleBackColor = true;
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
             // FullNameTextBox
             // 
-            FullNameTextBox.Enabled = false;
-            FullNameTextBox.Location = new Point(79, 68);
-            FullNameTextBox.Name = "FullNameTextBox";
-            FullNameTextBox.Size = new Size(93, 23);
-            FullNameTextBox.TabIndex = 14;
-            FullNameTextBox.TextChanged += FullNameTextBox_TextChanged;
+            this.FullNameTextBox.AccessibleDescription = "Неправильно задано имя.";
+            this.FullNameTextBox.Enabled = false;
+            this.FullNameTextBox.Location = new System.Drawing.Point(79, 68);
+            this.FullNameTextBox.Name = "FullNameTextBox";
+            this.FullNameTextBox.Size = new System.Drawing.Size(93, 23);
+            this.FullNameTextBox.TabIndex = 14;
+            this.FullNameTextBox.TextChanged += new System.EventHandler(this.FullNameTextBox_TextChanged);
             // 
             // IdTextBox
             // 
-            IdTextBox.Enabled = false;
-            IdTextBox.Location = new Point(79, 39);
-            IdTextBox.Name = "IdTextBox";
-            IdTextBox.Size = new Size(93, 23);
-            IdTextBox.TabIndex = 13;
+            this.IdTextBox.Enabled = false;
+            this.IdTextBox.Location = new System.Drawing.Point(79, 39);
+            this.IdTextBox.Name = "IdTextBox";
+            this.IdTextBox.Size = new System.Drawing.Size(93, 23);
+            this.IdTextBox.TabIndex = 13;
             // 
             // FullNameLabel
             // 
-            FullNameLabel.AutoSize = true;
-            FullNameLabel.Location = new Point(6, 71);
-            FullNameLabel.Name = "FullNameLabel";
-            FullNameLabel.Size = new Size(64, 15);
-            FullNameLabel.TabIndex = 12;
-            FullNameLabel.Text = "Full Name:";
+            this.FullNameLabel.AutoSize = true;
+            this.FullNameLabel.Location = new System.Drawing.Point(6, 71);
+            this.FullNameLabel.Name = "FullNameLabel";
+            this.FullNameLabel.Size = new System.Drawing.Size(64, 15);
+            this.FullNameLabel.TabIndex = 12;
+            this.FullNameLabel.Text = "Full Name:";
             // 
             // IdLabel
             // 
-            IdLabel.AutoSize = true;
-            IdLabel.Location = new Point(6, 42);
-            IdLabel.Name = "IdLabel";
-            IdLabel.Size = new Size(21, 15);
-            IdLabel.TabIndex = 11;
-            IdLabel.Text = "ID:";
+            this.IdLabel.AutoSize = true;
+            this.IdLabel.Location = new System.Drawing.Point(6, 42);
+            this.IdLabel.Name = "IdLabel";
+            this.IdLabel.Size = new System.Drawing.Size(21, 15);
+            this.IdLabel.TabIndex = 11;
+            this.IdLabel.Text = "ID:";
             // 
             // CustomerTabs
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(CustomersTableLayoutPanel);
-            Name = "CustomerTabs";
-            Size = new Size(761, 445);
-            CustomersTableLayoutPanel.ResumeLayout(false);
-            CustomersGroupBox.ResumeLayout(false);
-            SelectedItemGroupBox.ResumeLayout(false);
-            SelectedItemGroupBox.PerformLayout();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.CustomersTableLayoutPanel);
+            this.Name = "CustomerTabs";
+            this.Size = new System.Drawing.Size(761, 445);
+            this.CustomersTableLayoutPanel.ResumeLayout(false);
+            this.CustomersGroupBox.ResumeLayout(false);
+            this.SelectedItemGroupBox.ResumeLayout(false);
+            this.SelectedItemGroupBox.PerformLayout();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -244,7 +259,7 @@
         private Label FullNameLabel;
         private Label IdLabel;
         private Panel panel1;
-        private Controls.AddressControl addressControl1;
         private ToolTip ErrorToolTip;
+        private Controls.AddressControl AddressControl;
     }
 }

@@ -41,7 +41,10 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private string _fileName = "Customers.json";
 
-        AddressControl AddressControl;
+        /// <summary>
+        /// Инициализация <see cref="Controls.AddressControl"/>.
+        /// </summary>
+        AddressControl _addressControl = new AddressControl();
 
         public CustomerTabs()
         {
@@ -49,6 +52,7 @@ namespace ObjectOrientedPractics.View.Tabs
             LoadCustomersInfo();
             ClearCustomersInfo();
             CustomersListBox.SelectedIndex = -1;
+            //ToggleInputBoxes(false);
         }
 
         /// <summary>
@@ -134,9 +138,9 @@ namespace ObjectOrientedPractics.View.Tabs
             if (_selectedIndex == -1)
             {
                 _currentCustomer = new Customer(FullNameTextBox.Text.Trim(),
-                    AddressControl.Address.Index, AddressControl.Address.Country,
-                    AddressControl.Address.City, AddressControl.Address.Street,
-                    AddressControl.Address.Building, AddressControl.Address.Apartment);
+                    _addressControl.Address.Index, _addressControl.Address.Country,
+                    _addressControl.Address.City, _addressControl.Address.Street,
+                    _addressControl.Address.Building, _addressControl.Address.Apartment);
                 _customersList.Add(_currentCustomer);
                 Sort();
                 SaveCustomer();
@@ -190,7 +194,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             IdTextBox.Clear();
             FullNameTextBox.Clear();
-            //PostIndexTextBox.Clear();
+            //_addressControl.ClearAddressInfo();
         }
 
         /// <summary>
@@ -214,8 +218,9 @@ namespace ObjectOrientedPractics.View.Tabs
         private void ToggleInputBoxes(bool value)
         {
             FullNameTextBox.Enabled = value;
-            //PostIndexTextBox.Enabled = value;
             ApplyButton.Visible = value;
+
+            _addressControl.ToggleInputAddressBoxes(value);
         }
 
         /// <summary>
@@ -225,7 +230,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             IdTextBox.Text = _currentCustomer.Id.ToString();
             FullNameTextBox.Text = _currentCustomer.Fullname.ToString();
-            //PostIndexTextBox.Text = _currentAddress.Index.ToString();
+            //PostIndexTextBox.Text = Convert.ToInt32(_currentCustomer.Index);
         }
     }
 }
