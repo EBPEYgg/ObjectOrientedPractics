@@ -81,17 +81,17 @@ namespace ObjectOrientedPractics.View.Tabs
             catch (FormatException)
             {
                 CostTextBox.BackColor = Color.LightPink;
-                //ErrorToolTip.SetToolTip((Control)sender, "Введите корректное число.");
+                ErrorToolTip.SetToolTip((Control)sender, "Введите корректное число.");
             }
             catch (OverflowException)
             {
                 CostTextBox.BackColor = Color.LightPink;
-                //ErrorToolTip.SetToolTip((Control)sender, "Некорректное значение.");
+                ErrorToolTip.SetToolTip((Control)sender, "Некорректное значение.");
             }
             catch (ArgumentException ex)
             {
                 CostTextBox.BackColor = Color.LightPink;
-                //ErrorToolTip.SetToolTip((Control)sender, ex.Message);
+                ErrorToolTip.SetToolTip((Control)sender, ex.Message);
             }
         }
 
@@ -125,8 +125,7 @@ namespace ObjectOrientedPractics.View.Tabs
             catch (ArgumentException ex)
             {
                 NameRichTextBox.BackColor = Color.LightPink;
-                //TODO: ToolTip.
-                //ErrorToolTip.SetToolTip((Control)sender, ex.Message);
+                ErrorToolTip.SetToolTip((Control)sender, ex.Message);
             }
         }
 
@@ -152,7 +151,7 @@ namespace ObjectOrientedPractics.View.Tabs
             catch (ArgumentException ex)
             {
                 DescriptionRichTextBox.BackColor = Color.LightPink;
-                //ErrorToolTip.SetToolTip((Control)sender, ex.Message);
+                ErrorToolTip.SetToolTip((Control)sender, ex.Message);
             }
         }
 
@@ -246,6 +245,8 @@ namespace ObjectOrientedPractics.View.Tabs
         /// Метод, который построчно считывает текстовый файл 
         /// для заполнения <see cref="ItemsListBox"/> и <see cref="_itemsList"/>.
         /// </summary>
+        // TODO: при десериализации неправильно задаются ID-шники.
+        // если использовать guid, все нормально
         private void LoadItemsInfo()
         {
             if (File.Exists(_fileName))
