@@ -1,5 +1,6 @@
 ﻿using ObjectOrientedPractics.Services;
 using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.View.Tabs;
 
 namespace ObjectOrientedPractics.View.Controls
 {
@@ -22,9 +23,44 @@ namespace ObjectOrientedPractics.View.Controls
             set => _address = value;
         }
 
+        /// <summary>
+        /// Метод, который задает true or false для свойства enabled всех textbox на форме.
+        /// </summary>
+        public bool ToggleInputAddressBox
+        {
+            set => ToggleInputAddressBoxes(value);
+        }
+
         public AddressControl()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Метод, который очищает все текстовые поля на форме.
+        /// </summary>
+        public void ClearAddressInfo()
+        {
+            PostIndexTextBox.Clear();
+            CountryTextBox.Clear();
+            CityTextBox.Clear();
+            StreetTextBox.Clear();
+            BuildingTextBox.Clear();
+            ApartmentTextBox.Clear();
+        }
+
+        /// <summary>
+        /// Метод, который включает или отключает все TextBox на форме.
+        /// </summary>
+        /// <param name="value">True or false.</param>
+        public void ToggleInputAddressBoxes(bool value)
+        {
+            PostIndexTextBox.Enabled = value;
+            CountryTextBox.Enabled = value;
+            CityTextBox.Enabled = value;
+            StreetTextBox.Enabled = value;
+            BuildingTextBox.Enabled = value;
+            ApartmentTextBox.Enabled = value;
         }
 
         private void PostIndexTextBox_TextChanged(object sender, EventArgs e)
