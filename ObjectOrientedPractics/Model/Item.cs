@@ -15,7 +15,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Счетчик товаров.
         /// </summary>
-        private static int _allItemsCount;
+        private static int _allItemsCount = 0;
 
         /// <summary>
         /// Название товара.
@@ -40,8 +40,8 @@ namespace ObjectOrientedPractics.Model
             get => _name;
             set 
             {
-                    Validator.AssertStringOnLength(value, 200, Name);
-                    _name = value;
+                Validator.AssertStringOnLength(value, 200, Name);
+                _name = value;
             }
         }
 
@@ -67,8 +67,8 @@ namespace ObjectOrientedPractics.Model
             get => _cost;
             set
             {
-                    Validator.AssertValueInRange(value, 0, 100000, "Cost");
-                    _cost = value;
+                Validator.AssertValueInRange(value, 0, 100000, "Cost");
+                _cost = value;
             }
         }
 
@@ -80,11 +80,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает уникальный идентификатор товара.
         /// </summary>
-        public int Id
-        {
-            get => _id;
-            set => _id = value;
-        }
+        public int Id { get; private set; }
 
         /// <summary>
         /// Возвращает и задает категорию товара.
@@ -115,7 +111,6 @@ namespace ObjectOrientedPractics.Model
             Cost = cost;
             _allItemsCount++;
             Id = _allItemsCount;
-            //Id = IdGenerator.GetNextId(Id);
             Category = category;
         }
 
@@ -125,7 +120,7 @@ namespace ObjectOrientedPractics.Model
         /// <returns>Строка: "Уникальный идентификатор / Стоимость / Название товара ".</returns>
         public override string ToString()
         {
-            return $"{Id} / " +
+            return $"{_id} / " +
                 $"{Cost} / " +
                 $"{Name}";
         }
