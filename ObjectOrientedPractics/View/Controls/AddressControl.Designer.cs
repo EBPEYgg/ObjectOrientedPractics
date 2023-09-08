@@ -55,10 +55,11 @@
             this.AddressTableLayoutPanel.Controls.Add(this.AddressGroupBox, 0, 0);
             this.AddressTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AddressTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.AddressTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddressTableLayoutPanel.Name = "AddressTableLayoutPanel";
             this.AddressTableLayoutPanel.RowCount = 1;
             this.AddressTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.AddressTableLayoutPanel.Size = new System.Drawing.Size(381, 145);
+            this.AddressTableLayoutPanel.Size = new System.Drawing.Size(435, 193);
             this.AddressTableLayoutPanel.TabIndex = 0;
             // 
             // AddressGroupBox
@@ -76,9 +77,11 @@
             this.AddressGroupBox.Controls.Add(this.CountryTextBox);
             this.AddressGroupBox.Controls.Add(this.PostIndexTextBox);
             this.AddressGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AddressGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.AddressGroupBox.Location = new System.Drawing.Point(3, 4);
+            this.AddressGroupBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddressGroupBox.Name = "AddressGroupBox";
-            this.AddressGroupBox.Size = new System.Drawing.Size(375, 139);
+            this.AddressGroupBox.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.AddressGroupBox.Size = new System.Drawing.Size(429, 185);
             this.AddressGroupBox.TabIndex = 0;
             this.AddressGroupBox.TabStop = false;
             this.AddressGroupBox.Text = "Delivery Address";
@@ -86,118 +89,131 @@
             // ApartmentLabel
             // 
             this.ApartmentLabel.AutoSize = true;
-            this.ApartmentLabel.Location = new System.Drawing.Point(191, 112);
+            this.ApartmentLabel.Location = new System.Drawing.Point(218, 149);
             this.ApartmentLabel.Name = "ApartmentLabel";
-            this.ApartmentLabel.Size = new System.Drawing.Size(67, 15);
+            this.ApartmentLabel.Size = new System.Drawing.Size(83, 20);
             this.ApartmentLabel.TabIndex = 11;
             this.ApartmentLabel.Text = "Apartment:";
             // 
             // CityLabel
             // 
             this.CityLabel.AutoSize = true;
-            this.CityLabel.Location = new System.Drawing.Point(227, 54);
+            this.CityLabel.Location = new System.Drawing.Point(259, 72);
             this.CityLabel.Name = "CityLabel";
-            this.CityLabel.Size = new System.Drawing.Size(31, 15);
+            this.CityLabel.Size = new System.Drawing.Size(37, 20);
             this.CityLabel.TabIndex = 10;
             this.CityLabel.Text = "City:";
             // 
             // BuildingLabel
             // 
             this.BuildingLabel.AutoSize = true;
-            this.BuildingLabel.Location = new System.Drawing.Point(6, 112);
+            this.BuildingLabel.Location = new System.Drawing.Point(7, 149);
             this.BuildingLabel.Name = "BuildingLabel";
-            this.BuildingLabel.Size = new System.Drawing.Size(54, 15);
+            this.BuildingLabel.Size = new System.Drawing.Size(67, 20);
             this.BuildingLabel.TabIndex = 9;
             this.BuildingLabel.Text = "Building:";
             // 
             // StreetLabel
             // 
             this.StreetLabel.AutoSize = true;
-            this.StreetLabel.Location = new System.Drawing.Point(6, 83);
+            this.StreetLabel.Location = new System.Drawing.Point(7, 111);
             this.StreetLabel.Name = "StreetLabel";
-            this.StreetLabel.Size = new System.Drawing.Size(40, 15);
+            this.StreetLabel.Size = new System.Drawing.Size(51, 20);
             this.StreetLabel.TabIndex = 8;
             this.StreetLabel.Text = "Street:";
             // 
             // CountryLabel
             // 
             this.CountryLabel.AutoSize = true;
-            this.CountryLabel.Location = new System.Drawing.Point(6, 54);
+            this.CountryLabel.Location = new System.Drawing.Point(7, 72);
             this.CountryLabel.Name = "CountryLabel";
-            this.CountryLabel.Size = new System.Drawing.Size(53, 15);
+            this.CountryLabel.Size = new System.Drawing.Size(63, 20);
             this.CountryLabel.TabIndex = 7;
             this.CountryLabel.Text = "Country:";
             // 
             // PostIndexLabel
             // 
             this.PostIndexLabel.AutoSize = true;
-            this.PostIndexLabel.Location = new System.Drawing.Point(6, 25);
+            this.PostIndexLabel.Location = new System.Drawing.Point(7, 33);
             this.PostIndexLabel.Name = "PostIndexLabel";
-            this.PostIndexLabel.Size = new System.Drawing.Size(65, 15);
+            this.PostIndexLabel.Size = new System.Drawing.Size(79, 20);
             this.PostIndexLabel.TabIndex = 6;
             this.PostIndexLabel.Text = "Post Index:";
             // 
             // ApartmentTextBox
             // 
             this.ApartmentTextBox.AccessibleDescription = "Неправильно задан номер квартиры.";
-            this.ApartmentTextBox.Location = new System.Drawing.Point(264, 109);
+            this.ApartmentTextBox.Enabled = false;
+            this.ApartmentTextBox.Location = new System.Drawing.Point(302, 145);
+            this.ApartmentTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ApartmentTextBox.Name = "ApartmentTextBox";
-            this.ApartmentTextBox.Size = new System.Drawing.Size(93, 23);
+            this.ApartmentTextBox.Size = new System.Drawing.Size(106, 27);
             this.ApartmentTextBox.TabIndex = 5;
             this.ApartmentTextBox.TextChanged += new System.EventHandler(this.ApartmentTextBox_TextChanged);
             // 
             // CityTextBox
             // 
             this.CityTextBox.AccessibleDescription = "Неправильно задан город.";
-            this.CityTextBox.Location = new System.Drawing.Point(264, 51);
+            this.CityTextBox.Enabled = false;
+            this.CityTextBox.Location = new System.Drawing.Point(302, 68);
+            this.CityTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CityTextBox.Name = "CityTextBox";
-            this.CityTextBox.Size = new System.Drawing.Size(93, 23);
+            this.CityTextBox.Size = new System.Drawing.Size(106, 27);
             this.CityTextBox.TabIndex = 4;
             this.CityTextBox.TextChanged += new System.EventHandler(this.CityTextBox_TextChanged);
             // 
             // BuildingTextBox
             // 
             this.BuildingTextBox.AccessibleDescription = "Неправильно задан номер дома.";
-            this.BuildingTextBox.Location = new System.Drawing.Point(77, 109);
+            this.BuildingTextBox.Enabled = false;
+            this.BuildingTextBox.Location = new System.Drawing.Point(88, 145);
+            this.BuildingTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BuildingTextBox.Name = "BuildingTextBox";
-            this.BuildingTextBox.Size = new System.Drawing.Size(93, 23);
+            this.BuildingTextBox.Size = new System.Drawing.Size(106, 27);
             this.BuildingTextBox.TabIndex = 3;
             this.BuildingTextBox.TextChanged += new System.EventHandler(this.BuildingTextBox_TextChanged);
             // 
             // StreetTextBox
             // 
             this.StreetTextBox.AccessibleDescription = "Неправильно задана улица.";
-            this.StreetTextBox.Location = new System.Drawing.Point(77, 80);
+            this.StreetTextBox.Enabled = false;
+            this.StreetTextBox.Location = new System.Drawing.Point(88, 107);
+            this.StreetTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.StreetTextBox.Name = "StreetTextBox";
-            this.StreetTextBox.Size = new System.Drawing.Size(280, 23);
+            this.StreetTextBox.Size = new System.Drawing.Size(319, 27);
             this.StreetTextBox.TabIndex = 2;
             this.StreetTextBox.TextChanged += new System.EventHandler(this.StreetTextBox_TextChanged);
             // 
             // CountryTextBox
             // 
             this.CountryTextBox.AccessibleDescription = "Неправильно задана страна.";
-            this.CountryTextBox.Location = new System.Drawing.Point(77, 51);
+            this.CountryTextBox.Enabled = false;
+            this.CountryTextBox.Location = new System.Drawing.Point(88, 68);
+            this.CountryTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CountryTextBox.Name = "CountryTextBox";
-            this.CountryTextBox.Size = new System.Drawing.Size(93, 23);
+            this.CountryTextBox.Size = new System.Drawing.Size(106, 27);
             this.CountryTextBox.TabIndex = 1;
             this.CountryTextBox.TextChanged += new System.EventHandler(this.CountryTextBox_TextChanged);
             // 
             // PostIndexTextBox
             // 
             this.PostIndexTextBox.AccessibleDescription = "Неправильно задан почтовый индекс.";
-            this.PostIndexTextBox.Location = new System.Drawing.Point(77, 22);
+            this.PostIndexTextBox.Enabled = false;
+            this.PostIndexTextBox.Location = new System.Drawing.Point(88, 29);
+            this.PostIndexTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PostIndexTextBox.Name = "PostIndexTextBox";
-            this.PostIndexTextBox.Size = new System.Drawing.Size(93, 23);
+            this.PostIndexTextBox.Size = new System.Drawing.Size(106, 27);
             this.PostIndexTextBox.TabIndex = 0;
             this.PostIndexTextBox.TextChanged += new System.EventHandler(this.PostIndexTextBox_TextChanged);
             // 
             // AddressControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.AddressTableLayoutPanel);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AddressControl";
-            this.Size = new System.Drawing.Size(381, 145);
+            this.Size = new System.Drawing.Size(435, 193);
             this.AddressTableLayoutPanel.ResumeLayout(false);
             this.AddressGroupBox.ResumeLayout(false);
             this.AddressGroupBox.PerformLayout();
