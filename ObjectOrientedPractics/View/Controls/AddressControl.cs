@@ -55,20 +55,6 @@ namespace ObjectOrientedPractics.View.Controls
             ApartmentTextBox.Enabled = value;
         }
 
-        //public bool PostIndexTextBoxEnabled
-        //{
-        //    get => PostIndexTextBox.Enabled;
-        //    set => PostIndexTextBox.Enabled = value;
-        //}
-
-        ///// <summary>
-        ///// Метод, который задает true or false для свойства enabled всех textbox на форме.
-        ///// </summary>
-        //public bool ToggleInputAddressBox
-        //{
-        //    set => ToggleInputAddressBoxes(value);
-        //}
-
         private void PostIndexTextBox_TextChanged(object sender, EventArgs e)
         {
             try

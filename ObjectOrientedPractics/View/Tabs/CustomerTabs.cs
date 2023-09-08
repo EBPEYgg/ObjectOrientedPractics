@@ -41,10 +41,7 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private string _fileName = "Customers.json";
 
-        /// <summary>
-        /// Инициализация <see cref="Controls.AddressControl"/>.
-        /// </summary>
-        AddressControl _addressControl = new AddressControl();
+        private AddressControl _addressControl = new();
 
         public CustomerTabs()
         {
@@ -52,7 +49,6 @@ namespace ObjectOrientedPractics.View.Tabs
             LoadCustomersInfo();
             ClearCustomersInfo();
             CustomersListBox.SelectedIndex = -1;
-            //ToggleInputBoxes(false);
         }
 
         /// <summary>
@@ -141,6 +137,7 @@ namespace ObjectOrientedPractics.View.Tabs
                     _addressControl.Address.Index, _addressControl.Address.Country,
                     _addressControl.Address.City, _addressControl.Address.Street,
                     _addressControl.Address.Building, _addressControl.Address.Apartment);
+                _currentCustomer = new();
                 _customersList.Add(_currentCustomer);
                 Sort();
                 SaveCustomer();
@@ -194,7 +191,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             IdTextBox.Clear();
             FullNameTextBox.Clear();
-            //_addressControl.ClearAddressInfo();
+            MyAddressControl.ClearAddressInfo();
         }
 
         /// <summary>
@@ -219,8 +216,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             FullNameTextBox.Enabled = value;
             ApplyButton.Visible = value;
-
-            _addressControl.ToggleInputAddressBoxes(value);
+            MyAddressControl.ToggleInputAddressBoxes(value);
         }
 
         /// <summary>
@@ -230,7 +226,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             IdTextBox.Text = _currentCustomer.Id.ToString();
             FullNameTextBox.Text = _currentCustomer.Fullname.ToString();
-            //PostIndexTextBox.Text = Convert.ToInt32(_currentCustomer.Index);
+            //PostIndexTextBox.Text = _currentAddress.Index.ToString();
         }
     }
 }
