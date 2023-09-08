@@ -1,4 +1,5 @@
-﻿using ObjectOrientedPractics.Services;
+﻿using Newtonsoft.Json;
+using ObjectOrientedPractics.Services;
 
 namespace ObjectOrientedPractics.Model
 {
@@ -43,25 +44,21 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает счетчик покупателей.
         /// </summary>
-        public static int AllItemsCount
+        [JsonProperty]
+        public int AllCustomersCount
         {
             get => _allCustomersCount;
-            private set
-            {
-                _allCustomersCount = value;
-            }
+            private set => _allCustomersCount = value;
         }
 
         /// <summary>
         /// Возвращает уникальный идентификатор покупателя.
         /// </summary>
+        [JsonProperty]
         public int Id
         {
             get => _id;
-            private set
-            {
-                _id = value;
-            }
+            private set => _id = value;
         }
 
         /// <summary>
@@ -87,7 +84,7 @@ namespace ObjectOrientedPractics.Model
         {
             Fullname = fullname;
             Address = new Address(index, country, city, street, building, apartment);
-            _allCustomersCount++;
+            AllCustomersCount++;
             Id = _allCustomersCount;
         }
 
