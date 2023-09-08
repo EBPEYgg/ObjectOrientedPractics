@@ -1,4 +1,5 @@
-﻿using ObjectOrientedPractics.Services;
+﻿using Newtonsoft.Json;
+using ObjectOrientedPractics.Services;
 
 namespace ObjectOrientedPractics.Model
 {
@@ -15,7 +16,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Счетчик товаров.
         /// </summary>
-        private static int _allItemsCount = 0;
+        private static int _allItemsCount;
 
         /// <summary>
         /// Название товара.
@@ -75,15 +76,21 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает счетчик товаров.
         /// </summary>
-        public static int AllItemsCount { get; private set; }
+        [JsonProperty]
+        public int AllItemsCount
+        {
+            get => _allItemsCount;
+            private set => _allItemsCount = value;
+        }
 
         /// <summary>
         /// Возвращает уникальный идентификатор товара.
         /// </summary>
+        [JsonProperty]
         public int Id
         {
             get => _id;
-            set => _id = value;
+            private set => _id = value;
         }
 
         /// <summary>
@@ -113,7 +120,7 @@ namespace ObjectOrientedPractics.Model
             Name = name;
             Info = info;
             Cost = cost;
-            _allItemsCount++;
+            AllItemsCount++;
             Id = _allItemsCount;
             Category = category;
         }
@@ -124,7 +131,7 @@ namespace ObjectOrientedPractics.Model
         /// <returns>Строка: "Уникальный идентификатор / Стоимость / Название товара ".</returns>
         public override string ToString()
         {
-            return $"{_id} / " +
+            return $"{Id} / " +
                 $"{Cost} / " +
                 $"{Name}";
         }
