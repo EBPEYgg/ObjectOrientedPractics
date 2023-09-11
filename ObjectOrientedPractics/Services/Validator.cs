@@ -113,7 +113,7 @@
         /// <param name="propertyName">Имя свойства, в котором вызвали этот метод.</param>
         public static void AssertStringOnLength(string value, int maxLength, string propertyName)
         {
-            if (value.Length > maxLength)
+            if (value.ToString().Length > maxLength)
             {
                 throw new ArgumentException(
                     $"{propertyName} должен быть меньше {maxLength} символов");
