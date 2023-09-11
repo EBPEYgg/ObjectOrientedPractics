@@ -41,8 +41,6 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private string _fileName = "Customers.json";
 
-        private AddressControl _addressControl = new();
-
         public CustomerTabs()
         {
             InitializeComponent();
@@ -134,10 +132,9 @@ namespace ObjectOrientedPractics.View.Tabs
             if (_selectedIndex == -1)
             {
                 _currentCustomer = new Customer(FullNameTextBox.Text.Trim(),
-                    _addressControl.Address.Index, _addressControl.Address.Country,
-                    _addressControl.Address.City, _addressControl.Address.Street,
-                    _addressControl.Address.Building, _addressControl.Address.Apartment);
-                _currentCustomer = new();
+                    MyAddressControl.Address.Index, MyAddressControl.Address.Country,
+                    MyAddressControl.Address.City, MyAddressControl.Address.Street,
+                    MyAddressControl.Address.Building, MyAddressControl.Address.Apartment);
                 _customersList.Add(_currentCustomer);
                 Sort();
                 SaveCustomer();
