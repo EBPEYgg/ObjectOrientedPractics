@@ -1,7 +1,10 @@
-﻿namespace ObjectOrientedPractics.Model
+﻿using ObjectOrientedPractics.View.Tabs;
+
+namespace ObjectOrientedPractics.Model
 {
     /// <summary>
-    /// TODO: xml
+    /// Класс, который хранит данные всех товаров и покупателей, 
+    /// предоставляя их для вкладок ItemsTab и CustomersTab
     /// </summary>
     internal class Store
     {
@@ -25,6 +28,9 @@
         /// </summary>
         public List <Customer> Customers { get; set; }
 
+        /// <summary>
+        /// Создает пустой экземпляр класса <see cref="Store"/>.
+        /// </summary>
         public Store()
         {
             Items = _items;
