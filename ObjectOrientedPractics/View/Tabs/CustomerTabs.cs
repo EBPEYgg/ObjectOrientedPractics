@@ -89,6 +89,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void AddButton_Click(object sender, EventArgs e)
         {
+            AddressControl.Address = _currentCustomer.Address;
             ClearCustomersInfo();
             CustomersListBox.SelectedIndex = -1;
             _selectedIndex = -1;
@@ -132,9 +133,9 @@ namespace ObjectOrientedPractics.View.Tabs
             if (_selectedIndex == -1)
             {
                 _currentCustomer = new Customer(FullNameTextBox.Text.Trim(),
-                    MyAddressControl.Address.Index, MyAddressControl.Address.Country,
-                    MyAddressControl.Address.City, MyAddressControl.Address.Street,
-                    MyAddressControl.Address.Building, MyAddressControl.Address.Apartment);
+                    AddressControl.Address.Index, AddressControl.Address.Country,
+                    AddressControl.Address.City, AddressControl.Address.Street,
+                    AddressControl.Address.Building, AddressControl.Address.Apartment);
                 _customersList.Add(_currentCustomer);
                 Sort();
                 SaveCustomer();
@@ -188,7 +189,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             IdTextBox.Clear();
             FullNameTextBox.Clear();
-            MyAddressControl.ClearAddressInfo();
+            AddressControl.ClearAddressInfo();
         }
 
         /// <summary>
@@ -213,7 +214,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             FullNameTextBox.Enabled = value;
             ApplyButton.Visible = value;
-            MyAddressControl.ToggleInputAddressBoxes(value);
+            AddressControl.ToggleInputAddressBoxes(value);
         }
 
         /// <summary>
