@@ -20,7 +20,16 @@ namespace ObjectOrientedPractics.View.Controls
         public Address Address
         {
             get => _address;
-            set => _address = value;
+            set
+            {
+                _address = value;
+                PostIndexTextBox.Text = value?.Index.ToString();
+                CountryTextBox.Text = value?.Country;
+                CityTextBox.Text = value?.City;
+                StreetTextBox.Text = value?.Street;
+                BuildingTextBox.Text = value?.Building;
+                ApartmentTextBox.Text = value?.Apartment;
+            }
         }
 
         public AddressControl()
@@ -67,7 +76,7 @@ namespace ObjectOrientedPractics.View.Controls
                         return;
                     }
 
-                    _address.Index = Convert.ToInt32(PostIndexTextBox.Text);
+                    _address.Index = int.Parse(PostIndexTextBox.Text);
                     PostIndexTextBox.BackColor = Color.White;
                 }
             }
