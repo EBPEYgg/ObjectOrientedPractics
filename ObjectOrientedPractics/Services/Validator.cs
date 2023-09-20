@@ -116,7 +116,7 @@
             if (value.ToString().Length > maxLength)
             {
                 throw new ArgumentException(
-                    $"{propertyName} должен быть меньше {maxLength} символов");
+                    $"{propertyName} должен быть меньше {maxLength+1} символов.");
             }
         }
     }
