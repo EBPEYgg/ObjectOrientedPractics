@@ -12,7 +12,7 @@ namespace ObjectOrientedPractics.View.Controls
         /// <summary>
         /// Инициализация адреса.
         /// </summary>
-        private Address _address = new();
+        private Address _address = new Address();
 
         /// <summary>
         /// Возвращает и задает адрес покупателя.
@@ -73,6 +73,7 @@ namespace ObjectOrientedPractics.View.Controls
                     if (!int.TryParse(PostIndexTextBox.Text, out var number))
                     {
                         PostIndexTextBox.BackColor = Color.LightPink;
+                        throw new ArgumentException("Индекс должен состоять только из цифр.");
                         return;
                     }
 
