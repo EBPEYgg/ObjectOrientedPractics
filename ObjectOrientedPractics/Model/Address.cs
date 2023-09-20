@@ -45,10 +45,8 @@ namespace ObjectOrientedPractics.Model
             get => _index;
             set
             {
-                if (value.ToString().Length == 6)
-                {
-                    _index = value;
-                }
+                Validator.AssertStringOnLength(value.ToString(), 6, "Index");
+                _index = value;
             }
         }
 
