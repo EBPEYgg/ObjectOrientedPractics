@@ -24,6 +24,11 @@ namespace ObjectOrientedPractics.Model
         private string _fullname;
 
         /// <summary>
+        /// Адрес покупателя.
+        /// </summary>
+        private Address _address = new();
+
+        /// <summary>
         /// Возвращает и задает ФИО покупателя. Должно иметь длину до 200 символов.
         /// </summary>
         public string Fullname
@@ -39,7 +44,11 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает и задает адрес доставки покупателя.
         /// </summary>
-        public Address Address { get; set; }
+        public Address Address
+        {
+            get => _address;
+            set => _address = value;
+        }
 
         /// <summary>
         /// Возвращает счетчик покупателей.
