@@ -21,7 +21,7 @@
         /// Метод, который проверяет число на положительность.
         /// </summary>
         /// <returns>Возвращает true or false.</returns>
-        public static void AssertOnPositiveValue(double number, int propertyName)
+        public static void AssertOnPositiveValue(double number, string propertyName)
         {
             if (number <= 0)
             {
