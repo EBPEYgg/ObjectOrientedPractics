@@ -100,12 +100,17 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Переопределение метода ToString() для класса <see cref="Customer"/>.
         /// </summary>
-        /// <returns>Строка: "Уникальный идентификатор / Полное имя / Адрес ".</returns>
+        /// <returns>Строка: "Уникальный идентификатор / Полное имя / Адрес".</returns>
         public override string ToString()
         {
             return $"{_id} / " +
             $"{Fullname} / " +
-                $"{Address}";
+                $"{Address.Index}, " +
+                $"{Address.Country}, " +
+                $"{Address.City}, " +
+                $"{Address.Street}, " +
+                $"{Address.Building}, " +
+                $"{Address.Apartment}";
         }
 
         /// <summary>
