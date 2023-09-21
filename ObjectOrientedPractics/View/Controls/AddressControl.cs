@@ -1,6 +1,5 @@
 ﻿using ObjectOrientedPractics.Services;
 using ObjectOrientedPractics.Model;
-using ObjectOrientedPractics.View.Tabs;
 
 namespace ObjectOrientedPractics.View.Controls
 {
@@ -68,13 +67,13 @@ namespace ObjectOrientedPractics.View.Controls
         {
             try
             {
+                PostIndexTextBox.BackColor = Color.White;
                 if (!string.IsNullOrEmpty(PostIndexTextBox.Text))
                 {
                     if (!int.TryParse(PostIndexTextBox.Text, out var number))
                     {
                         PostIndexTextBox.BackColor = Color.LightPink;
                         throw new ArgumentException("Индекс должен состоять только из цифр.");
-                        return;
                     }
 
                     _address.Index = int.Parse(PostIndexTextBox.Text);
