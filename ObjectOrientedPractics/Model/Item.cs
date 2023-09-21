@@ -6,7 +6,7 @@ namespace ObjectOrientedPractics.Model
     /// <summary>
     /// Класс, описывающий товар в магазине.
     /// </summary>
-    internal class Item
+    public class Item
     {
         /// <summary>
         /// Уникальный номер товара.
