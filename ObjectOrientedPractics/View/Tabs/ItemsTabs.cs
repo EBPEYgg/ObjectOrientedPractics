@@ -1,6 +1,5 @@
 ﻿using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
-using Newtonsoft.Json;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -22,7 +21,7 @@ namespace ObjectOrientedPractics.View.Tabs
         /// <summary>
         /// Копия текущего выбранного товара.
         /// </summary>
-        private Item _cloneCurrentItem = new();
+        private Item _cloneCurrentItem = new Item();
 
         /// <summary>
         /// Индекс текущего выбранного элемента перед сортировкой 
@@ -36,30 +35,30 @@ namespace ObjectOrientedPractics.View.Tabs
         private int _selectedIndex;
 
         /// <summary>
-        /// Название файла для сохранения или загрузки данных.
+        /// Возвращает и задает список товаров.
         /// </summary>
-        private string _fileName = "Items.json";
+        public List<Item> Items
+        {
+            get => _itemsList;
+            set => _itemsList = value;
+        }
+
+        /// <summary>
+        /// Возвращает количество элементов в <see cref="ItemsListBox"/>.
+        /// </summary>
+        public int ListBoxItemsCount
+        {
+            get => ItemsListBox.Items.Count;
+        }
 
         public ItemsTabs()
         {
             InitializeComponent();
-            LoadItemsInfo();        // загрузка сохраненных данных из JSON файла
-            ClearItemsInfo();       // очистка TextBox и ComboBox
+            ClearItemsInfo();
             ItemsListBox.SelectedIndex = -1;
-            CategoryComboBox.DataSource = Enum.GetValues(typeof(Category));     // заполнение CategoryComboBox
+            CategoryComboBox.DataSource = Enum.GetValues(typeof(Category));
             CategoryComboBox.SelectedIndex = -1;
-        }
-
-        /// <summary>
-        /// Метод, который сохраняет данные всех товаров в json файл (Items.json).
-        /// </summary>
-        public void SaveItem()
-        {
-            if (ItemsListBox.Items.Count != 0)
-            {
-                var jsonString = System.Text.Json.JsonSerializer.Serialize(_itemsList);
-                File.WriteAllText("Items.json", jsonString);
-            }
+            CategoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void CostTextBox_TextChanged(object sender, EventArgs e)
@@ -172,7 +171,6 @@ namespace ObjectOrientedPractics.View.Tabs
             _currentItem = _itemsList[ItemsListBox.SelectedIndex];
             _itemsList.Remove(_currentItem);
             ItemsListBox.SelectedIndex = -1;
-            SaveItem();
             Sort();
             ClearItemsInfo();
         }
@@ -208,7 +206,6 @@ namespace ObjectOrientedPractics.View.Tabs
                     (Category)CategoryComboBox.SelectedItem);
                 _itemsList.Add(_currentItem);
                 Sort();
-                SaveItem();
                 ToggleInputBoxes(false);
                 ClearItemsInfo();
                 return;
@@ -217,7 +214,7 @@ namespace ObjectOrientedPractics.View.Tabs
             _itemsList[_selectedIndex] = _cloneCurrentItem;
             _currentItem = _cloneCurrentItem;
             Sort();
-            SaveItem();
+            //SaveItem();
             ToggleInputBoxes(false);
             UpdateItemInfo();
         }
@@ -238,20 +235,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            SaveItem();
-        }
-
-        /// <summary>
-        /// Метод, который построчно считывает текстовый файл 
-        /// для заполнения <see cref="ItemsListBox"/> и <see cref="_itemsList"/>.
-        /// </summary>
-        private void LoadItemsInfo()
-        {
-            if (File.Exists(_fileName))
-            {
-                _itemsList = JsonConvert.DeserializeObject<List<Item>>(File.ReadAllText(_fileName));
-                Sort();
-            }
+            //SaveItem();
         }
 
         /// <summary>
