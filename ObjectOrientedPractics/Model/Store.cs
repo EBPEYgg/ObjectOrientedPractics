@@ -1,47 +1,46 @@
-﻿using ObjectOrientedPractics.View.Tabs;
-
-namespace ObjectOrientedPractics.Model
+﻿namespace ObjectOrientedPractics.Model
 {
     /// <summary>
     /// Класс, который хранит данные всех товаров и покупателей, 
     /// предоставляя их для вкладок ItemsTab и CustomersTab
     /// </summary>
-    internal class Store
+    public class Store
     {
         /// <summary>
-        /// TODO: xml
+        /// Список товаров.
         /// </summary>
         private List<Item> _items;
 
         /// <summary>
-        /// TODO: xml
+        /// Список покупателей.
         /// </summary>
-        private List <Customer> _customers;
+        private List<Customer> _customers;
 
         /// <summary>
-        /// TODO: xml
+        /// Возвращает и задает список товаров.
         /// </summary>
-        public List<Item> Items { get; set; }
+        public List<Item> Items
+        {
+            get => _items;
+            set => _items = value;
+        }
 
         /// <summary>
-        /// TODO: xml
+        /// Возвращает и задает список покупателей.
         /// </summary>
-        public List <Customer> Customers { get; set; }
+        public List <Customer> Customers
+        {
+            get => _customers;
+            set => _customers = value;
+        }
 
         /// <summary>
         /// Создает пустой экземпляр класса <see cref="Store"/>.
         /// </summary>
         public Store()
         {
-            Items = _items;
-            Customers = _customers;
+            List<Item> Items = new();
+            List<Customer> Customers = new();
         }
-
-
-        /*
-        поле _items тип List<Item>;
-        поле _customers тип List<Customer>;
-        свойства + конструктор без параметров (но не пустой)
-        */
     }
 }
