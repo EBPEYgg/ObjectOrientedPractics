@@ -61,20 +61,6 @@ namespace ObjectOrientedPractics.View.Tabs
             CategoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
-        /// <summary>
-        /// Метод, который сортирует <see cref="_itemsList"/> и <see cref="ItemsListBox"/>
-        /// в алфавитном порядке.
-        /// </summary>
-        public void Sort()
-        {
-            _indexBeforeSort = ItemsListBox.SelectedIndex;
-            ItemsListBox.SelectedIndexChanged -= ItemsListBox_SelectedIndexChanged;
-            _itemsList = _itemsList.OrderBy(item => item.ToString()).ToList();
-            ItemsListBox.DataSource = _itemsList;
-            ItemsListBox.SelectedIndex = _indexBeforeSort;
-            ItemsListBox.SelectedIndexChanged += ItemsListBox_SelectedIndexChanged;
-        }
-
         private void CostTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -262,6 +248,20 @@ namespace ObjectOrientedPractics.View.Tabs
             CategoryComboBox.SelectedIndex = -1;
             NameRichTextBox.Clear();
             DescriptionRichTextBox.Clear();
+        }
+
+        /// <summary>
+        /// Метод, который сортирует <see cref="_itemsList"/> и <see cref="ItemsListBox"/>
+        /// в алфавитном порядке.
+        /// </summary>
+        private void Sort()
+        {
+            _indexBeforeSort = ItemsListBox.SelectedIndex;
+            ItemsListBox.SelectedIndexChanged -= ItemsListBox_SelectedIndexChanged;
+            _itemsList = _itemsList.OrderBy(item => item.ToString()).ToList();
+            ItemsListBox.DataSource = _itemsList;
+            ItemsListBox.SelectedIndex = _indexBeforeSort;
+            ItemsListBox.SelectedIndexChanged += ItemsListBox_SelectedIndexChanged;
         }
 
         /// <summary>

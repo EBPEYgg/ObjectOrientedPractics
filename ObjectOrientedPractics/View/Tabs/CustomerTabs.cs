@@ -61,20 +61,6 @@ namespace ObjectOrientedPractics.View.Tabs
             ClearCustomersInfo();
         }
 
-        /// <summary>
-        /// Метод, который сортирует <see cref="_customersList"/> и <see cref="CustomersListBox"/>
-        /// в алфавитном порядке.
-        /// </summary>
-        public void Sort()
-        {
-            _indexBeforeSort = CustomersListBox.SelectedIndex;
-            CustomersListBox.SelectedIndexChanged -= CustomersListBox_SelectedIndexChanged;
-            _customersList = _customersList.OrderBy(customer => customer.ToString()).ToList();
-            CustomersListBox.DataSource = _customersList;
-            CustomersListBox.SelectedIndex = _indexBeforeSort;
-            CustomersListBox.SelectedIndexChanged += CustomersListBox_SelectedIndexChanged;
-        }
-
         private void FullNameTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -188,6 +174,20 @@ namespace ObjectOrientedPractics.View.Tabs
             IdTextBox.Clear();
             FullNameTextBox.Clear();
             AddressControl.ClearAddressInfo();
+        }
+
+        /// <summary>
+        /// Метод, который сортирует <see cref="_customersList"/> и <see cref="CustomersListBox"/>
+        /// в алфавитном порядке.
+        /// </summary>
+        private void Sort()
+        {
+            _indexBeforeSort = CustomersListBox.SelectedIndex;
+            CustomersListBox.SelectedIndexChanged -= CustomersListBox_SelectedIndexChanged;
+            _customersList = _customersList.OrderBy(customer => customer.ToString()).ToList();
+            CustomersListBox.DataSource = _customersList;
+            CustomersListBox.SelectedIndex = _indexBeforeSort;
+            CustomersListBox.SelectedIndexChanged += CustomersListBox_SelectedIndexChanged;
         }
 
         /// <summary>
