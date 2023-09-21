@@ -28,7 +28,7 @@
         /// <summary>
         /// Возвращает и задает список покупателей.
         /// </summary>
-        public List <Customer> Customers
+        public List<Customer> Customers
         {
             get => _customers;
             set => _customers = value;
@@ -39,8 +39,6 @@
         /// </summary>
         public Store()
         {
-            List<Item> Items = new();
-            List<Customer> Customers = new();
         }
     }
 }
