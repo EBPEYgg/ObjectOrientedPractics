@@ -45,7 +45,10 @@ namespace ObjectOrientedPractics.Model
             get => _index;
             set
             {
-                Validator.AssertStringOnLength(value.ToString(), 6, "Index");
+                if (value.ToString().Length != 6)
+                {
+                    throw new ArgumentException("Индекс должен состоять только из 6 цифр.");
+                }
                 _index = value;
             }
         }
