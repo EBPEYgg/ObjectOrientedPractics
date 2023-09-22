@@ -1,12 +1,12 @@
-﻿using ObjectOrientedPractics.Services;
-using System.Xml.Linq;
+﻿using Newtonsoft.Json;
+using ObjectOrientedPractics.Services;
 
 namespace ObjectOrientedPractics.Model
 {
     /// <summary>
     /// Класс, описывающий покупателя.
     /// </summary>
-    internal class Customer
+    public class Customer
     {
         /// <summary>
         /// Уникальный номер покупателя.
@@ -24,9 +24,9 @@ namespace ObjectOrientedPractics.Model
         private string _fullname;
 
         /// <summary>
-        /// Адрес доставки покупателя.
+        /// Адрес покупателя.
         /// </summary>
-        private string _address;
+        private Address _address = new();
 
         /// <summary>
         /// Возвращает и задает ФИО покупателя. Должно иметь длину до 200 символов.
@@ -42,40 +42,32 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
-        /// Возвращает и задает адрес доставки покупателя. Должно иметь длину до 500 символов.
+        /// Возвращает и задает адрес доставки покупателя.
         /// </summary>
-        public string Address
+        public Address Address
         {
             get => _address;
-            set
-            {
-                Validator.AssertStringOnLength(value, 200, Address);
-                _address = value;
-            }
+            set => _address = value;
         }
 
         /// <summary>
         /// Возвращает счетчик покупателей.
         /// </summary>
-        public static int AllItemsCount
+        [JsonProperty]
+        public int AllCustomersCount
         {
             get => _allCustomersCount;
-            private set
-            {
-                _allCustomersCount = value;
-            }
+            private set => _allCustomersCount = value;
         }
 
         /// <summary>
         /// Возвращает уникальный идентификатор покупателя.
         /// </summary>
+        [JsonProperty]
         public int Id
         {
             get => _id;
-            private set
-            {
-                _id = value;
-            }
+            private set => _id = value;
         }
 
         /// <summary>
@@ -90,24 +82,35 @@ namespace ObjectOrientedPractics.Model
         /// Создает экземпляр класса <see cref="Customer"/>.
         /// </summary>
         /// <param name="fullname">ФИО покупателя. Должно иметь длину до 200 символов.</param>
-        /// <param name="address">Адрес доставки покупателя. Должно иметь длину до 500 символов.</param>
-        public Customer(string fullname, string address)
+        /// <param name="index">Почтовый индекс покупателя. Должно быть целым шестизначным числом.</param>
+        /// <param name="country">Страна покупателя. Должно иметь длину до 50 символов.</param>
+        /// <param name="city">Город покупателя. Должно иметь длину до 50 символов.</param>
+        /// <param name="street">Улица покупателя. Должно иметь длину до 50 символов.</param>
+        /// <param name="building">Номер дома покупателя. Должно иметь длину до 5 символов.</param>
+        /// <param name="apartment">Номер квартиры покупателя. Должно иметь длину до 5 символов.</param>
+        public Customer(string fullname, int index, string country, 
+            string city, string street, string building, string apartment)
         {
             Fullname = fullname;
-            Address = address;
-            _allCustomersCount++;
+            Address = new Address(index, country, city, street, building, apartment);
+            AllCustomersCount++;
             Id = _allCustomersCount;
         }
 
         /// <summary>
         /// Переопределение метода ToString() для класса <see cref="Customer"/>.
         /// </summary>
-        /// <returns>Строка: "Уникальный идентификатор / Полное имя / Адрес ".</returns>
+        /// <returns>Строка: "Уникальный идентификатор / Полное имя / Адрес".</returns>
         public override string ToString()
         {
             return $"{_id} / " +
             $"{Fullname} / " +
-                $"{Address}";
+                $"{Address.Index}, " +
+                $"{Address.Country}, " +
+                $"{Address.City}, " +
+                $"{Address.Street}, " +
+                $"{Address.Building}, " +
+                $"{Address.Apartment}";
         }
 
         /// <summary>

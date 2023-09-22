@@ -21,7 +21,7 @@
         /// Метод, который проверяет число на положительность.
         /// </summary>
         /// <returns>Возвращает true or false.</returns>
-        public static void AssertOnPositiveValue(double number, int propertyName)
+        public static void AssertOnPositiveValue(double number, string propertyName)
         {
             if (number <= 0)
             {
@@ -91,18 +91,7 @@
             bool flag = true;
             if (!string.IsNullOrWhiteSpace(value))
             {
-                for (int i = 1; i < value.Length; i++)     // проверка на две запятые подряд
-                {
-                    if (value[i] == value[i - 1])
-                    {
-                        if (value[i] == ',')
-                        {
-                            return false;
-                        }
-                    }
-                }
-
-                foreach (char c in value)       // проверка на латиницу
+                foreach (char c in value)
                 {
                     if (!(((c >= 'a') && (c <= 'z')) || ((c >= 'A') && (c <= 'Z')) || (c == ' ') || (c == ',') ||
                         ((c >= '0') && (c <= '9'))))
@@ -124,10 +113,10 @@
         /// <param name="propertyName">Имя свойства, в котором вызвали этот метод.</param>
         public static void AssertStringOnLength(string value, int maxLength, string propertyName)
         {
-            if (value.Length > maxLength)
+            if (value.ToString().Length > maxLength)
             {
                 throw new ArgumentException(
-                    $"{propertyName} должен быть меньше {maxLength} символов");
+                    $"{propertyName} должен быть меньше {maxLength+1} символов.");
             }
         }
     }

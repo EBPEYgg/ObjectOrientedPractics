@@ -1,6 +1,5 @@
 ﻿using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
-using Newtonsoft.Json;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -22,7 +21,7 @@ namespace ObjectOrientedPractics.View.Tabs
         /// <summary>
         /// Копия текущего выбранного товара.
         /// </summary>
-        private Item _cloneCurrentItem = new();
+        private Item _cloneCurrentItem = new Item();
 
         /// <summary>
         /// Индекс текущего выбранного элемента перед сортировкой 
@@ -36,28 +35,44 @@ namespace ObjectOrientedPractics.View.Tabs
         private int _selectedIndex;
 
         /// <summary>
-        /// Название файла для сохранения или загрузки данных.
+        /// Возвращает и задает список товаров.
         /// </summary>
-        private string _fileName = "Items.json";
+        public List<Item> Items
+        {
+            get => _itemsList;
+            set => _itemsList = value;
+        }
+
+        /// <summary>
+        /// Возвращает количество элементов в <see cref="ItemsListBox"/>.
+        /// </summary>
+        public int ListBoxItemsCount
+        {
+            get => ItemsListBox.Items.Count;
+        }
 
         public ItemsTabs()
         {
             InitializeComponent();
-            LoadItemsInfo();
             ClearItemsInfo();
             ItemsListBox.SelectedIndex = -1;
+            CategoryComboBox.DataSource = Enum.GetValues(typeof(Category));
+            CategoryComboBox.SelectedIndex = -1;
+            CategoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         /// <summary>
-        /// Метод, который сохраняет данные всех товаров в json файл (Items.json).
+        /// Метод, который сортирует <see cref="_itemsList"/> и <see cref="ItemsListBox"/>
+        /// в алфавитном порядке.
         /// </summary>
-        public void SaveItem()
+        public void Sort()
         {
-            if (ItemsListBox.Items.Count != 0)
-            {
-                var jsonString = System.Text.Json.JsonSerializer.Serialize(_itemsList);
-                File.WriteAllText("Items.json", jsonString);
-            }
+            _indexBeforeSort = ItemsListBox.SelectedIndex;
+            ItemsListBox.SelectedIndexChanged -= ItemsListBox_SelectedIndexChanged;
+            _itemsList = _itemsList.OrderBy(item => item.ToString()).ToList();
+            ItemsListBox.DataSource = _itemsList;
+            ItemsListBox.SelectedIndex = _indexBeforeSort;
+            ItemsListBox.SelectedIndexChanged += ItemsListBox_SelectedIndexChanged;
         }
 
         private void CostTextBox_TextChanged(object sender, EventArgs e)
@@ -79,17 +94,25 @@ namespace ObjectOrientedPractics.View.Tabs
             catch (FormatException)
             {
                 CostTextBox.BackColor = Color.LightPink;
-                //ErrorToolTip.SetToolTip((Control)sender, "Введите корректное число.");
+                ErrorToolTip.SetToolTip((Control)sender, "Введите корректное число.");
             }
             catch (OverflowException)
             {
                 CostTextBox.BackColor = Color.LightPink;
-                //ErrorToolTip.SetToolTip((Control)sender, "Некорректное значение.");
+                ErrorToolTip.SetToolTip((Control)sender, "Некорректное значение.");
             }
             catch (ArgumentException ex)
             {
                 CostTextBox.BackColor = Color.LightPink;
-                //ErrorToolTip.SetToolTip((Control)sender, ex.Message);
+                ErrorToolTip.SetToolTip((Control)sender, ex.Message);
+            }
+        }
+
+        private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CategoryComboBox.SelectedIndex != -1 && _cloneCurrentItem.Category != null)
+            {
+                _cloneCurrentItem.Category = (Category)CategoryComboBox.SelectedItem;
             }
         }
 
@@ -115,8 +138,7 @@ namespace ObjectOrientedPractics.View.Tabs
             catch (ArgumentException ex)
             {
                 NameRichTextBox.BackColor = Color.LightPink;
-                //TODO: ToolTip.
-                //ErrorToolTip.SetToolTip((Control)sender, ex.Message);
+                ErrorToolTip.SetToolTip((Control)sender, ex.Message);
             }
         }
 
@@ -142,7 +164,7 @@ namespace ObjectOrientedPractics.View.Tabs
             catch (ArgumentException ex)
             {
                 DescriptionRichTextBox.BackColor = Color.LightPink;
-                //ErrorToolTip.SetToolTip((Control)sender, ex.Message);
+                ErrorToolTip.SetToolTip((Control)sender, ex.Message);
             }
         }
 
@@ -163,7 +185,6 @@ namespace ObjectOrientedPractics.View.Tabs
             _currentItem = _itemsList[ItemsListBox.SelectedIndex];
             _itemsList.Remove(_currentItem);
             ItemsListBox.SelectedIndex = -1;
-            SaveItem();
             Sort();
             ClearItemsInfo();
         }
@@ -195,10 +216,10 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentItem = new Item(
                     NameRichTextBox.Text.ToString().Trim(),
                     DescriptionRichTextBox.Text.ToString().Trim(),
-                    Convert.ToInt32(CostTextBox.Text));
+                    Convert.ToInt32(CostTextBox.Text),
+                    (Category)CategoryComboBox.SelectedItem);
                 _itemsList.Add(_currentItem);
                 Sort();
-                SaveItem();
                 ToggleInputBoxes(false);
                 ClearItemsInfo();
                 return;
@@ -207,7 +228,7 @@ namespace ObjectOrientedPractics.View.Tabs
             _itemsList[_selectedIndex] = _cloneCurrentItem;
             _currentItem = _cloneCurrentItem;
             Sort();
-            SaveItem();
+            //SaveItem();
             ToggleInputBoxes(false);
             UpdateItemInfo();
         }
@@ -222,54 +243,29 @@ namespace ObjectOrientedPractics.View.Tabs
                 CostTextBox.Text = _cloneCurrentItem.Cost.ToString();
                 NameRichTextBox.Text = _cloneCurrentItem.Name.ToString();
                 DescriptionRichTextBox.Text = _cloneCurrentItem.Info.ToString();
+                CategoryComboBox.SelectedItem = _cloneCurrentItem.Category;
             }
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            SaveItem();
+            //SaveItem();
         }
 
         /// <summary>
-        /// Метод, который построчно считывает текстовый файл 
-        /// для заполнения <see cref="ItemsListBox"/> и <see cref="_itemsList"/>.
-        /// </summary>
-        private void LoadItemsInfo()
-        {
-            if (File.Exists(_fileName))
-            {
-                _itemsList = JsonConvert.DeserializeObject<List<Item>>(File.ReadAllText(_fileName));
-                Sort();
-            }
-        }
-
-        /// <summary>
-        /// Метод, который очищает текстовые поля.
+        /// Метод, который очищает текстовые поля и ComboBox.
         /// </summary>
         private void ClearItemsInfo()
         {
             IdTextBox.Clear();
             CostTextBox.Clear();
+            CategoryComboBox.SelectedIndex = -1;
             NameRichTextBox.Clear();
             DescriptionRichTextBox.Clear();
         }
 
         /// <summary>
-        /// Метод, который сортирует <see cref="_itemsList"/> и <see cref="ItemsListBox"/>
-        /// в алфавитном порядке.
-        /// </summary>
-        private void Sort()
-        {
-            _indexBeforeSort = ItemsListBox.SelectedIndex;
-            ItemsListBox.SelectedIndexChanged -= ItemsListBox_SelectedIndexChanged;
-            _itemsList = _itemsList.OrderBy(item => item.ToString()).ToList();
-            ItemsListBox.DataSource = _itemsList;
-            ItemsListBox.SelectedIndex = _indexBeforeSort;
-            ItemsListBox.SelectedIndexChanged += ItemsListBox_SelectedIndexChanged;
-        }
-
-        /// <summary>
-        /// Метод, который включает или отключает все TextBox и ApplyButton.
+        /// Метод, который включает или отключает все TextBox, ComboBox и ApplyButton.
         /// </summary>
         /// <param name="value">True or false.</param>
         private void ToggleInputBoxes(bool value)
@@ -277,6 +273,7 @@ namespace ObjectOrientedPractics.View.Tabs
             CostTextBox.Enabled = value;
             NameRichTextBox.Enabled = value;
             DescriptionRichTextBox.Enabled = value;
+            CategoryComboBox.Enabled = value;
             ApplyButton.Visible = value;
         }
 

@@ -1,11 +1,12 @@
-﻿using ObjectOrientedPractics.Services;
+﻿using Newtonsoft.Json;
+using ObjectOrientedPractics.Services;
 
 namespace ObjectOrientedPractics.Model
 {
     /// <summary>
     /// Класс, описывающий товар в магазине.
     /// </summary>
-    internal class Item
+    public class Item
     {
         /// <summary>
         /// Уникальный номер товара.
@@ -15,17 +16,17 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Счетчик товаров.
         /// </summary>
-        private static int _allItemsCount = 0;
+        private static int _allItemsCount;
 
         /// <summary>
         /// Название товара.
         /// </summary>
-        private string? _name;
+        private string _name;
 
         /// <summary>
         /// Описание товара.
         /// </summary>
-        private string? _info;
+        private string _info;
 
         /// <summary>
         /// Стоимость товара.
@@ -35,7 +36,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает и задает название товара. Должно иметь длину до 200 символов.
         /// </summary>
-        public string? Name
+        public string Name
         {
             get => _name;
             set 
@@ -48,7 +49,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает и задает описание товара. Должно иметь длину до 1000 символов.
         /// </summary>
-        public string? Info
+        public string Info
         {
             get => _info;
             set
@@ -75,26 +76,27 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает счетчик товаров.
         /// </summary>
-        public static int AllItemsCount
+        [JsonProperty]
+        public int AllItemsCount
         {
             get => _allItemsCount;
-            private set
-            {
-                _allItemsCount = value;
-            }
+            private set => _allItemsCount = value;
         }
 
         /// <summary>
         /// Возвращает уникальный идентификатор товара.
         /// </summary>
+        [JsonProperty]
         public int Id
         {
             get => _id;
-            private set
-            {
-                _id = value;
-            }
+            private set => _id = value;
         }
+
+        /// <summary>
+        /// Возвращает и задает категорию товара.
+        /// </summary>
+        public Category Category { get; set; }
 
         /// <summary>
         /// Создает пустой экземпляр класса <see cref="Item"/>.
@@ -112,13 +114,15 @@ namespace ObjectOrientedPractics.Model
         /// <param name="info">Описание товара. Должно иметь длину до 1000 символов.</param>
         /// <param name="cost">Стоимость товара. 
         /// Значение должно находиться в диапазоне от 0 до 100000 (не включительно).</param>
-        public Item(string name, string info, int cost)
+        /// <param name="category">Категория товара.</param>
+        public Item(string name, string info, int cost, Category category)
         {
             Name = name;
             Info = info;
             Cost = cost;
-            _allItemsCount++;
+            AllItemsCount++;
             Id = _allItemsCount;
+            Category = category;
         }
 
         /// <summary>
@@ -127,7 +131,7 @@ namespace ObjectOrientedPractics.Model
         /// <returns>Строка: "Уникальный идентификатор / Стоимость / Название товара ".</returns>
         public override string ToString()
         {
-            return $"{_id} / " +
+            return $"{Id} / " +
                 $"{Cost} / " +
                 $"{Name}";
         }

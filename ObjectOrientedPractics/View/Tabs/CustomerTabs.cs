@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
-using ObjectOrientedPractics.Model;
+﻿using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
+using ObjectOrientedPractics.View.Controls;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -36,28 +36,43 @@ namespace ObjectOrientedPractics.View.Tabs
         private int _selectedIndex;
 
         /// <summary>
-        /// Название файла для сохранения или загрузки данных.
+        /// Возвращает и задает список покупателей.
         /// </summary>
-        private string _fileName = "Customers.json";
+        public List<Customer> Customers
+        {
+            get => _customersList;
+            set => _customersList = value;
+        }
+
+        /// <summary>
+        /// Возвращает количество элементов в <see cref="CustomersListBox"/>.
+        /// </summary>
+        public int ListBoxCustomersCount
+        {
+            get => CustomersListBox.Items.Count;
+        }
 
         public CustomerTabs()
         {
             InitializeComponent();
-            LoadCustomersInfo();
             ClearCustomersInfo();
             CustomersListBox.SelectedIndex = -1;
+            AddressControl.Address = _currentCustomer.Address;
+            ClearCustomersInfo();
         }
 
         /// <summary>
-        /// Метод, который сохраняет данные всех покупателей в json файл (Customers.json).
+        /// Метод, который сортирует <see cref="_customersList"/> и <see cref="CustomersListBox"/>
+        /// в алфавитном порядке.
         /// </summary>
-        public void SaveCustomer()
+        public void Sort()
         {
-            if (CustomersListBox.Items.Count != 0)
-            {
-                var jsonString = System.Text.Json.JsonSerializer.Serialize(_customersList);
-                File.WriteAllText("Customers.json", jsonString);
-            }
+            _indexBeforeSort = CustomersListBox.SelectedIndex;
+            CustomersListBox.SelectedIndexChanged -= CustomersListBox_SelectedIndexChanged;
+            _customersList = _customersList.OrderBy(customer => customer.ToString()).ToList();
+            CustomersListBox.DataSource = _customersList;
+            CustomersListBox.SelectedIndex = _indexBeforeSort;
+            CustomersListBox.SelectedIndexChanged += CustomersListBox_SelectedIndexChanged;
         }
 
         private void FullNameTextBox_TextChanged(object sender, EventArgs e)
@@ -82,35 +97,7 @@ namespace ObjectOrientedPractics.View.Tabs
             catch (ArgumentException ex)
             {
                 FullNameTextBox.BackColor = Color.LightPink;
-                //TODO: ToolTip.
-                //ErrorToolTip.SetToolTip((Control)sender, ex.Message);
-            }
-        }
-
-        private void AddressRichTextBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (!string.IsNullOrEmpty(AddressRichTextBox.Text))
-                {
-                    if (Validator.CheckStringContainsAddress(AddressRichTextBox.Text))
-                    {
-                        _cloneCurrentCustomer.Address = AddressRichTextBox.Text;
-                        AddressRichTextBox.BackColor = Color.White;
-                        return;
-                    }
-
-                    else
-                    {
-                        AddressRichTextBox.BackColor = Color.LightPink;
-                    }
-                }
-            }
-            catch (ArgumentException ex)
-            {
-                AddressRichTextBox.BackColor = Color.LightPink;
-                //TODO: ToolTip.
-                //ErrorToolTip.SetToolTip((Control)sender, ex.Message);
+                ErrorToolTip.SetToolTip((Control)sender, ex.Message);
             }
         }
 
@@ -131,7 +118,6 @@ namespace ObjectOrientedPractics.View.Tabs
             _currentCustomer = _customersList[CustomersListBox.SelectedIndex];
             _customersList.Remove(_currentCustomer);
             CustomersListBox.SelectedIndex = -1;
-            SaveCustomer();
             Sort();
             ClearCustomersInfo();
         }
@@ -150,8 +136,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void ApplyButton_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(FullNameTextBox.Text) ||
-                string.IsNullOrEmpty(AddressRichTextBox.Text))
+            if (string.IsNullOrEmpty(FullNameTextBox.Text))
             {
                 MessageBox.Show("Заполните все поля.", "Ошибка ввода");
                 return;
@@ -159,12 +144,12 @@ namespace ObjectOrientedPractics.View.Tabs
 
             if (_selectedIndex == -1)
             {
-                _currentCustomer = new Customer(
-                    FullNameTextBox.Text.ToString().Trim(),
-                    AddressRichTextBox.Text.ToString().Trim());
+                _currentCustomer = new Customer(FullNameTextBox.Text.Trim(),
+                    AddressControl.Address.Index, AddressControl.Address.Country,
+                    AddressControl.Address.City, AddressControl.Address.Street,
+                    AddressControl.Address.Building, AddressControl.Address.Apartment);
                 _customersList.Add(_currentCustomer);
                 Sort();
-                SaveCustomer();
                 ToggleInputBoxes(false);
                 ClearCustomersInfo();
                 return;
@@ -173,7 +158,7 @@ namespace ObjectOrientedPractics.View.Tabs
             _customersList[_selectedIndex] = _cloneCurrentCustomer;
             _currentCustomer = _cloneCurrentCustomer;
             Sort();
-            SaveCustomer();
+            //SaveCustomer();
             ToggleInputBoxes(false);
             UpdateCustomerInfo();
         }
@@ -186,26 +171,13 @@ namespace ObjectOrientedPractics.View.Tabs
                 _cloneCurrentCustomer = (Customer)_customersList[CustomersListBox.SelectedIndex].Clone();
                 IdTextBox.Text = _cloneCurrentCustomer.Id.ToString();
                 FullNameTextBox.Text = _cloneCurrentCustomer.Fullname.ToString();
-                AddressRichTextBox.Text = _cloneCurrentCustomer.Address.ToString();
+                AddressControl.Address = _cloneCurrentCustomer.Address; 
             }
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            SaveCustomer();
-        }
-
-        /// <summary>
-        /// Метод, который построчно считывает текстовый файл 
-        /// для заполнения <see cref="CustomersListBox"/> и <see cref="_customersList"/>.
-        /// </summary>
-        private void LoadCustomersInfo()
-        {
-            if (File.Exists(_fileName))
-            {
-                _customersList = JsonConvert.DeserializeObject<List<Customer>>(File.ReadAllText(_fileName));
-                Sort();
-            }
+            //SaveCustomer();
         }
 
         /// <summary>
@@ -215,21 +187,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             IdTextBox.Clear();
             FullNameTextBox.Clear();
-            AddressRichTextBox.Clear();
-        }
-
-        /// <summary>
-        /// Метод, который сортирует <see cref="_customersList"/> и <see cref="CustomersListBox"/>
-        /// в алфавитном порядке.
-        /// </summary>
-        private void Sort()
-        {
-            _indexBeforeSort = CustomersListBox.SelectedIndex;
-            CustomersListBox.SelectedIndexChanged -= CustomersListBox_SelectedIndexChanged;
-            _customersList = _customersList.OrderBy(customer => customer.ToString()).ToList();
-            CustomersListBox.DataSource = _customersList;
-            CustomersListBox.SelectedIndex = _indexBeforeSort;
-            CustomersListBox.SelectedIndexChanged += CustomersListBox_SelectedIndexChanged;
+            AddressControl.ClearAddressInfo();
         }
 
         /// <summary>
@@ -239,8 +197,8 @@ namespace ObjectOrientedPractics.View.Tabs
         private void ToggleInputBoxes(bool value)
         {
             FullNameTextBox.Enabled = value;
-            AddressRichTextBox.Enabled = value;
             ApplyButton.Visible = value;
+            AddressControl.ToggleInputAddressBoxes(value);
         }
 
         /// <summary>
@@ -250,7 +208,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             IdTextBox.Text = _currentCustomer.Id.ToString();
             FullNameTextBox.Text = _currentCustomer.Fullname.ToString();
-            AddressRichTextBox.Text = _currentCustomer.Address.ToString();
+            AddressControl.Address = _currentCustomer.Address;
         }
     }
 }
