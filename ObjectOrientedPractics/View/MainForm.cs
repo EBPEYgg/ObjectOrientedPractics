@@ -52,10 +52,21 @@ namespace ObjectOrientedPractics
         }
 
         /// <summary>
+        /// Метод, который сортирует списки и листбоксы товаров и покупателей.
+        /// </summary>
         private void ListSorting()
         {
             ItemsTabs.Sort();
             CustomerTabs.Sort();
+        }
+
+        private void TabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (TabControl.SelectedIndex == 2)
+            {
+                //RefreshData();
+                return;
+            }
         }
     }
 }
