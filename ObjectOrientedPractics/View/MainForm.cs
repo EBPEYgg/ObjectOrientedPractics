@@ -51,6 +51,7 @@ namespace ObjectOrientedPractics
             }
         }
 
+        /// <summary>
         private void ListSorting()
         {
             ItemsTabs.Sort();
