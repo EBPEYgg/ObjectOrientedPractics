@@ -29,6 +29,16 @@ namespace ObjectOrientedPractics.Model
         private Address _address = new();
 
         /// <summary>
+        /// Корзина товаров покупателя.
+        /// </summary>
+        private Cart _cart;
+
+        /// <summary>
+        /// Заказ покупателя.
+        /// </summary>
+        private Order _order;
+
+        /// <summary>
         /// Возвращает и задает ФИО покупателя. Должно иметь длину до 200 символов.
         /// </summary>
         public string Fullname
@@ -48,6 +58,24 @@ namespace ObjectOrientedPractics.Model
         {
             get => _address;
             set => _address = value;
+        }
+
+        /// <summary>
+        /// Возвращает и задает корзину товаров покупателя.
+        /// </summary>
+        public Cart Cart
+        {
+            get => _cart;
+            set => _cart = value;
+        }
+
+        /// <summary>
+        /// Возврашает и задает заказ покупателя.
+        /// </summary>
+        public Order Order
+        {
+            get => _order;
+            set => _order = value;
         }
 
         /// <summary>
@@ -93,6 +121,8 @@ namespace ObjectOrientedPractics.Model
         {
             Fullname = fullname;
             Address = new Address(index, country, city, street, building, apartment);
+            Cart = new Cart();
+            Order = new Order();
             AllCustomersCount++;
             Id = _allCustomersCount;
         }
