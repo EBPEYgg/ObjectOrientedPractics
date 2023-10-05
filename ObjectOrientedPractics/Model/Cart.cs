@@ -1,11 +1,14 @@
 ﻿namespace ObjectOrientedPractics.Model
 {
+    /// <summary>
+    /// Класс, описывающий корзину товаров покупателя.
+    /// </summary>
     public class Cart
     {
         /// <summary>
         /// Список товаров.
         /// </summary>
-        private List<Item> _items;
+        private List<Item> _items = new();
 
         /// <summary>
         /// Общая стоимость товаров.
@@ -38,10 +41,6 @@
                 }
                 return _amount;
             }
-        }
-
-        public Cart()
-        {
         }
     }
 }
