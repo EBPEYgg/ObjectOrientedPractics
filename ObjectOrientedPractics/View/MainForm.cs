@@ -66,7 +66,7 @@ namespace ObjectOrientedPractics
         {
             if (TabControl.SelectedIndex == 2)
             {
-                //RefreshData();
+                CartsTab.RefreshData();
                 return;
             }
         }
