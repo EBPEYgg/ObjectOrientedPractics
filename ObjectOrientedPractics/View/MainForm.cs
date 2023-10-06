@@ -22,6 +22,8 @@ namespace ObjectOrientedPractics
             LoadStoreInfo();
             ItemsTabs.Items = _store.Items;
             CustomerTabs.Customers = _store.Customers;
+            CartsTab.Customers = _store.Customers;
+            CartsTab.Items = _store.Items;
             ListSorting();
         }
 
@@ -35,7 +37,7 @@ namespace ObjectOrientedPractics
                 if (ItemsTabs.ListBoxItemsCount > 0 || CustomerTabs.ListBoxCustomersCount > 0)
                 {
                     string jsonStore = System.Text.Json.JsonSerializer.Serialize(_store);
-                    File.WriteAllText("Store2.json", jsonStore);
+                    File.WriteAllText(_fileName, jsonStore);
                 }
             }
         }
