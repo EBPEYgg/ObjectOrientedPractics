@@ -67,11 +67,13 @@
             // 
             // CustomersGroupBox
             // 
+            this.CustomersGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.CustomersGroupBox.Controls.Add(this.SaveButton);
             this.CustomersGroupBox.Controls.Add(this.DeleteButton);
             this.CustomersGroupBox.Controls.Add(this.AddButton);
             this.CustomersGroupBox.Controls.Add(this.CustomersListBox);
-            this.CustomersGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CustomersGroupBox.Location = new System.Drawing.Point(3, 3);
             this.CustomersGroupBox.Name = "CustomersGroupBox";
             this.CustomersGroupBox.Size = new System.Drawing.Size(374, 439);
