@@ -42,5 +42,14 @@
                 return _amount;
             }
         }
+
+        /// <summary>
+        /// Клонирование объекта класса.
+        /// </summary>
+        /// <returns>Клонированный объект класса.</returns>
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }
