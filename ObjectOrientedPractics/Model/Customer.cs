@@ -31,12 +31,12 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Корзина товаров покупателя.
         /// </summary>
-        private Cart _cart;
+        private Cart _cart = new();
 
         /// <summary>
         /// Заказ покупателя.
         /// </summary>
-        private Order _order;
+        private Order _order = new();
 
         /// <summary>
         /// Возвращает и задает ФИО покупателя. Должно иметь длину до 200 символов.
