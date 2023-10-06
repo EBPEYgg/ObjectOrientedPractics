@@ -1,33 +1,41 @@
 ﻿using ObjectOrientedPractics.Model;
-using ObjectOrientedPractics.View.Tabs;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
     public partial class CartsTab : UserControl
     {
-        private Store _store = new();
-
-        private List<Item> _items = new();
+        /// <summary>
+        /// Список товаров.
+        /// </summary>
+        private List<Item> _itemsList = new();
 
         /// <summary>
         /// Текущий товар.
         /// </summary>
         private Item _currentItem = new();
 
-        private List<Customer> _customers = new();
+        /// <summary>
+        /// Список покупателей.
+        /// </summary>
+        private List<Customer> _customersList = new();
 
         /// <summary>
         /// Текущий покупатель.
         /// </summary>
-        private Customer _currentCustomer = new();
+        private Customer _currentCustomer = new();        
 
         /// <summary>
         /// Возвращает и задает список покупателей.
         /// </summary>
         public List<Customer> Customers
         {
-            get => _customers;
-            set => _customers = value;
+            get => _customersList;
+            set
+            {
+                _customersList = value;
+                CustomerComboBox.DataSource = _customersList;
+                CustomerComboBox.SelectedIndex = -1;
+            }
         }
 
         /// <summary>
@@ -35,35 +43,21 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         public List<Item> Items
         {
-            get => _items;
-            set => _items = value;
+            get => _itemsList;
+            set
+            {
+                _itemsList = value;
+                ItemsListBox.DataSource = _itemsList;
+                ItemsListBox.SelectedIndex = -1;
+            }
         }
 
         public CartsTab()
         {
             InitializeComponent();
-            //ItemsTabs.Items = _store.Items;
-            //CustomerTabs.Customers = _store.Customers;
-            //ListSorting();
-            CustomerComboBox.DataSource = Customers;
-            CustomerComboBox.SelectedIndex = -1;
         }
-
-        ///// <summary>
-        ///// TODO: xml.
-        ///// </summary>
-        //public void ListSorting()
-        //{
-        //    ItemsTabs.Sort();
-        //    CustomerTabs.Sort();
-        //}
 
         private void AddToCartButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ItemsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
