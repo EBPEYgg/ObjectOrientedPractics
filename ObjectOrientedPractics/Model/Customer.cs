@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using ObjectOrientedPractics.Services;
+using System.ComponentModel;
 
 namespace ObjectOrientedPractics.Model
 {
@@ -39,6 +40,11 @@ namespace ObjectOrientedPractics.Model
         private Order _order = new();
 
         /// <summary>
+        /// Список заказов покупателя.
+        /// </summary>
+        private BindingList<Order> _orders = new BindingList<Order>();
+
+        /// <summary>
         /// Возвращает и задает ФИО покупателя. Должно иметь длину до 200 символов.
         /// </summary>
         public string Fullname
@@ -76,6 +82,15 @@ namespace ObjectOrientedPractics.Model
         {
             get => _order;
             set => _order = value;
+        }
+
+        /// <summary>
+        /// Возвращает и задает список заказов покупателя.
+        /// </summary>
+        public BindingList<Order> OrderList
+        {
+            get => _orders;
+            set => _orders = value;
         }
 
         /// <summary>
@@ -122,7 +137,7 @@ namespace ObjectOrientedPractics.Model
             Fullname = fullname;
             Address = new Address(index, country, city, street, building, apartment);
             Cart = new Cart();
-            Order = new Order();
+            OrderList = new BindingList<Order>();
             AllCustomersCount++;
             Id = _allCustomersCount;
         }
