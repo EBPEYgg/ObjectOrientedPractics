@@ -89,19 +89,8 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         public int Amount
         {
-            get
-            {
-                if (_items == null || _items.Count == 0)
-                {
-                    _amount = 0;
-                    return 0;
-                }
-                for (int i = 0; i < _items.Count; i++)
-                {
-                    _amount = _amount + _items[i].Cost;
-                }
-                return _amount;
-            }
+            get => _amount;
+            set => _amount = value;
         }
 
         /// <summary>
@@ -127,12 +116,12 @@ namespace ObjectOrientedPractics.Model
         /// <param name="street"></param>
         /// <param name="building"></param>
         /// <param name="apartment"></param>
-        public Order(Address address, Cart Cart, OrderStatus orderStatus)
+        public Order(Address address, Cart cart, OrderStatus orderStatus)
         {
-            _creationDate = DateTime.Now;
+            CreationDate = DateTime.Now;
             Address = address;
-            _items = Cart.Items;
-            _amount = Amount;
+            Items = cart.Items;
+            Amount = cart.Amount;
             OrderStatus = orderStatus;
             AllOrdersCount++;
             Id = _allOrdersCount;
