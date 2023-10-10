@@ -22,8 +22,9 @@ namespace ObjectOrientedPractics
             LoadStoreInfo();
             ItemsTabs.Items = _store.Items;
             CustomerTabs.Customers = _store.Customers;
-            CartsTab.Customers = _store.Customers;
             CartsTab.Items = _store.Items;
+            CartsTab.Customers = _store.Customers;
+            OrdersTab.Customers = _store.Customers;
             ListSorting();
         }
 
@@ -67,6 +68,12 @@ namespace ObjectOrientedPractics
             if (TabControl.SelectedIndex == 2)
             {
                 CartsTab.RefreshData();
+                return;
+            }
+
+            if (TabControl.SelectedIndex == 3)
+            {
+                OrdersTab.RefreshData();
                 return;
             }
         }
