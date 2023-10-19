@@ -150,7 +150,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 {
                     if (Validator.CheckStringContainsOnlyEnglishLetters(DescriptionRichTextBox.Text))
                     {
-                        _cloneCurrentItem.Name = DescriptionRichTextBox.Text;
+                        _cloneCurrentItem.Info = DescriptionRichTextBox.Text;
                         DescriptionRichTextBox.BackColor = Color.White;
                         return;
                     }
@@ -228,7 +228,6 @@ namespace ObjectOrientedPractics.View.Tabs
             _itemsList[_selectedIndex] = _cloneCurrentItem;
             _currentItem = _cloneCurrentItem;
             Sort();
-            //SaveItem();
             ToggleInputBoxes(false);
             UpdateItemInfo();
         }
@@ -249,7 +248,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            //SaveItem();
+            
         }
 
         /// <summary>
