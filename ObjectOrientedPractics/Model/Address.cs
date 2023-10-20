@@ -1,4 +1,5 @@
 ﻿using ObjectOrientedPractics.Services;
+using System.Security.Cryptography;
 
 namespace ObjectOrientedPractics.Model
 {
@@ -143,6 +144,11 @@ namespace ObjectOrientedPractics.Model
             Street = street;
             Building = building;
             Apartment = apartment;
+        }
+
+        public override string ToString()
+        {
+            return $"{Index}, {Country}, {City}, {Street}, {Building}, {Apartment}";
         }
     }
 }
