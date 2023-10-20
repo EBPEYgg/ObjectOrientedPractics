@@ -67,14 +67,20 @@ namespace ObjectOrientedPractics
         {
             if (TabControl.SelectedIndex == 2)
             {
+                CartsTab.Items = ItemsTabs.Items;
+                CartsTab.Customers = CustomerTabs.Customers;
                 CartsTab.RefreshData();
-                return;
             }
 
             if (TabControl.SelectedIndex == 3)
             {
                 OrdersTab.RefreshData();
-                return;
+                OrdersTab.Customers = CartsTab.Customers;
+
+                if (OrdersTab.Customers.Count == 0)
+                {
+                    OrdersTab.ClearInfo();
+                }
             }
         }
     }
