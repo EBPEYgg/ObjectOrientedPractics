@@ -136,7 +136,6 @@ namespace ObjectOrientedPractics.Model
         {
             Fullname = fullname;
             Address = new Address(index, country, city, street, building, apartment);
-            Cart = new Cart();
             OrderList = new BindingList<Order>();
             AllCustomersCount++;
             Id = _allCustomersCount;
