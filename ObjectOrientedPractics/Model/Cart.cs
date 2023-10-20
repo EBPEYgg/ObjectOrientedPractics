@@ -31,13 +31,14 @@
         {
             get
             {
-                if (Items == null || Items.Count == 0)
+                _amount = 0;
+                if (_items == null || _items.Count == 0)
                 {
                     return 0;
                 }
-                for (int i = 0; i < Items.Count; i++)
+                for (int i = 0; i < _items.Count; i++)
                 {
-                    _amount += Items[i].Cost;
+                    _amount += _items[i].Cost;
                 }
                 return _amount;
             }
