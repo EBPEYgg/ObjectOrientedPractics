@@ -25,7 +25,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Дата создания заказа.
         /// </summary>
-        private DateTime _creationDate;
+        private string _creationDate;
 
         /// <summary>
         /// Адрес покупателя.
@@ -67,9 +67,9 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
-        /// Возвращает и задает дату создания заказа.
+        /// Возвращает дату создания заказа.
         /// </summary>
-        public DateTime CreationDate
+        public string CreationDate
         {
             get => _creationDate;
             private set => _creationDate = value;
@@ -116,9 +116,9 @@ namespace ObjectOrientedPractics.Model
         /// <param name="street"></param>
         /// <param name="building"></param>
         /// <param name="apartment"></param>
-        public Order(Address address, Cart cart, OrderStatus orderStatus)
+        public Order(string creationDate, Address address, Cart cart, OrderStatus orderStatus)
         {
-            CreationDate = DateTime.Now;
+            CreationDate = creationDate;
             Address = address;
             Items = cart.Items;
             Amount = cart.Amount;
