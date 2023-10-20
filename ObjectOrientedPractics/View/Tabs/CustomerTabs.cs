@@ -150,7 +150,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentCustomer = new Customer(FullNameTextBox.Text.Trim(),
                     AddressControl.Address.Index, AddressControl.Address.Country,
                     AddressControl.Address.City, AddressControl.Address.Street,
-                    AddressControl.Address.Building, AddressControl.Address.Apartment);
+                    AddressControl.Address.Building, AddressControl.Address.Apartment, false);
                 _customersList.Add(_currentCustomer);
                 Sort();
                 ToggleInputBoxes(false);

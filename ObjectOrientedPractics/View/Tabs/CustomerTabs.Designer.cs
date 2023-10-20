@@ -37,7 +37,6 @@
             this.CustomersListBox = new System.Windows.Forms.ListBox();
             this.SelectedItemGroupBox = new System.Windows.Forms.GroupBox();
             this.AddressControl = new ObjectOrientedPractics.View.Controls.AddressControl();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.ApplyButton = new System.Windows.Forms.Button();
             this.EditButton = new System.Windows.Forms.Button();
             this.FullNameTextBox = new System.Windows.Forms.TextBox();
@@ -45,6 +44,7 @@
             this.FullNameLabel = new System.Windows.Forms.Label();
             this.IdLabel = new System.Windows.Forms.Label();
             this.ErrorToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.IsPriorityCheckBox = new System.Windows.Forms.CheckBox();
             this.CustomersTableLayoutPanel.SuspendLayout();
             this.CustomersGroupBox.SuspendLayout();
             this.SelectedItemGroupBox.SuspendLayout();
@@ -129,8 +129,8 @@
             // 
             // SelectedItemGroupBox
             // 
+            this.SelectedItemGroupBox.Controls.Add(this.IsPriorityCheckBox);
             this.SelectedItemGroupBox.Controls.Add(this.AddressControl);
-            this.SelectedItemGroupBox.Controls.Add(this.panel1);
             this.SelectedItemGroupBox.Controls.Add(this.ApplyButton);
             this.SelectedItemGroupBox.Controls.Add(this.EditButton);
             this.SelectedItemGroupBox.Controls.Add(this.FullNameTextBox);
@@ -148,23 +148,16 @@
             // AddressControl
             // 
             this.AddressControl.Address = null;
-            this.AddressControl.Location = new System.Drawing.Point(-3, 97);
+            this.AddressControl.Location = new System.Drawing.Point(-3, 122);
             this.AddressControl.Name = "AddressControl";
             this.AddressControl.Size = new System.Drawing.Size(381, 145);
             this.AddressControl.TabIndex = 22;
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(6, 342);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(363, 91);
-            this.panel1.TabIndex = 21;
             // 
             // ApplyButton
             // 
             this.ApplyButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ApplyButton.Location = new System.Drawing.Point(6, 295);
+            this.ApplyButton.Location = new System.Drawing.Point(6, 346);
             this.ApplyButton.Name = "ApplyButton";
             this.ApplyButton.Size = new System.Drawing.Size(363, 41);
             this.ApplyButton.TabIndex = 20;
@@ -177,7 +170,7 @@
             // 
             this.EditButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.EditButton.Location = new System.Drawing.Point(6, 248);
+            this.EditButton.Location = new System.Drawing.Point(6, 299);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(363, 41);
             this.EditButton.TabIndex = 19;
@@ -220,6 +213,16 @@
             this.IdLabel.TabIndex = 11;
             this.IdLabel.Text = "ID:";
             // 
+            // IsPriorityCheckBox
+            // 
+            this.IsPriorityCheckBox.AutoSize = true;
+            this.IsPriorityCheckBox.Location = new System.Drawing.Point(79, 97);
+            this.IsPriorityCheckBox.Name = "IsPriorityCheckBox";
+            this.IsPriorityCheckBox.Size = new System.Drawing.Size(75, 19);
+            this.IsPriorityCheckBox.TabIndex = 23;
+            this.IsPriorityCheckBox.Text = "Is Priority";
+            this.IsPriorityCheckBox.UseVisualStyleBackColor = true;
+            // 
             // CustomerTabs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -250,8 +253,8 @@
         private TextBox IdTextBox;
         private Label FullNameLabel;
         private Label IdLabel;
-        private Panel panel1;
         private Controls.AddressControl AddressControl;
         private ToolTip ErrorToolTip;
+        private CheckBox IsPriorityCheckBox;
     }
 }
