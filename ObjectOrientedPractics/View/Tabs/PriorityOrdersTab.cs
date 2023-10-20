@@ -58,8 +58,7 @@ namespace ObjectOrientedPractics.View.Tabs
             InitializeComponent();
             DeliveryTimeComboBox.Items.AddRange(new string[] {"9:00 - 11:00", "11:00 - 13:00",
                 "13:00 - 15:00", "15:00 - 17:00", "17:00 - 19:00", "19:00 - 21:00"});
-            //AddressControl.Address = new Address();
-            //AddressControl.Address = _priorityOrder.Address;
+            AddressControl.Address = new Address();
             AddressControl.ClearAddressInfo();
             StatusComboBox.DataSource = Enum.GetValues(typeof(OrderStatus));
             IdTextBox.Text = _counter.ToString();
