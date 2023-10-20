@@ -72,7 +72,7 @@ namespace ObjectOrientedPractics.Model
         public string CreationDate
         {
             get => _creationDate;
-            private set => _creationDate = value;
+            set => _creationDate = value;
         }
 
         /// <summary>
@@ -97,6 +97,11 @@ namespace ObjectOrientedPractics.Model
         /// Статус заказа.
         /// </summary>
         public OrderStatus OrderStatus { get; set; }
+
+        /// <summary>
+        /// Возвращает и задает приоритет покупателя.
+        /// </summary>
+        public bool IsPriority { get; set; }
 
         /// <summary>
         /// Создает пустой экземпляр класса <see cref="Order"/>.

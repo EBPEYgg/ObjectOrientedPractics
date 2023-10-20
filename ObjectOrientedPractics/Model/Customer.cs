@@ -114,6 +114,11 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
+        /// Возвращает и задает приоритет покупателя.
+        /// </summary>
+        public bool IsPriority { get; set; }
+
+        /// <summary>
         /// Создает пустой экземпляр класса <see cref="Customer"/>.
         /// </summary>
         public Customer()
@@ -132,9 +137,10 @@ namespace ObjectOrientedPractics.Model
         /// <param name="building">Номер дома покупателя. Должно иметь длину до 5 символов.</param>
         /// <param name="apartment">Номер квартиры покупателя. Должно иметь длину до 5 символов.</param>
         public Customer(string fullname, int index, string country, 
-            string city, string street, string building, string apartment)
+            string city, string street, string building, string apartment, bool isPriority)
         {
             Fullname = fullname;
+            IsPriority = isPriority;
             Address = new Address(index, country, city, street, building, apartment);
             OrderList = new BindingList<Order>();
             AllCustomersCount++;
