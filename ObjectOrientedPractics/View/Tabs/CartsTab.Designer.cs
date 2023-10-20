@@ -56,11 +56,10 @@
             this.CartsTabsTableLayoutPanel.Controls.Add(this.CartGroupBox, 1, 0);
             this.CartsTabsTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CartsTabsTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.CartsTabsTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CartsTabsTableLayoutPanel.Name = "CartsTabsTableLayoutPanel";
             this.CartsTabsTableLayoutPanel.RowCount = 1;
             this.CartsTabsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.CartsTabsTableLayoutPanel.Size = new System.Drawing.Size(870, 593);
+            this.CartsTabsTableLayoutPanel.Size = new System.Drawing.Size(761, 445);
             this.CartsTabsTableLayoutPanel.TabIndex = 0;
             // 
             // ItemsGroupBox
@@ -68,11 +67,9 @@
             this.ItemsGroupBox.Controls.Add(this.AddToCartButton);
             this.ItemsGroupBox.Controls.Add(this.ItemsListBox);
             this.ItemsGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ItemsGroupBox.Location = new System.Drawing.Point(3, 4);
-            this.ItemsGroupBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ItemsGroupBox.Location = new System.Drawing.Point(3, 3);
             this.ItemsGroupBox.Name = "ItemsGroupBox";
-            this.ItemsGroupBox.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ItemsGroupBox.Size = new System.Drawing.Size(429, 585);
+            this.ItemsGroupBox.Size = new System.Drawing.Size(374, 439);
             this.ItemsGroupBox.TabIndex = 0;
             this.ItemsGroupBox.TabStop = false;
             this.ItemsGroupBox.Text = "Items";
@@ -80,10 +77,9 @@
             // AddToCartButton
             // 
             this.AddToCartButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.AddToCartButton.Location = new System.Drawing.Point(8, 523);
-            this.AddToCartButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.AddToCartButton.Location = new System.Drawing.Point(7, 392);
             this.AddToCartButton.Name = "AddToCartButton";
-            this.AddToCartButton.Size = new System.Drawing.Size(121, 55);
+            this.AddToCartButton.Size = new System.Drawing.Size(106, 41);
             this.AddToCartButton.TabIndex = 1;
             this.AddToCartButton.Text = "Add To Cart";
             this.AddToCartButton.UseVisualStyleBackColor = true;
@@ -96,11 +92,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ItemsListBox.Enabled = false;
             this.ItemsListBox.FormattingEnabled = true;
-            this.ItemsListBox.ItemHeight = 20;
-            this.ItemsListBox.Location = new System.Drawing.Point(7, 29);
-            this.ItemsListBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ItemsListBox.ItemHeight = 15;
+            this.ItemsListBox.Location = new System.Drawing.Point(6, 22);
             this.ItemsListBox.Name = "ItemsListBox";
-            this.ItemsListBox.Size = new System.Drawing.Size(416, 484);
+            this.ItemsListBox.Size = new System.Drawing.Size(363, 364);
             this.ItemsListBox.TabIndex = 0;
             this.ItemsListBox.SelectedIndexChanged += new System.EventHandler(this.ItemsListBox_SelectedIndexChanged);
             // 
@@ -116,11 +111,9 @@
             this.CartGroupBox.Controls.Add(this.CustomerComboBox);
             this.CartGroupBox.Controls.Add(this.CustomerLabel);
             this.CartGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CartGroupBox.Location = new System.Drawing.Point(438, 4);
-            this.CartGroupBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CartGroupBox.Location = new System.Drawing.Point(383, 3);
             this.CartGroupBox.Name = "CartGroupBox";
-            this.CartGroupBox.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.CartGroupBox.Size = new System.Drawing.Size(429, 585);
+            this.CartGroupBox.Size = new System.Drawing.Size(375, 439);
             this.CartGroupBox.TabIndex = 1;
             this.CartGroupBox.TabStop = false;
             this.CartGroupBox.Text = "Cart";
@@ -131,20 +124,20 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CartListBox.FormattingEnabled = true;
-            this.CartListBox.ItemHeight = 20;
-            this.CartListBox.Location = new System.Drawing.Point(7, 95);
+            this.CartListBox.ItemHeight = 15;
+            this.CartListBox.Location = new System.Drawing.Point(6, 71);
+            this.CartListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CartListBox.Name = "CartListBox";
-            this.CartListBox.Size = new System.Drawing.Size(414, 184);
+            this.CartListBox.Size = new System.Drawing.Size(363, 139);
             this.CartListBox.TabIndex = 9;
             this.CartListBox.SelectedIndexChanged += new System.EventHandler(this.CartListBox_SelectedIndexChanged);
             // 
             // ClearCartButton
             // 
             this.ClearCartButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ClearCartButton.Location = new System.Drawing.Point(325, 348);
-            this.ClearCartButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ClearCartButton.Location = new System.Drawing.Point(284, 261);
             this.ClearCartButton.Name = "ClearCartButton";
-            this.ClearCartButton.Size = new System.Drawing.Size(97, 55);
+            this.ClearCartButton.Size = new System.Drawing.Size(85, 41);
             this.ClearCartButton.TabIndex = 8;
             this.ClearCartButton.Text = "Clear Cart";
             this.ClearCartButton.UseVisualStyleBackColor = true;
@@ -153,10 +146,9 @@
             // RemoveItemButton
             // 
             this.RemoveItemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.RemoveItemButton.Location = new System.Drawing.Point(221, 348);
-            this.RemoveItemButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.RemoveItemButton.Location = new System.Drawing.Point(193, 261);
             this.RemoveItemButton.Name = "RemoveItemButton";
-            this.RemoveItemButton.Size = new System.Drawing.Size(97, 55);
+            this.RemoveItemButton.Size = new System.Drawing.Size(85, 41);
             this.RemoveItemButton.TabIndex = 7;
             this.RemoveItemButton.Text = "Remove Item";
             this.RemoveItemButton.UseVisualStyleBackColor = true;
@@ -166,10 +158,9 @@
             // 
             this.CreateOrderButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.CreateOrderButton.Enabled = false;
-            this.CreateOrderButton.Location = new System.Drawing.Point(7, 349);
-            this.CreateOrderButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CreateOrderButton.Location = new System.Drawing.Point(6, 262);
             this.CreateOrderButton.Name = "CreateOrderButton";
-            this.CreateOrderButton.Size = new System.Drawing.Size(110, 55);
+            this.CreateOrderButton.Size = new System.Drawing.Size(96, 41);
             this.CreateOrderButton.TabIndex = 6;
             this.CreateOrderButton.Text = "Create Order";
             this.CreateOrderButton.UseVisualStyleBackColor = true;
@@ -180,29 +171,30 @@
             this.AmountIntLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AmountIntLabel.AutoSize = true;
             this.AmountIntLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.AmountIntLabel.Location = new System.Drawing.Point(358, 311);
+            this.AmountIntLabel.Location = new System.Drawing.Point(346, 233);
             this.AmountIntLabel.Name = "AmountIntLabel";
-            this.AmountIntLabel.Size = new System.Drawing.Size(28, 32);
+            this.AmountIntLabel.Size = new System.Drawing.Size(23, 25);
             this.AmountIntLabel.TabIndex = 5;
             this.AmountIntLabel.Text = "0";
+            this.AmountIntLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // AmountLabel
             // 
             this.AmountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AmountLabel.AutoSize = true;
             this.AmountLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.AmountLabel.Location = new System.Drawing.Point(359, 291);
+            this.AmountLabel.Location = new System.Drawing.Point(314, 218);
             this.AmountLabel.Name = "AmountLabel";
-            this.AmountLabel.Size = new System.Drawing.Size(71, 20);
+            this.AmountLabel.Size = new System.Drawing.Size(55, 15);
             this.AmountLabel.TabIndex = 4;
             this.AmountLabel.Text = "Amount:";
             // 
             // CartLabel
             // 
             this.CartLabel.AutoSize = true;
-            this.CartLabel.Location = new System.Drawing.Point(7, 72);
+            this.CartLabel.Location = new System.Drawing.Point(6, 54);
             this.CartLabel.Name = "CartLabel";
-            this.CartLabel.Size = new System.Drawing.Size(39, 20);
+            this.CartLabel.Size = new System.Drawing.Size(32, 15);
             this.CartLabel.TabIndex = 2;
             this.CartLabel.Text = "Cart:";
             // 
@@ -212,10 +204,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CustomerComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CustomerComboBox.FormattingEnabled = true;
-            this.CustomerComboBox.Location = new System.Drawing.Point(87, 25);
-            this.CustomerComboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CustomerComboBox.Location = new System.Drawing.Point(76, 19);
             this.CustomerComboBox.Name = "CustomerComboBox";
-            this.CustomerComboBox.Size = new System.Drawing.Size(334, 28);
+            this.CustomerComboBox.Size = new System.Drawing.Size(293, 23);
             this.CustomerComboBox.TabIndex = 1;
             this.CustomerComboBox.SelectedIndexChanged += new System.EventHandler(this.CustomerComboBox_SelectedIndexChanged);
             // 
@@ -223,20 +214,19 @@
             // 
             this.CustomerLabel.AutoSize = true;
             this.CustomerLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.CustomerLabel.Location = new System.Drawing.Point(7, 29);
+            this.CustomerLabel.Location = new System.Drawing.Point(6, 22);
             this.CustomerLabel.Name = "CustomerLabel";
-            this.CustomerLabel.Size = new System.Drawing.Size(82, 20);
+            this.CustomerLabel.Size = new System.Drawing.Size(64, 15);
             this.CustomerLabel.TabIndex = 0;
             this.CustomerLabel.Text = "Customer:";
             // 
             // CartsTab
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.CartsTabsTableLayoutPanel);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "CartsTab";
-            this.Size = new System.Drawing.Size(870, 593);
+            this.Size = new System.Drawing.Size(761, 445);
             this.CartsTabsTableLayoutPanel.ResumeLayout(false);
             this.ItemsGroupBox.ResumeLayout(false);
             this.CartGroupBox.ResumeLayout(false);
