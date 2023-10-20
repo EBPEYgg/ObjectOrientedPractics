@@ -94,6 +94,7 @@
             this.ItemsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.ItemsListBox.Enabled = false;
             this.ItemsListBox.FormattingEnabled = true;
             this.ItemsListBox.ItemHeight = 20;
             this.ItemsListBox.Location = new System.Drawing.Point(7, 29);
@@ -101,6 +102,7 @@
             this.ItemsListBox.Name = "ItemsListBox";
             this.ItemsListBox.Size = new System.Drawing.Size(416, 484);
             this.ItemsListBox.TabIndex = 0;
+            this.ItemsListBox.SelectedIndexChanged += new System.EventHandler(this.ItemsListBox_SelectedIndexChanged);
             // 
             // CartGroupBox
             // 
@@ -163,6 +165,7 @@
             // CreateOrderButton
             // 
             this.CreateOrderButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CreateOrderButton.Enabled = false;
             this.CreateOrderButton.Location = new System.Drawing.Point(7, 349);
             this.CreateOrderButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CreateOrderButton.Name = "CreateOrderButton";
@@ -179,9 +182,9 @@
             this.AmountIntLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.AmountIntLabel.Location = new System.Drawing.Point(358, 311);
             this.AmountIntLabel.Name = "AmountIntLabel";
-            this.AmountIntLabel.Size = new System.Drawing.Size(70, 32);
+            this.AmountIntLabel.Size = new System.Drawing.Size(28, 32);
             this.AmountIntLabel.TabIndex = 5;
-            this.AmountIntLabel.Text = "4999";
+            this.AmountIntLabel.Text = "0";
             // 
             // AmountLabel
             // 
