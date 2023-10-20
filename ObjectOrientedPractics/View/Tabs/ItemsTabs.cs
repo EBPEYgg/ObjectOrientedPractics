@@ -67,12 +67,15 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         public void Sort()
         {
-            _indexBeforeSort = ItemsListBox.SelectedIndex;
-            ItemsListBox.SelectedIndexChanged -= ItemsListBox_SelectedIndexChanged;
-            _itemsList = _itemsList.OrderBy(item => item.ToString()).ToList();
-            ItemsListBox.DataSource = _itemsList;
-            ItemsListBox.SelectedIndex = _indexBeforeSort;
-            ItemsListBox.SelectedIndexChanged += ItemsListBox_SelectedIndexChanged;
+            if (_itemsList != null)
+            {
+                _indexBeforeSort = ItemsListBox.SelectedIndex;
+                ItemsListBox.SelectedIndexChanged -= ItemsListBox_SelectedIndexChanged;
+                _itemsList = _itemsList.OrderBy(item => item.ToString()).ToList();
+                ItemsListBox.DataSource = _itemsList;
+                ItemsListBox.SelectedIndex = _indexBeforeSort;
+                ItemsListBox.SelectedIndexChanged += ItemsListBox_SelectedIndexChanged;
+            }
         }
 
         private void CostTextBox_TextChanged(object sender, EventArgs e)
