@@ -21,7 +21,7 @@ namespace ObjectOrientedPractics.View.Tabs
         private PriorityOrder _selectedPriorityOrder = new PriorityOrder();
 
         /// <summary>
-        /// Выбранный столбец.
+        /// Выбранная строка.
         /// </summary>
         private int _selectedRow;
 
@@ -116,7 +116,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 }
 
                 IdTextBox.Text = OrdersDataGridView.Rows[_selectedRow].Cells[1].Value.ToString();
-                //CreatedTextBox.Text = OrdersDataGridView.Rows[_selectedRow].Cells[2].Value.ToString();
+                CreatedTextBox.Text = OrdersDataGridView.Rows[_selectedRow].Cells[2].Value.ToString();
                 AddressControl.Address = (Address)OrdersDataGridView.Rows[_selectedRow].Cells[3].Value;
                 AmountIntLabel.Text = OrdersDataGridView.Rows[_selectedRow].Cells[4].Value.ToString();
                 StatusComboBox.Text = OrdersDataGridView.Rows[_selectedRow].Cells[5].Value.ToString();
@@ -128,7 +128,8 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void StatusComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (StatusComboBox.SelectedIndex != -1 && _isOrdersFill == true 
+            if (StatusComboBox.SelectedIndex != -1 
+                && _isOrdersFill == true 
                 && StatusComboBox.Enabled == true)
             {
                 _orders[_selectedRow].OrderStatus = (OrderStatus)StatusComboBox.SelectedValue;
