@@ -130,7 +130,6 @@ namespace ObjectOrientedPractics.View.Tabs
                     _currentCustomer.Cart, 
                     OrderStatus.New);
                 _currentCustomer.OrderList.Add(order);
-                //_customersList[_currentCustomer.Id] = _currentCustomer;
 
                 List<Item> item = new List<Item>();
                 _currentCustomer.Cart.Items = item;
