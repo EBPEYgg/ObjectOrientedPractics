@@ -125,12 +125,38 @@ namespace ObjectOrientedPractics.View.Tabs
             if (ItemsListBox.SelectedIndex != -1 && CustomerComboBox.SelectedIndex != -1)
             {
                 _currentCustomer = _customersList[CustomerComboBox.SelectedIndex];
-                Order order = new Order(
-                    DateTime.Now.ToString(), 
-                    _currentCustomer.Address, 
-                    _currentCustomer.Cart, 
-                    OrderStatus.New);
-                _currentCustomer.OrderList.Add(order);
+                //Order order = new Order(
+                //    DateTime.Now.ToString(), 
+                //    _currentCustomer.Address, 
+                //    _currentCustomer.Cart, 
+                //    OrderStatus.New);
+                //_currentCustomer.OrderList.Add(order);
+
+                if (_currentCustomer.IsPriority == true)
+                {
+                    Order priorityOrder = new PriorityOrder();
+                    priorityOrder.CreationDate = DateTime.Now.ToString();
+                    priorityOrder.Address = _currentCustomer.Address;
+                    priorityOrder.Items = _currentCustomer.Cart.Items;
+                    priorityOrder.Amount = _currentCustomer.Cart.Amount;
+                    priorityOrder.OrderStatus = OrderStatus.New;
+                    priorityOrder.Id = _currentCustomer.Id;
+                    priorityOrder.IsPriority = true;
+                    _currentCustomer.OrderList.Add((PriorityOrder)priorityOrder);
+                }
+
+                else
+                {
+                    Order order = new PriorityOrder();
+                    order.CreationDate = DateTime.Now.ToString();
+                    order.Address = _currentCustomer.Address;
+                    order.Items = _currentCustomer.Cart.Items;
+                    order.Amount = _currentCustomer.Cart.Amount;
+                    order.OrderStatus = OrderStatus.New;
+                    order.Id = _currentCustomer.Id;
+                    order.IsPriority = false;
+                    _currentCustomer.OrderList.Add((PriorityOrder)order);
+                }
 
                 List<Item> item = new List<Item>();
                 _currentCustomer.Cart.Items = item;
