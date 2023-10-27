@@ -214,6 +214,11 @@ namespace ObjectOrientedPractics.View.Tabs
                 return;
             }
 
+            if (ItemsListBox.Items.Count == 0)
+            {
+                _itemsList = new();
+            }
+
             if (_selectedIndex == -1)
             {
                 _currentItem = new Item(
@@ -222,6 +227,7 @@ namespace ObjectOrientedPractics.View.Tabs
                     Convert.ToInt32(CostTextBox.Text),
                     (Category)CategoryComboBox.SelectedItem);
                 _itemsList.Add(_currentItem);
+                Items = _itemsList;
                 Sort();
                 ToggleInputBoxes(false);
                 ClearItemsInfo();
