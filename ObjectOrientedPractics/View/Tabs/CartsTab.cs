@@ -50,7 +50,7 @@ namespace ObjectOrientedPractics.View.Tabs
             get => _itemsList;
             set
             {
-                if (_itemsList != null)
+                if (_itemsList != null && value != null)
                 {
                     _itemsList = value;
                     _itemsList = _itemsList.OrderBy(item => item.ToString()).ToList();
@@ -87,6 +87,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             CartListBox.Items.Clear();
             AmountIntLabel.Text = "0";
+            CreateOrderButton.Enabled = false;
         }
 
         private void AddToCartButton_Click(object sender, EventArgs e)
@@ -147,6 +148,11 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentCustomer.Cart.Items.Remove(_currentItem);
                 CartListBox.Items.RemoveAt(CartListBox.SelectedIndex);
                 AmountIntLabel.Text = _currentCustomer.Cart.Amount.ToString();
+
+                if (CartListBox.Items.Count == 0)
+                {
+                    CreateOrderButton.Enabled = false;
+                }
             }
         }
 
