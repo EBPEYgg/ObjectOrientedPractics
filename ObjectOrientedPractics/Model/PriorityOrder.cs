@@ -34,6 +34,14 @@
         }
 
         /// <summary>
+        /// Создает пустой экземпляр класса <see cref="PriorityOrder"/>.
+        /// </summary>
+        public PriorityOrder()
+        {
+
+        }
+
+        /// <summary>
         /// Создает экземпляр класса <see cref="PriorityOrder"/>.
         /// </summary>
         /// <param name="requestedDeliveryTime">Желаемое время доставки.</param>
@@ -42,14 +50,6 @@
         {
             RequestedDeliveryTime = requestedDeliveryTime;
             RequestedDeliveryDate = requestedDeliveryDate;
-        }
-
-        /// <summary>
-        /// Создает пустой экземпляр класса <see cref="PriorityOrder"/>.
-        /// </summary>
-        public PriorityOrder()
-        {
-
         }
     }
 }
