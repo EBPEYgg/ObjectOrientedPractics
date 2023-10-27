@@ -44,7 +44,7 @@ namespace ObjectOrientedPractics.Model
         public int AllOrdersCount
         {
             get => _allOrdersCount;
-            private set => _allOrdersCount = value;
+            set => _allOrdersCount = value;
         }
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace ObjectOrientedPractics.Model
         public int Id
         {
             get => _id;
-            private set => _id = value;
+            set => _id = value;
         }
 
         /// <summary>
