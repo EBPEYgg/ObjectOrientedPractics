@@ -25,6 +25,7 @@ namespace ObjectOrientedPractics
             CartsTab.Items = _store.Items;
             CartsTab.Customers = _store.Customers;
             OrdersTab.Customers = _store.Customers;
+            PriorityOrdersTab.Items = _store.Items;
             ListSorting();
         }
 
@@ -48,9 +49,14 @@ namespace ObjectOrientedPractics
         /// </summary>
         private void LoadStoreInfo()
         {
-            if (File.Exists(_fileName))
+            try
             {
                 _store = JsonConvert.DeserializeObject<Store>(File.ReadAllText(_fileName));
+            }
+            catch (FileNotFoundException)
+            {
+                string json = System.Text.Json.JsonSerializer.Serialize(_store);
+                File.WriteAllText(_fileName, json);
             }
         }
 
@@ -65,6 +71,16 @@ namespace ObjectOrientedPractics
 
         private void TabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (TabControl.SelectedIndex == 0)
+            {
+                _store.Items = ItemsTabs.Items;
+            }
+
+            if (TabControl.SelectedIndex == 1)
+            {
+                _store.Customers = CustomerTabs.Customers;
+            }
+
             if (TabControl.SelectedIndex == 2)
             {
                 CartsTab.Items = ItemsTabs.Items;
