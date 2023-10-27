@@ -145,6 +145,11 @@ namespace ObjectOrientedPractics.View.Tabs
                 return;
             }
 
+            if (CustomersListBox.Items.Count == 0)
+            {
+                _customersList = new();
+            }
+
             if (_selectedIndex == -1)
             {
                 _currentCustomer = new Customer(FullNameTextBox.Text.Trim(),
@@ -152,7 +157,10 @@ namespace ObjectOrientedPractics.View.Tabs
                     AddressControl.Address.City, AddressControl.Address.Street,
                     AddressControl.Address.Building, AddressControl.Address.Apartment, 
                     IsPriorityCheckBox.Checked);
+                _currentCustomer.Order.Address = AddressControl.Address;
+                _currentCustomer.Order.IsPriority = IsPriorityCheckBox.Checked;
                 _customersList.Add(_currentCustomer);
+                Customers = _customersList;
                 Sort();
                 ToggleInputBoxes(false);
                 ClearCustomersInfo();
@@ -162,7 +170,6 @@ namespace ObjectOrientedPractics.View.Tabs
             _customersList[_selectedIndex] = _cloneCurrentCustomer;
             _currentCustomer = _cloneCurrentCustomer;
             Sort();
-            //SaveCustomer();
             ToggleInputBoxes(false);
             UpdateCustomerInfo();
         }
@@ -217,6 +224,8 @@ namespace ObjectOrientedPractics.View.Tabs
             FullNameTextBox.Text = _currentCustomer.Fullname.ToString();
             AddressControl.Address = _currentCustomer.Address;
             IsPriorityCheckBox.Checked = _currentCustomer.IsPriority;
+            _currentCustomer.Order.IsPriority = _currentCustomer.IsPriority;
+            _currentCustomer.Order.Address = AddressControl.Address;
         }
     }
 }
