@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using ObjectOrientedPractics.Model.Discounts;
 using ObjectOrientedPractics.Services;
 using System.ComponentModel;
 
@@ -119,6 +120,11 @@ namespace ObjectOrientedPractics.Model
         public bool IsPriority { get; set; }
 
         /// <summary>
+        /// Возвращает и задает список скидок покупателя.
+        /// </summary>
+        public BindingList<IDiscount> Discounts { get; set; }
+
+        /// <summary>
         /// Создает пустой экземпляр класса <see cref="Customer"/>.
         /// </summary>
         public Customer()
@@ -143,6 +149,9 @@ namespace ObjectOrientedPractics.Model
             IsPriority = isPriority;
             Address = new Address(index, country, city, street, building, apartment);
             OrderList = new BindingList<Order>();
+            Discounts = new BindingList<IDiscount>();
+            PointsDiscount pointsDiscount = new PointsDiscount();
+            Discounts.Add(pointsDiscount);
             AllCustomersCount++;
             Id = _allCustomersCount;
         }
