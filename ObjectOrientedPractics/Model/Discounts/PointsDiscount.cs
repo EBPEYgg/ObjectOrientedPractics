@@ -5,7 +5,7 @@ namespace ObjectOrientedPractics.Model.Discounts
     /// <summary>
     /// Класс, описывающий скидки накопительных баллов.
     /// </summary>
-    public class PointsDiscount
+    public class PointsDiscount : IDiscount
     {
         /// <summary>
         /// Количество накопленных баллов.
