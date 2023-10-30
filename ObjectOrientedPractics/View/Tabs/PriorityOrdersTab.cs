@@ -141,6 +141,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 AddressControl.Address = new Address();
                 AddressControl.ClearAddressInfo();
                 ToggleControlBoxes(false);
+                RemoveItemButton.Enabled = false;
             }
         }
 
