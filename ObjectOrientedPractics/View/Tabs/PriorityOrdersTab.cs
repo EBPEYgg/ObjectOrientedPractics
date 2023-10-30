@@ -58,6 +58,7 @@ namespace ObjectOrientedPractics.View.Tabs
             InitializeComponent();
             DeliveryTimeComboBox.Items.AddRange(new string[] {"9:00 - 11:00", "11:00 - 13:00",
                 "13:00 - 15:00", "15:00 - 17:00", "17:00 - 19:00", "19:00 - 21:00"});
+            DeliveryTimeComboBox.SelectedIndex = 0;
             StatusComboBox.DataSource = Enum.GetValues(typeof(OrderStatus));
             
             AddressControl.Address = new Address();
@@ -128,7 +129,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 OrderItemsListBox.Items.Clear();
                 AmountIntLabel.Text = "0";
                 CreatedTextBox.Text = DateTime.Now.ToString();
-                IdTextBox.Text = _counter.ToString();
+                IdTextBox.Text = (_counter).ToString();
                 StatusComboBox.SelectedIndex = 0;
                 DeliveryTimeComboBox.SelectedIndex = -1;
                 _amount = 0;
