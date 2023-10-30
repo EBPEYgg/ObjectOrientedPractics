@@ -46,7 +46,7 @@
         /// </summary>
         /// <param name="requestedDeliveryTime">Желаемое время доставки.</param>
         /// <param name="requestedDeliveryDate">Дата доставки.</param>
-        public PriorityOrder(string requestedDeliveryTime, DateTime requestedDeliveryDate) //: base(order.Date, order.Address, order.Amount, order.Items, order.Id, order.OrderStatus)
+        public PriorityOrder(string requestedDeliveryTime, DateTime requestedDeliveryDate)
         {
             RequestedDeliveryTime = requestedDeliveryTime;
             RequestedDeliveryDate = requestedDeliveryDate;

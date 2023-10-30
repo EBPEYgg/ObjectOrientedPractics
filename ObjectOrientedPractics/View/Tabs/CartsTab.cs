@@ -125,12 +125,6 @@ namespace ObjectOrientedPractics.View.Tabs
             if (ItemsListBox.SelectedIndex != -1 && CustomerComboBox.SelectedIndex != -1)
             {
                 _currentCustomer = _customersList[CustomerComboBox.SelectedIndex];
-                //Order order = new Order(
-                //    DateTime.Now.ToString(), 
-                //    _currentCustomer.Address, 
-                //    _currentCustomer.Cart, 
-                //    OrderStatus.New);
-                //_currentCustomer.OrderList.Add(order);
 
                 if (_currentCustomer.IsPriority == true)
                 {
