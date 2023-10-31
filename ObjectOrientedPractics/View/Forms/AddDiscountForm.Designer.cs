@@ -97,7 +97,9 @@
             this.Controls.Add(this.PercentDiscountLabel);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.OkButton);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(350, 145);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(350, 145);
             this.Name = "AddDiscountForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

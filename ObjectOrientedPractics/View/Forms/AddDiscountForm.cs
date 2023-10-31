@@ -6,7 +6,7 @@ namespace ObjectOrientedPractics.View.Forms
     public partial class AddDiscountForm : Form
     {
         /// <summary>
-        /// Возвращает и задает выбранный индекс.
+        /// Возвращает и задает выбранный индекс покупателя в CustomersListBox.
         /// </summary>
         public int SelectedIndex { get; set; }
 
