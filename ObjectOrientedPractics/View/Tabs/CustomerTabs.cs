@@ -1,6 +1,7 @@
 ﻿using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
 using ObjectOrientedPractics.View.Controls;
+using ObjectOrientedPractics.View.Forms;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -145,11 +146,13 @@ namespace ObjectOrientedPractics.View.Tabs
                 return;
             }
 
+            // создание списка покупателей, если listbox пустой
             if (CustomersListBox.Items.Count == 0)
             {
                 _customersList = new();
             }
 
+            // создание нового объекта
             if (_selectedIndex == -1)
             {
                 _currentCustomer = new Customer(FullNameTextBox.Text.Trim(),
@@ -161,12 +164,14 @@ namespace ObjectOrientedPractics.View.Tabs
                 _currentCustomer.Order.IsPriority = IsPriorityCheckBox.Checked;
                 _customersList.Add(_currentCustomer);
                 Customers = _customersList;
+                DiscountCheckedListBox.DataSource = _currentCustomer.Discounts;
                 Sort();
                 ToggleInputBoxes(false);
                 ClearCustomersInfo();
                 return;
             }
 
+            // редактирование объекта
             _customersList[_selectedIndex] = _cloneCurrentCustomer;
             _currentCustomer = _cloneCurrentCustomer;
             Sort();
@@ -184,11 +189,13 @@ namespace ObjectOrientedPractics.View.Tabs
                 FullNameTextBox.Text = _cloneCurrentCustomer.Fullname.ToString();
                 AddressControl.Address = _cloneCurrentCustomer.Address; 
                 IsPriorityCheckBox.Checked = _cloneCurrentCustomer.IsPriority;
+                DiscountCheckedListBox.DataSource = _currentCustomer.Discounts;
             }
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            // now saving data when switching tabs
             //SaveCustomer();
         }
 
@@ -226,6 +233,26 @@ namespace ObjectOrientedPractics.View.Tabs
             IsPriorityCheckBox.Checked = _currentCustomer.IsPriority;
             _currentCustomer.Order.IsPriority = _currentCustomer.IsPriority;
             _currentCustomer.Order.Address = AddressControl.Address;
+        }
+
+        private void AddDiscountButton_Click(object sender, EventArgs e)
+        {
+            if (CustomersListBox.SelectedIndex != -1)
+            {
+                AddDiscountForm addDiscountForm = new();
+                addDiscountForm.SelectedIndex = CustomersListBox.SelectedIndex;
+                addDiscountForm.Customers = Customers;
+                addDiscountForm.Show();
+            }
+        }
+
+        private void RemoveDiscountButton_Click(object sender, EventArgs e)
+        {
+            if (DiscountCheckedListBox.SelectedIndex > 0 && CustomersListBox.SelectedIndex != -1)
+            {
+                Customers[CustomersListBox.SelectedIndex].Discounts.RemoveAt
+                    (DiscountCheckedListBox.SelectedIndex);
+            }
         }
     }
 }
