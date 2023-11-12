@@ -43,6 +43,7 @@ namespace ObjectOrientedPractics.Model
             {
                 Validator.AssertStringOnLength(value, 200, Name);
                 _name = value;
+                NameChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -56,6 +57,7 @@ namespace ObjectOrientedPractics.Model
             {
                 Validator.AssertStringOnLength(value, 1000, Info);
                 _info = value;
+                InfoChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -70,6 +72,7 @@ namespace ObjectOrientedPractics.Model
             {
                 Validator.AssertValueInRange(value, 0, 100000, "Cost");
                 _cost = value;
+                CostChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -220,5 +223,20 @@ namespace ObjectOrientedPractics.Model
                 throw new ArgumentException("Object is not a Item");
             }
         }
+
+        /// <summary>
+        /// Событие на изменение названия товара.
+        /// </summary>
+        public event EventHandler NameChanged;
+
+        /// <summary>
+        /// Событие на изменение цены товара.
+        /// </summary>
+        public event EventHandler CostChanged;
+
+        /// <summary>
+        /// Событие на изменение описание товара.
+        /// </summary>
+        public event EventHandler InfoChanged;
     }
 }

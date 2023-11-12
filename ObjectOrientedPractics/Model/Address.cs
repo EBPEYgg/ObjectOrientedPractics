@@ -51,6 +51,7 @@ namespace ObjectOrientedPractics.Model
                     throw new ArgumentException("Индекс должен состоять только из 6 цифр.");
                 }
                 _index = value;
+                AddressChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -64,6 +65,7 @@ namespace ObjectOrientedPractics.Model
             {
                 Validator.AssertStringOnLength(value, 50, Country);
                 _country = value;
+                AddressChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -77,6 +79,7 @@ namespace ObjectOrientedPractics.Model
             {
                 Validator.AssertStringOnLength(value, 50, City);
                 _city = value;
+                AddressChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -90,6 +93,7 @@ namespace ObjectOrientedPractics.Model
             {
                 Validator.AssertStringOnLength(value, 50, Street);
                 _street = value;
+                AddressChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -103,6 +107,7 @@ namespace ObjectOrientedPractics.Model
             {
                 Validator.AssertStringOnLength(value, 5, Building);
                 _building = value;
+                AddressChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -116,6 +121,7 @@ namespace ObjectOrientedPractics.Model
             {
                 Validator.AssertStringOnLength(value, 5, Apartment);
                 _apartment = value;
+                AddressChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -209,5 +215,10 @@ namespace ObjectOrientedPractics.Model
 
             return Equals(address);
         }
+
+        /// <summary>
+        /// Событие на изменение какого-либо поля адреса.
+        /// </summary>
+        public event EventHandler AddressChanged;
     }
 }
