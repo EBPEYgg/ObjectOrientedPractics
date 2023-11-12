@@ -6,30 +6,6 @@
     internal static class Validator
     {
         /// <summary>
-        /// Метод, который проверяет число на положительность.
-        /// </summary>
-        /// <returns>Возвращает true or false.</returns>
-        public static void AssertOnPositiveValue(int number, string propertyName)
-        {
-            if (number <= 0)
-            {
-                throw new ArgumentException($"{propertyName} не является положительным.");
-            }
-        }
-
-        /// <summary>
-        /// Метод, который проверяет число на положительность.
-        /// </summary>
-        /// <returns>Возвращает true or false.</returns>
-        public static void AssertOnPositiveValue(double number, string propertyName)
-        {
-            if (number <= 0)
-            {
-                throw new ArgumentException($"{propertyName} не является положительным.");
-            }
-        }
-
-        /// <summary>
         /// Метод, который проверяет число на вхождение в заданный диапазон.
         /// </summary>
         /// <param name="value">Число, которое нужно проверить.</param>
