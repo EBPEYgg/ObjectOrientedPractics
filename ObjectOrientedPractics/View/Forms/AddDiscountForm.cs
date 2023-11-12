@@ -1,5 +1,5 @@
 ﻿using ObjectOrientedPractics.Model;
-using static ObjectOrientedPractics.Model.Discounts.PercentDiscount;
+using ObjectOrientedPractics.Model.Discounts;
 
 namespace ObjectOrientedPractics.View.Forms
 {
@@ -31,7 +31,7 @@ namespace ObjectOrientedPractics.View.Forms
         {
             if (CategoryComboBox.SelectedIndex != -1)
             {
-                PercentDiscounts percentDiscount = new PercentDiscounts();
+                PercentDiscount percentDiscount = new PercentDiscount();
                 percentDiscount.Category = (Category)CategoryComboBox.SelectedItem;
                 Customers[SelectedIndex].Discounts.Add(percentDiscount);
                 Close();

@@ -5,7 +5,7 @@ namespace ObjectOrientedPractics.Model
     /// <summary>
     /// Класс, описывающий заказ покупателя.
     /// </summary>
-    public class Order
+    public class Order : IEquatable<Order>
     {
         /// <summary>
         /// Уникальный идентификатор.
@@ -143,6 +143,56 @@ namespace ObjectOrientedPractics.Model
             OrderStatus = orderStatus;
             AllOrdersCount++;
             Id = _allOrdersCount;
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="IEquatable{T}"/>
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public bool Equals(Order other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+
+            if (Id == other.Id)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Перегрузка. <inheritdoc cref="IEquatable{T}"/>.
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public override bool Equals(object other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+
+            if (other is not Order)
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, other))
+            {
+                return true;
+            }
+
+            var order = (Order)other;
+
+            return (Id == order.Id);
         }
     }
 }

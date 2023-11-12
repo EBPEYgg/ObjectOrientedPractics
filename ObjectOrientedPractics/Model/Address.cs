@@ -6,7 +6,7 @@ namespace ObjectOrientedPractics.Model
     /// <summary>
     /// Класс, описывающий адрес покупателя.
     /// </summary>
-    public class Address
+    public class Address : ICloneable, IEquatable<Address>
     {
         /// <summary>
         /// Почтовый индекс покупателя.
@@ -149,6 +149,65 @@ namespace ObjectOrientedPractics.Model
         public override string ToString()
         {
             return $"{Index}, {Country}, {City}, {Street}, {Building}, {Apartment}";
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="ICloneable"/>
+        /// </summary>
+        /// <returns></returns>
+        public object Clone()
+        {
+            return new Address(Index, Country, City, Street, Building, Apartment);
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="IEquatable{T}"/>
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public bool Equals(Address other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, other))
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Перегрузка. <inheritdoc cref="IEquatable{T}"/>
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public override bool Equals(object other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+
+            if (other is not Address)
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, other))
+            {
+                return true;
+            }
+
+            var address = (Address)other;
+
+            return Equals(address);
         }
     }
 }

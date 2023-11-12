@@ -6,7 +6,7 @@ namespace ObjectOrientedPractics.Model
     /// <summary>
     /// Класс, описывающий товар в магазине.
     /// </summary>
-    public class Item
+    public class Item : ICloneable, IEquatable<Item>, IComparable
     {
         /// <summary>
         /// Уникальный номер товара.
@@ -143,6 +143,82 @@ namespace ObjectOrientedPractics.Model
         public object Clone()
         {
             return this.MemberwiseClone();
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="IEquatable{T}"/>
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public bool Equals(Item other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+
+            if (Id == other.Id)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Перегрузка. <inheritdoc cref="IEquatable{T}"/>
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public override bool Equals(object other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+
+            if (other is not Item)
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, other))
+            {
+                return true;
+            }
+
+            var item = (Item)other;
+
+            return (Id == item.Id);
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="IComparable"/>
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        public int CompareTo(object obj)
+        {
+            if (obj == null)
+            {
+                return 1;
+            }
+
+            Item otherItem = obj as Item;
+
+            if (otherItem != null)
+            {
+                return Cost.CompareTo(otherItem.Cost);
+            }
+
+            else
+            {
+                throw new ArgumentException("Object is not a Item");
+            }
         }
     }
 }

@@ -3,7 +3,7 @@
     /// <summary>
     /// Класс, описывающий корзину товаров покупателя.
     /// </summary>
-    public class Cart
+    public class Cart : ICloneable
     {
         /// <summary>
         /// Список товаров.
@@ -50,7 +50,7 @@
         /// <returns>Клонированный объект класса.</returns>
         public object Clone()
         {
-            return this.MemberwiseClone();
+            return new Cart();
         }
     }
 }

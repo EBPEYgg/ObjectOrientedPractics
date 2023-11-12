@@ -5,7 +5,7 @@ namespace ObjectOrientedPractics.Model.Discounts
     /// <summary>
     /// Класс, описывающий скидки накопительных баллов.
     /// </summary>
-    public class PointsDiscount : IDiscount
+    public class PointsDiscount : IDiscount, IComparable
     {
         /// <summary>
         /// Количество накопленных баллов.
@@ -115,6 +115,32 @@ namespace ObjectOrientedPractics.Model.Discounts
         public override string ToString()
         {
             return $"Накопительная - {PointsCount} баллов";
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="IComparable"/>.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        public int CompareTo(object obj)
+        {
+            if (obj == null)
+            {
+                return 1;
+            }
+
+            PointsDiscount otherPointsDiscount = obj as PointsDiscount;
+
+            if (otherPointsDiscount != null)
+            {
+                return PointsCount.CompareTo(otherPointsDiscount.PointsCount);
+            }
+
+            else
+            {
+                throw new ArgumentException("Object is not a Item.");
+            }
         }
     }
 }
