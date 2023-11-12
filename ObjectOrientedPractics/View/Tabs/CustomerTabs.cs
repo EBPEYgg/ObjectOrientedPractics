@@ -189,7 +189,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 FullNameTextBox.Text = _cloneCurrentCustomer.Fullname.ToString();
                 AddressControl.Address = _cloneCurrentCustomer.Address; 
                 IsPriorityCheckBox.Checked = _cloneCurrentCustomer.IsPriority;
-                DiscountCheckedListBox.DataSource = _currentCustomer.Discounts;
+                DiscountCheckedListBox.DataSource = _cloneCurrentCustomer.Discounts;
             }
         }
 
