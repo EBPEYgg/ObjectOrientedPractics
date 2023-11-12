@@ -153,21 +153,21 @@
             // 
             // RemoveDiscountButton
             // 
-            this.RemoveDiscountButton.Location = new System.Drawing.Point(210, 393);
+            this.RemoveDiscountButton.Location = new System.Drawing.Point(192, 400);
             this.RemoveDiscountButton.Name = "RemoveDiscountButton";
-            this.RemoveDiscountButton.Size = new System.Drawing.Size(86, 33);
+            this.RemoveDiscountButton.Size = new System.Drawing.Size(172, 41);
             this.RemoveDiscountButton.TabIndex = 26;
-            this.RemoveDiscountButton.Text = "Remove";
+            this.RemoveDiscountButton.Text = "Remove discount";
             this.RemoveDiscountButton.UseVisualStyleBackColor = true;
             this.RemoveDiscountButton.Click += new System.EventHandler(this.RemoveDiscountButton_Click);
             // 
             // AddDiscountButton
             // 
-            this.AddDiscountButton.Location = new System.Drawing.Point(210, 354);
+            this.AddDiscountButton.Location = new System.Drawing.Point(6, 400);
             this.AddDiscountButton.Name = "AddDiscountButton";
-            this.AddDiscountButton.Size = new System.Drawing.Size(86, 33);
+            this.AddDiscountButton.Size = new System.Drawing.Size(172, 41);
             this.AddDiscountButton.TabIndex = 25;
-            this.AddDiscountButton.Text = "Add";
+            this.AddDiscountButton.Text = "Add discount";
             this.AddDiscountButton.UseVisualStyleBackColor = true;
             this.AddDiscountButton.Click += new System.EventHandler(this.AddDiscountButton_Click);
             // 
@@ -176,9 +176,9 @@
             this.DiscountCheckedListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.DiscountCheckedListBox.BackColor = System.Drawing.SystemColors.Window;
             this.DiscountCheckedListBox.FormattingEnabled = true;
-            this.DiscountCheckedListBox.Location = new System.Drawing.Point(16, 354);
+            this.DiscountCheckedListBox.Location = new System.Drawing.Point(13, 349);
             this.DiscountCheckedListBox.Name = "DiscountCheckedListBox";
-            this.DiscountCheckedListBox.Size = new System.Drawing.Size(188, 76);
+            this.DiscountCheckedListBox.Size = new System.Drawing.Size(357, 40);
             this.DiscountCheckedListBox.TabIndex = 24;
             // 
             // IsPriorityCheckBox
