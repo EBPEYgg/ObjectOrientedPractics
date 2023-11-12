@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.ItemsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.ItemsGroupBox = new System.Windows.Forms.GroupBox();
+            this.OrderByComboBox = new System.Windows.Forms.ComboBox();
+            this.OrderByLabel = new System.Windows.Forms.Label();
+            this.FindTextBox = new System.Windows.Forms.TextBox();
+            this.FindLabel = new System.Windows.Forms.Label();
             this.SaveButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
@@ -71,6 +75,10 @@
             // 
             // ItemsGroupBox
             // 
+            this.ItemsGroupBox.Controls.Add(this.OrderByComboBox);
+            this.ItemsGroupBox.Controls.Add(this.OrderByLabel);
+            this.ItemsGroupBox.Controls.Add(this.FindTextBox);
+            this.ItemsGroupBox.Controls.Add(this.FindLabel);
             this.ItemsGroupBox.Controls.Add(this.SaveButton);
             this.ItemsGroupBox.Controls.Add(this.DeleteButton);
             this.ItemsGroupBox.Controls.Add(this.AddButton);
@@ -82,6 +90,42 @@
             this.ItemsGroupBox.TabIndex = 0;
             this.ItemsGroupBox.TabStop = false;
             this.ItemsGroupBox.Text = "Items";
+            // 
+            // OrderByComboBox
+            // 
+            this.OrderByComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.OrderByComboBox.FormattingEnabled = true;
+            this.OrderByComboBox.Location = new System.Drawing.Point(180, 363);
+            this.OrderByComboBox.Name = "OrderByComboBox";
+            this.OrderByComboBox.Size = new System.Drawing.Size(156, 23);
+            this.OrderByComboBox.TabIndex = 7;
+            this.OrderByComboBox.SelectionChangeCommitted += new System.EventHandler(this.OrderByComboBox_SelectionChangeCommitted);
+            // 
+            // OrderByLabel
+            // 
+            this.OrderByLabel.AutoSize = true;
+            this.OrderByLabel.Location = new System.Drawing.Point(118, 366);
+            this.OrderByLabel.Name = "OrderByLabel";
+            this.OrderByLabel.Size = new System.Drawing.Size(56, 15);
+            this.OrderByLabel.TabIndex = 6;
+            this.OrderByLabel.Text = "Order by:";
+            // 
+            // FindTextBox
+            // 
+            this.FindTextBox.Location = new System.Drawing.Point(45, 22);
+            this.FindTextBox.Name = "FindTextBox";
+            this.FindTextBox.Size = new System.Drawing.Size(291, 23);
+            this.FindTextBox.TabIndex = 5;
+            this.FindTextBox.TextChanged += new System.EventHandler(this.FindTextBox_TextChanged);
+            // 
+            // FindLabel
+            // 
+            this.FindLabel.AutoSize = true;
+            this.FindLabel.Location = new System.Drawing.Point(6, 25);
+            this.FindLabel.Name = "FindLabel";
+            this.FindLabel.Size = new System.Drawing.Size(33, 15);
+            this.FindLabel.TabIndex = 4;
+            this.FindLabel.Text = "Find:";
             // 
             // SaveButton
             // 
@@ -123,9 +167,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ItemsListBox.FormattingEnabled = true;
             this.ItemsListBox.ItemHeight = 15;
-            this.ItemsListBox.Location = new System.Drawing.Point(6, 22);
+            this.ItemsListBox.Location = new System.Drawing.Point(6, 52);
             this.ItemsListBox.Name = "ItemsListBox";
-            this.ItemsListBox.Size = new System.Drawing.Size(330, 364);
+            this.ItemsListBox.Size = new System.Drawing.Size(330, 304);
             this.ItemsListBox.TabIndex = 0;
             this.ItemsListBox.SelectedIndexChanged += new System.EventHandler(this.ItemsListBox_SelectedIndexChanged);
             // 
@@ -153,6 +197,7 @@
             // 
             // CategoryComboBox
             // 
+            this.CategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CategoryComboBox.Enabled = false;
             this.CategoryComboBox.FormattingEnabled = true;
             this.CategoryComboBox.Location = new System.Drawing.Point(70, 97);
@@ -284,6 +329,7 @@
             this.Size = new System.Drawing.Size(696, 445);
             this.ItemsTableLayoutPanel.ResumeLayout(false);
             this.ItemsGroupBox.ResumeLayout(false);
+            this.ItemsGroupBox.PerformLayout();
             this.SelectedItemGroupBox.ResumeLayout(false);
             this.SelectedItemGroupBox.PerformLayout();
             this.ResumeLayout(false);
@@ -312,5 +358,9 @@
         private Label CategoryLabel;
         private ComboBox CategoryComboBox;
         private ToolTip ErrorToolTip;
+        private TextBox FindTextBox;
+        private Label FindLabel;
+        private Label OrderByLabel;
+        private ComboBox OrderByComboBox;
     }
 }

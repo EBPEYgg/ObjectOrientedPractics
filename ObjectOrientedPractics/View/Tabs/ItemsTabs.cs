@@ -24,6 +24,11 @@ namespace ObjectOrientedPractics.View.Tabs
         private Item _cloneCurrentItem = new Item();
 
         /// <summary>
+        /// Список отображаемых товаров.
+        /// </summary>
+        private List<Item> _displayedItems = new();
+
+        /// <summary>
         /// Индекс текущего выбранного элемента перед сортировкой 
         /// для сохранения выбранного элемента в ItemsListBox.
         /// </summary>
@@ -58,12 +63,12 @@ namespace ObjectOrientedPractics.View.Tabs
             ItemsListBox.SelectedIndex = -1;
             CategoryComboBox.DataSource = Enum.GetValues(typeof(Category));
             CategoryComboBox.SelectedIndex = -1;
-            CategoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            OrderByComboBox.Items.AddRange(new string[] {"Name", "Cost (Ascending)", "Cost (Descending"});
+            OrderByComboBox.SelectedIndex = 0;
         }
 
         /// <summary>
-        /// Метод, который сортирует <see cref="_itemsList"/> и <see cref="ItemsListBox"/>
-        /// в алфавитном порядке.
+        /// Метод, который сортирует <see cref="_itemsList"/> и <see cref="ItemsListBox"/>.
         /// </summary>
         public void Sort()
         {
@@ -71,7 +76,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 _indexBeforeSort = ItemsListBox.SelectedIndex;
                 ItemsListBox.SelectedIndexChanged -= ItemsListBox_SelectedIndexChanged;
-                _itemsList = _itemsList.OrderBy(item => item.ToString()).ToList();
+                //_itemsList = _itemsList.OrderBy(item => item.ToString()).ToList();
                 ItemsListBox.DataSource = _itemsList;
                 ItemsListBox.SelectedIndex = _indexBeforeSort;
                 ItemsListBox.SelectedIndexChanged += ItemsListBox_SelectedIndexChanged;
@@ -214,11 +219,13 @@ namespace ObjectOrientedPractics.View.Tabs
                 return;
             }
 
+            // создание списка покупателей, если listbox пустой
             if (ItemsListBox.Items.Count == 0)
             {
                 _itemsList = new();
             }
 
+            // создание нового экземпляра
             if (_selectedIndex == -1)
             {
                 _currentItem = new Item(
@@ -229,6 +236,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 _itemsList.Add(_currentItem);
                 Items = _itemsList;
                 Sort();
+                OrderByComboBox_SelectionChangeCommitted(sender, e);
                 ToggleInputBoxes(false);
                 ClearItemsInfo();
                 return;
@@ -237,6 +245,7 @@ namespace ObjectOrientedPractics.View.Tabs
             _itemsList[_selectedIndex] = _cloneCurrentItem;
             _currentItem = _cloneCurrentItem;
             Sort();
+            OrderByComboBox_SelectionChangeCommitted(sender, e);
             ToggleInputBoxes(false);
             UpdateItemInfo();
         }
@@ -246,7 +255,17 @@ namespace ObjectOrientedPractics.View.Tabs
             if (ItemsListBox.SelectedIndex != -1)
             {
                 ToggleInputBoxes(false);
-                _cloneCurrentItem = (Item)_itemsList[ItemsListBox.SelectedIndex].Clone();
+                object? selectedItem = ItemsListBox.SelectedItem;
+
+                for (int i = 0; i < _itemsList.Count; i++)
+                {
+                    if (selectedItem == _itemsList[i])
+                    {
+                        _cloneCurrentItem = (Item)_itemsList[i].Clone();
+                        break;
+                    }
+                }
+
                 IdTextBox.Text = _cloneCurrentItem.Id.ToString();
                 CostTextBox.Text = _cloneCurrentItem.Cost.ToString();
                 NameRichTextBox.Text = _cloneCurrentItem.Name.ToString();
@@ -257,7 +276,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            
+            // now saving data when switching tabs
         }
 
         /// <summary>
@@ -294,6 +313,78 @@ namespace ObjectOrientedPractics.View.Tabs
             CostTextBox.Text = _currentItem.Cost.ToString();
             NameRichTextBox.Text = _currentItem.Name.ToString();
             DescriptionRichTextBox.Text = _currentItem.Info.ToString();
+        }
+
+        private void FindTextBox_TextChanged(object sender, EventArgs e)
+        {
+            DataTools.FilterTextCriterion = FindTextBox.Text;
+
+            if (FindTextBox.Text != string.Empty)
+            {
+                _displayedItems = DataTools.ItemsFilter(_itemsList, DataTools.ItemsFilterText);
+                ItemsListBox.SelectedIndexChanged -= ItemsListBox_SelectedIndexChanged;
+                ItemsListBox.DataSource = _displayedItems;
+                ItemsListBox.SelectedIndex = -1;
+                ItemsListBox.SelectedIndexChanged += ItemsListBox_SelectedIndexChanged;
+            }
+
+            else
+            {
+                Sort();
+                FindTextBox.Text = string.Empty;
+            }
+        }
+
+        private void ItemsListSort(Func<Item, Item, bool> sort)
+        {
+            if (_itemsList != null)
+            {
+                ItemsListBox.SelectedIndexChanged -= ItemsListBox_SelectedIndexChanged;
+                ItemsListBox.DataSource = null;
+                _itemsList = DataTools.ItemsSort(_itemsList, sort);
+                ItemsListBox.DataSource = _itemsList;
+                ItemsListBox.SelectedIndex = -1;
+                ItemsListBox.SelectedIndexChanged += ItemsListBox_SelectedIndexChanged;
+            }
+        }
+
+        private void OrderByComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            int sortByName = 0;
+            int sortByCostAscending = 1;
+            int sortByCostDescending = 2;
+            var testSelectedItem = ItemsListBox.SelectedItem;
+
+            if (OrderByComboBox.SelectedIndex == sortByName)
+            {
+                ItemsListSort(DataTools.SortByName);
+            }
+
+            else if (OrderByComboBox.SelectedIndex == sortByCostAscending)
+            {
+                ItemsListSort(DataTools.SortByCostAscending);
+            }
+
+            else if (OrderByComboBox.SelectedIndex == sortByCostDescending)
+            {
+                ItemsListSort(DataTools.SortByCostDescending);
+            }
+
+            if (FindTextBox.Text != string.Empty)
+            {
+                _displayedItems = DataTools.ItemsFilter(_itemsList, DataTools.ItemsFilterText);
+                ItemsListBox.SelectedIndexChanged -= ItemsListBox_SelectedIndexChanged;
+                ItemsListBox.DataSource = _displayedItems;
+                ItemsListBox.SelectedIndex = -1;
+                ItemsListBox.SelectedIndexChanged += ItemsListBox_SelectedIndexChanged;
+            }
+
+            else
+            {
+                FindTextBox.Text = string.Empty;
+            }
+            
+            ItemsListBox.SelectedIndex = _itemsList.IndexOf((Item)testSelectedItem);
         }
     }
 }
