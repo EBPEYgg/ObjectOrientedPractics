@@ -40,6 +40,11 @@ namespace ObjectOrientedPractics.View.Tabs
         private int _selectedIndex;
 
         /// <summary>
+        /// Событие на изменение списка товаров.
+        /// </summary>
+        public event EventHandler ItemsChanged;
+
+        /// <summary>
         /// Возвращает и задает список товаров.
         /// </summary>
         public List<Item> Items
@@ -195,6 +200,7 @@ namespace ObjectOrientedPractics.View.Tabs
             ItemsListBox.SelectedIndex = -1;
             Sort();
             ClearItemsInfo();
+            ItemsChanged?.Invoke(this, EventArgs.Empty);
         }
 
         private void EditButton_Click(object sender, EventArgs e)
@@ -248,6 +254,7 @@ namespace ObjectOrientedPractics.View.Tabs
             OrderByComboBox_SelectionChangeCommitted(sender, e);
             ToggleInputBoxes(false);
             UpdateItemInfo();
+            ItemsChanged?.Invoke(this, EventArgs.Empty);
         }
 
         private void ItemsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -385,6 +392,11 @@ namespace ObjectOrientedPractics.View.Tabs
             }
             
             ItemsListBox.SelectedIndex = _itemsList.IndexOf((Item)testSelectedItem);
+        }
+
+        private void Item_NameChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("Имя пользователя изменено");
         }
     }
 }

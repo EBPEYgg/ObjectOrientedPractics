@@ -37,6 +37,11 @@ namespace ObjectOrientedPractics.View.Tabs
         private int _selectedIndex;
 
         /// <summary>
+        /// Событие на изменение списка покупателей.
+        /// </summary>
+        public event EventHandler CustomersChanged;
+
+        /// <summary>
         /// Возвращает и задает список покупателей.
         /// </summary>
         public List<Customer> Customers
@@ -124,6 +129,7 @@ namespace ObjectOrientedPractics.View.Tabs
             CustomersListBox.SelectedIndex = -1;
             Sort();
             ClearCustomersInfo();
+            CustomersChanged?.Invoke(this, EventArgs.Empty);
         }
 
         private void EditButton_Click(object sender, EventArgs e)
@@ -177,6 +183,7 @@ namespace ObjectOrientedPractics.View.Tabs
             Sort();
             ToggleInputBoxes(false);
             UpdateCustomerInfo();
+            CustomersChanged?.Invoke(this, EventArgs.Empty);
         }
 
         private void CustomersListBox_SelectedIndexChanged(object sender, EventArgs e)
