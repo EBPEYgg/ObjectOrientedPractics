@@ -54,34 +54,38 @@
             /// </summary>
             /// <param name="items">Список товаров.</param>
             /// <returns>Размер скидки.</returns>
-            public double Calculate(List<Item> items)
+            public int Calculate(List<Item> items)
             {
                 double amount = 0;
                 double discountSize;
+
                 for (int i = 0; i < items.Count; i++)
                 {
                     if (items[i].Category == _category)
                     {
                         amount += items[i].Cost;
                     }
+
                     else
                     {
                         amount += 0;
                     }
                 }
+
                 discountSize = amount * CurrentDiscount;
-                return discountSize;
+                return Convert.ToInt32(discountSize);
             }
 
             /// <summary>
-            /// Применяет скидку к товарам подходящей категории.
+            /// Метод, который применяет скидку к товарам подходящей категории.
             /// </summary>
-            /// <param name="items"></param>
+            /// <param name="items">Список товаров.</param>
             /// <returns>Размер скидки.</returns>
-            public double Apply(List<Item> items)
+            public int Apply(List<Item> items)
             {
                 double amount = 0;
                 double discountSize;
+
                 for (int i = 0; i < items.Count; i++)
                 {
                     if (items[i].Category == _category)
@@ -93,12 +97,14 @@
                         amount += 0;
                     }
                 }
+
                 discountSize = amount * CurrentDiscount;
-                return discountSize;
+                return Convert.ToInt32(discountSize);
             }
 
             /// <summary>
-            /// Обновляет накопительную скидку на основе суммы покупок покупателя в данной категории.
+            /// Метод, который обновляет накопительную скидку 
+            /// на основе суммы покупок покупателя в данной категории.
             /// </summary>
             /// <param name="items">Список товаров.</param>
             public void Update(List<Item> items)
@@ -106,12 +112,15 @@
                 int amountToIncreaseDiscount = 1000;
                 double maxDiscount = 0.1;
                 int counter = 0;
+
                 for (int i = 0; i < items.Count; i++)
                 {
                     if (items[i].Category == _category)
                     {
                         Amount += items[i].Cost;
-                        if (Amount >= amountToIncreaseDiscount && CurrentDiscount < maxDiscount && counter == 0)
+                        if (Amount >= amountToIncreaseDiscount && 
+                            CurrentDiscount < maxDiscount && 
+                            counter == 0)
                         {
                             CurrentDiscount += 0.01;
                             counter++;

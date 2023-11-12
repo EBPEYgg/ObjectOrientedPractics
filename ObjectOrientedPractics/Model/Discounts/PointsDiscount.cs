@@ -29,8 +29,8 @@ namespace ObjectOrientedPractics.Model.Discounts
         /// Метод, который считает размер скидки, доступный для данного товара.
         /// </summary>
         /// <param name="items">Список товаров.</param>
-        /// <returns>Размер скидки.</returns>
-        public double Calculate(List<Item> items)
+        /// <returns>Округленный размер скидки.</returns>
+        public int Calculate(List<Item> items)
         {
             double amount = 0;
             double amountWithDiscount;
@@ -40,19 +40,22 @@ namespace ObjectOrientedPractics.Model.Discounts
             {
                 amount += items[i].Cost;
             }
-            double maxDiscount = (amount / 100) * 30;
+
+            double maxDiscount = amount * 0.3;
 
             if (PointsCount < maxDiscount)
             {
                 amountWithDiscount = amount - PointsCount;
                 discountSize = amount - amountWithDiscount;
             }
+
             else if (PointsCount >= maxDiscount)
             {
                 amountWithDiscount = amount - maxDiscount;
                 discountSize = amount - amountWithDiscount;
             }
-            return discountSize;
+
+            return Convert.ToInt32(discountSize);
         }
 
         /// <summary>
@@ -60,7 +63,7 @@ namespace ObjectOrientedPractics.Model.Discounts
         /// </summary>
         /// <param name="items">Список товаров.</param>
         /// <returns>Размер скидки с вычетом накопленных баллов.</returns>
-        public double Apply(List<Item> items)
+        public int Apply(List<Item> items)
         {
             double amount = 0;
             double amountWithDiscount;
@@ -70,20 +73,23 @@ namespace ObjectOrientedPractics.Model.Discounts
             {
                 amount += items[i].Cost;
             }
-            double maxDiscount = (amount / 100) * 30;
+
+            double maxDiscount = amount * 0.3;
 
             if (PointsCount < maxDiscount)
             {
                 amountWithDiscount = amount - PointsCount;
                 discountSize = amount - amountWithDiscount;
             }
+
             else if (PointsCount >= maxDiscount)
             {
                 amountWithDiscount = amount - maxDiscount;
                 discountSize = amount - amountWithDiscount;
             }
+
             PointsCount -= Convert.ToInt32(discountSize);
-            return discountSize;
+            return Convert.ToInt32(discountSize);
         }
 
         /// <summary>
@@ -93,11 +99,13 @@ namespace ObjectOrientedPractics.Model.Discounts
         public void Update(List<Item> items)
         {
             double amount = 0;
+
             for (int i = 0; i < items.Count; i++)
             {
                 amount += items[i].Cost;
             }
-            PointsCount += Convert.ToInt32(Math.Round(amount / 100 * 10));
+
+            PointsCount += Convert.ToInt32(Math.Round(amount * 0.1));
         }
 
         /// <summary>
