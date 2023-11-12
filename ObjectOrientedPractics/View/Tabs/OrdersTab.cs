@@ -135,5 +135,10 @@ namespace ObjectOrientedPractics.View.Tabs
                 _orders[_selectedRow].OrderStatus = (OrderStatus)StatusComboBox.SelectedValue;
             }
         }
+
+        private void DeliveryTimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _selectedPriorityOrder.RequestedDeliveryTime = DeliveryTimeComboBox.Text;
+        }
     }
 }
