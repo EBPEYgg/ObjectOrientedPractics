@@ -1,4 +1,6 @@
-﻿namespace ObjectOrientedPractics.Model
+﻿using Newtonsoft.Json;
+
+namespace ObjectOrientedPractics.Model
 {
     /// <summary>
     /// Класс, описывающий заказы приоритетного обслуживания.
@@ -27,6 +29,7 @@
         /// <summary>
         /// Возвращает и задает дату доставки.
         /// </summary>
+        [JsonIgnore]
         public DateTime RequestedDeliveryDate
         {
             get => _requestedDeliveryDate;

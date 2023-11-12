@@ -106,12 +106,12 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Возвращает и задает размер примененной скидки.
         /// </summary>
-        public double DiscountAmount { get; set; }
+        public int DiscountAmount { get; set; }
 
         /// <summary>
         /// Возваращет конечную стоимость заказа с учетом скидки.
         /// </summary>
-        public double Total
+        public int Total
         {
             get => Amount - DiscountAmount;
         }
