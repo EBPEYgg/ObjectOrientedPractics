@@ -38,8 +38,20 @@ namespace ObjectOrientedPractics
             {
                 if (ItemsTabs.ListBoxItemsCount > 0 || CustomerTabs.ListBoxCustomersCount > 0)
                 {
-                    string jsonStore = System.Text.Json.JsonSerializer.Serialize(_store);
-                    File.WriteAllText(_fileName, jsonStore);
+                    //string jsonStore = System.Text.Json.JsonSerializer.Serialize(_store);
+                    //File.WriteAllText(_fileName, jsonStore);
+
+                    JsonSerializer jsonStore = new JsonSerializer();
+                    jsonStore.Converters.Add(new Newtonsoft.Json.Converters.JavaScriptDateTimeConverter());
+                    jsonStore.NullValueHandling = NullValueHandling.Ignore;
+                    jsonStore.TypeNameHandling = TypeNameHandling.Auto;
+                    jsonStore.Formatting = Formatting.Indented;
+
+                    using (StreamWriter sw = new StreamWriter(_fileName))
+                    using (JsonWriter writer = new JsonTextWriter(sw))
+                    {
+                        jsonStore.Serialize(writer, _store, typeof(Store));
+                    }
                 }
             }
         }
@@ -51,7 +63,12 @@ namespace ObjectOrientedPractics
         {
             try
             {
-                _store = JsonConvert.DeserializeObject<Store>(File.ReadAllText(_fileName));
+                var jsonSettings = new JsonSerializerSettings{
+                    TypeNameHandling = TypeNameHandling.Auto,
+                    NullValueHandling = NullValueHandling.Ignore};
+
+                _store = JsonConvert.DeserializeObject<Store>
+                    (File.ReadAllText(_fileName), jsonSettings);
             }
             catch (FileNotFoundException)
             {
