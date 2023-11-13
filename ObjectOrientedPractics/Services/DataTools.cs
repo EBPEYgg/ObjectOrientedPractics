@@ -51,8 +51,14 @@ namespace ObjectOrientedPractics.Services
         {
             for (int i = 0; i < (item1.Name.Length > item2.Name.Length ? item2.Name.Length : item1.Name.Length); i++)
             {
-                if (item1.Name.ToCharArray()[i] > item2.Name.ToCharArray()[i]) return false;
-                if (item1.Name.ToCharArray()[i] < item2.Name.ToCharArray()[i]) return true;
+                if (item1.Name.ToCharArray()[i] > item2.Name.ToCharArray()[i])
+                {
+                    return false;
+                }
+                if (item1.Name.ToCharArray()[i] < item2.Name.ToCharArray()[i])
+                {
+                    return true;
+                }
             }
             return false;
         }
