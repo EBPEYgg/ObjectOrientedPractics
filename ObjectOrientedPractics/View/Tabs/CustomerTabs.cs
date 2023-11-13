@@ -205,6 +205,26 @@ namespace ObjectOrientedPractics.View.Tabs
             // now saving data when switching tabs
             //SaveCustomer();
         }
+        
+        private void AddDiscountButton_Click(object sender, EventArgs e)
+        {
+            if (CustomersListBox.SelectedIndex != -1)
+            {
+                AddDiscountForm addDiscountForm = new();
+                addDiscountForm.SelectedIndex = CustomersListBox.SelectedIndex;
+                addDiscountForm.Customers = Customers;
+                addDiscountForm.Show();
+            }
+        }
+
+        private void RemoveDiscountButton_Click(object sender, EventArgs e)
+        {
+            if (DiscountCheckedListBox.SelectedIndex > 0 && CustomersListBox.SelectedIndex != -1)
+            {
+                Customers[CustomersListBox.SelectedIndex].Discounts.RemoveAt
+                    (DiscountCheckedListBox.SelectedIndex);
+            }
+        }
 
         /// <summary>
         /// Метод, который очищает текстовые поля.
@@ -240,26 +260,6 @@ namespace ObjectOrientedPractics.View.Tabs
             IsPriorityCheckBox.Checked = _currentCustomer.IsPriority;
             _currentCustomer.Order.IsPriority = _currentCustomer.IsPriority;
             _currentCustomer.Order.Address = AddressControl.Address;
-        }
-
-        private void AddDiscountButton_Click(object sender, EventArgs e)
-        {
-            if (CustomersListBox.SelectedIndex != -1)
-            {
-                AddDiscountForm addDiscountForm = new();
-                addDiscountForm.SelectedIndex = CustomersListBox.SelectedIndex;
-                addDiscountForm.Customers = Customers;
-                addDiscountForm.Show();
-            }
-        }
-
-        private void RemoveDiscountButton_Click(object sender, EventArgs e)
-        {
-            if (DiscountCheckedListBox.SelectedIndex > 0 && CustomersListBox.SelectedIndex != -1)
-            {
-                Customers[CustomersListBox.SelectedIndex].Discounts.RemoveAt
-                    (DiscountCheckedListBox.SelectedIndex);
-            }
         }
     }
 }
