@@ -250,7 +250,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
         private void ItemsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            DiscountCheckedListBox.SelectedIndex = -1;
         }
 
         private void DiscountCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
