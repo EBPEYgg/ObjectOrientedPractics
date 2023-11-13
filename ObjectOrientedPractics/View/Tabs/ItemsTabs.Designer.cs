@@ -67,10 +67,11 @@
             this.ItemsTableLayoutPanel.Controls.Add(this.SelectedItemGroupBox, 1, 0);
             this.ItemsTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ItemsTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.ItemsTableLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ItemsTableLayoutPanel.Name = "ItemsTableLayoutPanel";
             this.ItemsTableLayoutPanel.RowCount = 1;
             this.ItemsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.ItemsTableLayoutPanel.Size = new System.Drawing.Size(696, 445);
+            this.ItemsTableLayoutPanel.Size = new System.Drawing.Size(795, 593);
             this.ItemsTableLayoutPanel.TabIndex = 0;
             // 
             // ItemsGroupBox
@@ -84,55 +85,64 @@
             this.ItemsGroupBox.Controls.Add(this.AddButton);
             this.ItemsGroupBox.Controls.Add(this.ItemsListBox);
             this.ItemsGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ItemsGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.ItemsGroupBox.Location = new System.Drawing.Point(3, 4);
+            this.ItemsGroupBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ItemsGroupBox.Name = "ItemsGroupBox";
-            this.ItemsGroupBox.Size = new System.Drawing.Size(342, 439);
+            this.ItemsGroupBox.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ItemsGroupBox.Size = new System.Drawing.Size(391, 585);
             this.ItemsGroupBox.TabIndex = 0;
             this.ItemsGroupBox.TabStop = false;
             this.ItemsGroupBox.Text = "Items";
             // 
             // OrderByComboBox
             // 
+            this.OrderByComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.OrderByComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.OrderByComboBox.FormattingEnabled = true;
-            this.OrderByComboBox.Location = new System.Drawing.Point(180, 363);
+            this.OrderByComboBox.Location = new System.Drawing.Point(206, 484);
+            this.OrderByComboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.OrderByComboBox.Name = "OrderByComboBox";
-            this.OrderByComboBox.Size = new System.Drawing.Size(156, 23);
+            this.OrderByComboBox.Size = new System.Drawing.Size(178, 28);
             this.OrderByComboBox.TabIndex = 7;
             this.OrderByComboBox.SelectionChangeCommitted += new System.EventHandler(this.OrderByComboBox_SelectionChangeCommitted);
             // 
             // OrderByLabel
             // 
             this.OrderByLabel.AutoSize = true;
-            this.OrderByLabel.Location = new System.Drawing.Point(118, 366);
+            this.OrderByLabel.Location = new System.Drawing.Point(135, 488);
             this.OrderByLabel.Name = "OrderByLabel";
-            this.OrderByLabel.Size = new System.Drawing.Size(56, 15);
+            this.OrderByLabel.Size = new System.Drawing.Size(70, 20);
             this.OrderByLabel.TabIndex = 6;
             this.OrderByLabel.Text = "Order by:";
             // 
             // FindTextBox
             // 
-            this.FindTextBox.Location = new System.Drawing.Point(45, 22);
+            this.FindTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FindTextBox.Location = new System.Drawing.Point(51, 29);
+            this.FindTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FindTextBox.Name = "FindTextBox";
-            this.FindTextBox.Size = new System.Drawing.Size(291, 23);
+            this.FindTextBox.Size = new System.Drawing.Size(332, 27);
             this.FindTextBox.TabIndex = 5;
             this.FindTextBox.TextChanged += new System.EventHandler(this.FindTextBox_TextChanged);
             // 
             // FindLabel
             // 
             this.FindLabel.AutoSize = true;
-            this.FindLabel.Location = new System.Drawing.Point(6, 25);
+            this.FindLabel.Location = new System.Drawing.Point(7, 33);
             this.FindLabel.Name = "FindLabel";
-            this.FindLabel.Size = new System.Drawing.Size(33, 15);
+            this.FindLabel.Size = new System.Drawing.Size(40, 20);
             this.FindLabel.TabIndex = 4;
             this.FindLabel.Text = "Find:";
             // 
             // SaveButton
             // 
             this.SaveButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.SaveButton.Location = new System.Drawing.Point(230, 392);
+            this.SaveButton.Location = new System.Drawing.Point(263, 523);
+            this.SaveButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(106, 41);
+            this.SaveButton.Size = new System.Drawing.Size(121, 55);
             this.SaveButton.TabIndex = 3;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
@@ -141,9 +151,10 @@
             // DeleteButton
             // 
             this.DeleteButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.DeleteButton.Location = new System.Drawing.Point(118, 392);
+            this.DeleteButton.Location = new System.Drawing.Point(135, 523);
+            this.DeleteButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(106, 41);
+            this.DeleteButton.Size = new System.Drawing.Size(121, 55);
             this.DeleteButton.TabIndex = 2;
             this.DeleteButton.Text = "Delete";
             this.DeleteButton.UseVisualStyleBackColor = true;
@@ -152,9 +163,10 @@
             // AddButton
             // 
             this.AddButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.AddButton.Location = new System.Drawing.Point(6, 392);
+            this.AddButton.Location = new System.Drawing.Point(7, 523);
+            this.AddButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(106, 41);
+            this.AddButton.Size = new System.Drawing.Size(121, 55);
             this.AddButton.TabIndex = 1;
             this.AddButton.Text = "Add";
             this.AddButton.UseVisualStyleBackColor = true;
@@ -166,10 +178,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ItemsListBox.FormattingEnabled = true;
-            this.ItemsListBox.ItemHeight = 15;
-            this.ItemsListBox.Location = new System.Drawing.Point(6, 52);
+            this.ItemsListBox.ItemHeight = 20;
+            this.ItemsListBox.Location = new System.Drawing.Point(7, 69);
+            this.ItemsListBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ItemsListBox.Name = "ItemsListBox";
-            this.ItemsListBox.Size = new System.Drawing.Size(330, 304);
+            this.ItemsListBox.Size = new System.Drawing.Size(377, 404);
             this.ItemsListBox.TabIndex = 0;
             this.ItemsListBox.SelectedIndexChanged += new System.EventHandler(this.ItemsListBox_SelectedIndexChanged);
             // 
@@ -188,9 +201,11 @@
             this.SelectedItemGroupBox.Controls.Add(this.CostLabel);
             this.SelectedItemGroupBox.Controls.Add(this.IdLabel);
             this.SelectedItemGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SelectedItemGroupBox.Location = new System.Drawing.Point(351, 3);
+            this.SelectedItemGroupBox.Location = new System.Drawing.Point(400, 4);
+            this.SelectedItemGroupBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SelectedItemGroupBox.Name = "SelectedItemGroupBox";
-            this.SelectedItemGroupBox.Size = new System.Drawing.Size(342, 439);
+            this.SelectedItemGroupBox.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.SelectedItemGroupBox.Size = new System.Drawing.Size(392, 585);
             this.SelectedItemGroupBox.TabIndex = 1;
             this.SelectedItemGroupBox.TabStop = false;
             this.SelectedItemGroupBox.Text = "Selected item";
@@ -200,18 +215,19 @@
             this.CategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CategoryComboBox.Enabled = false;
             this.CategoryComboBox.FormattingEnabled = true;
-            this.CategoryComboBox.Location = new System.Drawing.Point(70, 97);
+            this.CategoryComboBox.Location = new System.Drawing.Point(80, 129);
+            this.CategoryComboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CategoryComboBox.Name = "CategoryComboBox";
-            this.CategoryComboBox.Size = new System.Drawing.Size(123, 23);
+            this.CategoryComboBox.Size = new System.Drawing.Size(140, 28);
             this.CategoryComboBox.TabIndex = 12;
             this.CategoryComboBox.SelectedIndexChanged += new System.EventHandler(this.CategoryComboBox_SelectedIndexChanged);
             // 
             // CategoryLabel
             // 
             this.CategoryLabel.AutoSize = true;
-            this.CategoryLabel.Location = new System.Drawing.Point(6, 100);
+            this.CategoryLabel.Location = new System.Drawing.Point(7, 133);
             this.CategoryLabel.Name = "CategoryLabel";
-            this.CategoryLabel.Size = new System.Drawing.Size(58, 15);
+            this.CategoryLabel.Size = new System.Drawing.Size(72, 20);
             this.CategoryLabel.TabIndex = 11;
             this.CategoryLabel.Text = "Category:";
             // 
@@ -219,9 +235,10 @@
             // 
             this.ApplyButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ApplyButton.Location = new System.Drawing.Point(6, 392);
+            this.ApplyButton.Location = new System.Drawing.Point(7, 523);
+            this.ApplyButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ApplyButton.Name = "ApplyButton";
-            this.ApplyButton.Size = new System.Drawing.Size(330, 41);
+            this.ApplyButton.Size = new System.Drawing.Size(378, 55);
             this.ApplyButton.TabIndex = 10;
             this.ApplyButton.Text = "Apply";
             this.ApplyButton.UseVisualStyleBackColor = true;
@@ -232,9 +249,10 @@
             // 
             this.EditButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.EditButton.Location = new System.Drawing.Point(6, 345);
+            this.EditButton.Location = new System.Drawing.Point(7, 460);
+            this.EditButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(330, 41);
+            this.EditButton.Size = new System.Drawing.Size(378, 55);
             this.EditButton.TabIndex = 9;
             this.EditButton.Text = "Edit";
             this.EditButton.UseVisualStyleBackColor = true;
@@ -246,9 +264,10 @@
             this.DescriptionRichTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DescriptionRichTextBox.Enabled = false;
-            this.DescriptionRichTextBox.Location = new System.Drawing.Point(6, 248);
+            this.DescriptionRichTextBox.Location = new System.Drawing.Point(7, 331);
+            this.DescriptionRichTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DescriptionRichTextBox.Name = "DescriptionRichTextBox";
-            this.DescriptionRichTextBox.Size = new System.Drawing.Size(330, 80);
+            this.DescriptionRichTextBox.Size = new System.Drawing.Size(378, 105);
             this.DescriptionRichTextBox.TabIndex = 8;
             this.DescriptionRichTextBox.Text = "";
             this.DescriptionRichTextBox.TextChanged += new System.EventHandler(this.DescriptionRichTextBox_TextChanged);
@@ -256,9 +275,9 @@
             // DescriptionLabel
             // 
             this.DescriptionLabel.AutoSize = true;
-            this.DescriptionLabel.Location = new System.Drawing.Point(6, 230);
+            this.DescriptionLabel.Location = new System.Drawing.Point(7, 307);
             this.DescriptionLabel.Name = "DescriptionLabel";
-            this.DescriptionLabel.Size = new System.Drawing.Size(70, 15);
+            this.DescriptionLabel.Size = new System.Drawing.Size(88, 20);
             this.DescriptionLabel.TabIndex = 7;
             this.DescriptionLabel.Text = "Description:";
             // 
@@ -268,9 +287,10 @@
             this.NameRichTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.NameRichTextBox.Enabled = false;
-            this.NameRichTextBox.Location = new System.Drawing.Point(6, 147);
+            this.NameRichTextBox.Location = new System.Drawing.Point(7, 196);
+            this.NameRichTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.NameRichTextBox.Name = "NameRichTextBox";
-            this.NameRichTextBox.Size = new System.Drawing.Size(330, 80);
+            this.NameRichTextBox.Size = new System.Drawing.Size(378, 105);
             this.NameRichTextBox.TabIndex = 6;
             this.NameRichTextBox.Text = "";
             this.NameRichTextBox.TextChanged += new System.EventHandler(this.NameRichTextBox_TextChanged);
@@ -278,9 +298,9 @@
             // NameLabel
             // 
             this.NameLabel.AutoSize = true;
-            this.NameLabel.Location = new System.Drawing.Point(6, 129);
+            this.NameLabel.Location = new System.Drawing.Point(7, 172);
             this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(42, 15);
+            this.NameLabel.Size = new System.Drawing.Size(52, 20);
             this.NameLabel.TabIndex = 4;
             this.NameLabel.Text = "Name:";
             // 
@@ -288,45 +308,48 @@
             // 
             this.CostTextBox.AccessibleDescription = "Неверная цена.";
             this.CostTextBox.Enabled = false;
-            this.CostTextBox.Location = new System.Drawing.Point(70, 68);
+            this.CostTextBox.Location = new System.Drawing.Point(80, 91);
+            this.CostTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CostTextBox.Name = "CostTextBox";
-            this.CostTextBox.Size = new System.Drawing.Size(123, 23);
+            this.CostTextBox.Size = new System.Drawing.Size(140, 27);
             this.CostTextBox.TabIndex = 3;
             this.CostTextBox.TextChanged += new System.EventHandler(this.CostTextBox_TextChanged);
             // 
             // IdTextBox
             // 
             this.IdTextBox.Enabled = false;
-            this.IdTextBox.Location = new System.Drawing.Point(70, 39);
+            this.IdTextBox.Location = new System.Drawing.Point(80, 52);
+            this.IdTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.IdTextBox.Name = "IdTextBox";
-            this.IdTextBox.Size = new System.Drawing.Size(123, 23);
+            this.IdTextBox.Size = new System.Drawing.Size(140, 27);
             this.IdTextBox.TabIndex = 2;
             // 
             // CostLabel
             // 
             this.CostLabel.AutoSize = true;
-            this.CostLabel.Location = new System.Drawing.Point(6, 71);
+            this.CostLabel.Location = new System.Drawing.Point(7, 95);
             this.CostLabel.Name = "CostLabel";
-            this.CostLabel.Size = new System.Drawing.Size(34, 15);
+            this.CostLabel.Size = new System.Drawing.Size(41, 20);
             this.CostLabel.TabIndex = 1;
             this.CostLabel.Text = "Cost:";
             // 
             // IdLabel
             // 
             this.IdLabel.AutoSize = true;
-            this.IdLabel.Location = new System.Drawing.Point(6, 42);
+            this.IdLabel.Location = new System.Drawing.Point(7, 56);
             this.IdLabel.Name = "IdLabel";
-            this.IdLabel.Size = new System.Drawing.Size(21, 15);
+            this.IdLabel.Size = new System.Drawing.Size(27, 20);
             this.IdLabel.TabIndex = 0;
             this.IdLabel.Text = "ID:";
             // 
             // ItemsTabs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.ItemsTableLayoutPanel);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ItemsTabs";
-            this.Size = new System.Drawing.Size(696, 445);
+            this.Size = new System.Drawing.Size(795, 593);
             this.ItemsTableLayoutPanel.ResumeLayout(false);
             this.ItemsGroupBox.ResumeLayout(false);
             this.ItemsGroupBox.PerformLayout();
