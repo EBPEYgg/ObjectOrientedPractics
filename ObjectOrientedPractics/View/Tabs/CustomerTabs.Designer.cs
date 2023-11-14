@@ -180,6 +180,7 @@
             this.DiscountCheckedListBox.Name = "DiscountCheckedListBox";
             this.DiscountCheckedListBox.Size = new System.Drawing.Size(357, 40);
             this.DiscountCheckedListBox.TabIndex = 24;
+            this.DiscountCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.DiscountCheckedListBox_ItemCheck);
             // 
             // IsPriorityCheckBox
             // 

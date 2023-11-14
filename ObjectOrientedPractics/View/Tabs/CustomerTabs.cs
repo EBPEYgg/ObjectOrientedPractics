@@ -264,5 +264,10 @@ namespace ObjectOrientedPractics.View.Tabs
             _currentCustomer.Order.IsPriority = _currentCustomer.IsPriority;
             _currentCustomer.Order.Address = AddressControl.Address;
         }
+
+        private void DiscountCheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            e.NewValue = e.CurrentValue;
+        }
     }
 }
