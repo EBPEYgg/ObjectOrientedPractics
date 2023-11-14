@@ -142,12 +142,11 @@ namespace ObjectOrientedPractics.Model
         /// <param name="street">Улица покупателя. Должно иметь длину до 50 символов.</param>
         /// <param name="building">Номер дома покупателя. Должно иметь длину до 5 символов.</param>
         /// <param name="apartment">Номер квартиры покупателя. Должно иметь длину до 5 символов.</param>
-        public Customer(string fullname, int index, string country, 
-            string city, string street, string building, string apartment, bool isPriority)
+        public Customer(string fullname, Address address, bool isPriority)
         {
             Fullname = fullname;
             IsPriority = isPriority;
-            Address = new Address(index, country, city, street, building, apartment);
+            Address = address;
             OrderList = new BindingList<Order>();
             Discounts = new BindingList<IDiscount>();
             PointsDiscount pointsDiscount = new PointsDiscount();
@@ -162,23 +161,19 @@ namespace ObjectOrientedPractics.Model
         /// <returns>Строка: "Уникальный идентификатор / Полное имя / Адрес".</returns>
         public override string ToString()
         {
-            return $"{_id} / " +
-            $"{Fullname} / " +
-                $"{Address.Index}, " +
-                $"{Address.Country}, " +
-                $"{Address.City}, " +
-                $"{Address.Street}, " +
-                $"{Address.Building}, " +
-                $"{Address.Apartment}";
+            return $"{_id} / {Fullname} / {Address}";
         }
 
         /// <summary>
-        /// Клонирование объекта класса для редактирования его через TextBox.
+        /// Глубокое копирование объекта класса 
+        /// для редактирования его через TextBox на CustomerTabs.
         /// </summary>
-        /// <returns>Клонированный объект класса.</returns>
+        /// <returns>Копия объекта класса.</returns>
         public object Clone()
         {
-            return this.MemberwiseClone();
+            Customer clone = (Customer)this.MemberwiseClone();
+            clone.Address = (Address)this.Address.Clone();
+            return clone;
         }
     }
 }
