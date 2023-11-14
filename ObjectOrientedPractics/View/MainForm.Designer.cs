@@ -181,6 +181,7 @@
             this.Controls.Add(this.TabControl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(776, 526);
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.Name = "MainForm";
             this.Text = "Object Oriented Practics";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
