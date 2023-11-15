@@ -176,6 +176,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 Sort();
                 ToggleInputBoxes(false);
                 ClearCustomersInfo();
+                CustomersChanged?.Invoke(this, EventArgs.Empty);
                 return;
             }
 

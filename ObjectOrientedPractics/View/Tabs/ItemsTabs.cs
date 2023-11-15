@@ -245,6 +245,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 OrderByComboBox_SelectionChangeCommitted(sender, e);
                 ToggleInputBoxes(false);
                 ClearItemsInfo();
+                ItemsChanged?.Invoke(this, EventArgs.Empty);
                 return;
             }
 
@@ -392,11 +393,6 @@ namespace ObjectOrientedPractics.View.Tabs
             }
             
             ItemsListBox.SelectedIndex = _itemsList.IndexOf((Item)testSelectedItem);
-        }
-
-        private void Item_NameChanged(object sender, EventArgs e)
-        {
-            MessageBox.Show("Имя пользователя изменено");
         }
     }
 }

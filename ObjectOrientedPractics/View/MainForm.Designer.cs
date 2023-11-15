@@ -84,6 +84,7 @@
             this.ItemsTabs.Name = "ItemsTabs";
             this.ItemsTabs.Size = new System.Drawing.Size(746, 453);
             this.ItemsTabs.TabIndex = 0;
+            this.ItemsTabs.ItemsChanged += new System.EventHandler(this.ItemsTabs_ItemsChanged);
             // 
             // CustomersTabPage
             // 
@@ -95,6 +96,7 @@
             this.CustomersTabPage.TabIndex = 3;
             this.CustomersTabPage.Text = "Customers";
             this.CustomersTabPage.UseVisualStyleBackColor = true;
+            this.CustomerTabs.CustomersChanged += new System.EventHandler(this.CustomerTabs_CustomersChanged);
             // 
             // CustomerTabs
             // 

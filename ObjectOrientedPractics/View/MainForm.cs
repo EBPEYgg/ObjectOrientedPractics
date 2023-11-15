@@ -26,6 +26,8 @@ namespace ObjectOrientedPractics
             CartsTab.Customers = _store.Customers;
             OrdersTab.Customers = _store.Customers;
             PriorityOrdersTab.Items = _store.Items;
+            ItemsTabs.ItemsChanged += ItemsTabs_ItemsChanged;
+            CustomerTabs.CustomersChanged += CustomerTabs_CustomersChanged;
             ListSorting();
         }
 
@@ -38,9 +40,6 @@ namespace ObjectOrientedPractics
             {
                 if (ItemsTabs.ListBoxItemsCount > 0 || CustomerTabs.ListBoxCustomersCount > 0)
                 {
-                    //string jsonStore = System.Text.Json.JsonSerializer.Serialize(_store);
-                    //File.WriteAllText(_fileName, jsonStore);
-
                     JsonSerializer jsonStore = new JsonSerializer();
                     jsonStore.Converters.Add(new Newtonsoft.Json.Converters.JavaScriptDateTimeConverter());
                     jsonStore.NullValueHandling = NullValueHandling.Ignore;
@@ -98,13 +97,6 @@ namespace ObjectOrientedPractics
                 _store.Customers = CustomerTabs.Customers;
             }
 
-            if (TabControl.SelectedIndex == 2)
-            {
-                CartsTab.Items = ItemsTabs.Items;
-                CartsTab.Customers = CustomerTabs.Customers;
-                CartsTab.RefreshData();
-            }
-
             if (TabControl.SelectedIndex == 3)
             {
                 OrdersTab.RefreshData();
@@ -115,6 +107,18 @@ namespace ObjectOrientedPractics
                     OrdersTab.ClearInfo();
                 }
             }
+        }
+
+        private void ItemsTabs_ItemsChanged(object sender, EventArgs e)
+        {
+            CartsTab.Items = _store.Items;
+            CartsTab.RefreshData();
+        }
+
+        private void CustomerTabs_CustomersChanged(object sender, EventArgs e)
+        {
+            CartsTab.Customers = _store.Customers;
+            CartsTab.RefreshData();
         }
     }
 }
