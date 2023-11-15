@@ -33,7 +33,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Корзина товаров покупателя.
         /// </summary>
-        private Cart _cart = new();
+        private Cart _cart;
 
         /// <summary>
         /// Заказ покупателя.
@@ -142,11 +142,12 @@ namespace ObjectOrientedPractics.Model
         /// <param name="street">Улица покупателя. Должно иметь длину до 50 символов.</param>
         /// <param name="building">Номер дома покупателя. Должно иметь длину до 5 символов.</param>
         /// <param name="apartment">Номер квартиры покупателя. Должно иметь длину до 5 символов.</param>
-        public Customer(string fullname, Address address, bool isPriority)
+        public Customer(string fullname, Address address, Cart cart, bool isPriority)
         {
             Fullname = fullname;
             IsPriority = isPriority;
             Address = address;
+            Cart = cart;
             OrderList = new BindingList<Order>();
             Discounts = new BindingList<IDiscount>();
             PointsDiscount pointsDiscount = new PointsDiscount();

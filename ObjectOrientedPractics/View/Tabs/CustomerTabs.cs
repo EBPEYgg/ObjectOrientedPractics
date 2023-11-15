@@ -165,8 +165,9 @@ namespace ObjectOrientedPractics.View.Tabs
                     AddressControl.Address.Index, AddressControl.Address.Country,
                     AddressControl.Address.City, AddressControl.Address.Street,
                     AddressControl.Address.Building, AddressControl.Address.Apartment);
+                Cart cart = new Cart();
                 _currentCustomer = new Customer(
-                    FullNameTextBox.Text.Trim(), address, IsPriorityCheckBox.Checked);
+                    FullNameTextBox.Text.Trim(), address, cart, IsPriorityCheckBox.Checked);
                 _currentCustomer.Order.Address = AddressControl.Address;
                 _currentCustomer.Order.IsPriority = IsPriorityCheckBox.Checked;
                 _customersList.Add(_currentCustomer);
