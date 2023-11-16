@@ -152,6 +152,12 @@ namespace ObjectOrientedPractics.View.Tabs
                 return;
             }
 
+            if (FullNameTextBox.BackColor == Color.LightPink || 
+                AddressControl.CheckInputAddressValues() == false)
+            {
+                return;
+            }
+
             // создание списка покупателей, если listbox пустой
             if (CustomersListBox.Items.Count == 0)
             {

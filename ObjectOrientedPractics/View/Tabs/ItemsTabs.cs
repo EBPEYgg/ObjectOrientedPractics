@@ -1,5 +1,6 @@
 ﻿using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
+using ObjectOrientedPractics.View.Controls;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -222,6 +223,14 @@ namespace ObjectOrientedPractics.View.Tabs
                 string.IsNullOrEmpty(DescriptionRichTextBox.Text))
             {
                 MessageBox.Show("Заполните все поля.", "Ошибка ввода");
+                return;
+            }
+
+            if (CostTextBox.BackColor == Color.LightPink ||
+                NameRichTextBox.BackColor == Color.LightPink ||
+                DescriptionRichTextBox.BackColor == Color.LightPink ||
+                CategoryComboBox.SelectedIndex == -1)
+            {
                 return;
             }
 
