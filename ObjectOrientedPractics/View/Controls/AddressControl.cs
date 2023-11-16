@@ -63,6 +63,20 @@ namespace ObjectOrientedPractics.View.Controls
             ApartmentTextBox.Enabled = value;
         }
 
+        public bool CheckInputAddressValues()
+        {
+            if (PostIndexTextBox.BackColor == Color.LightPink || 
+                CountryTextBox.BackColor == Color.LightPink ||
+                CityTextBox.BackColor == Color.LightPink ||
+                StreetTextBox.BackColor == Color.LightPink ||
+                BuildingTextBox.BackColor == Color.LightPink ||
+                ApartmentTextBox.BackColor == Color.LightPink)
+            {
+                return false;
+            }
+            return true;
+        }
+
         private void PostIndexTextBox_TextChanged(object sender, EventArgs e)
         {
             try
