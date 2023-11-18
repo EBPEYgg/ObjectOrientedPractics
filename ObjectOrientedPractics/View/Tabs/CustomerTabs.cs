@@ -167,13 +167,13 @@ namespace ObjectOrientedPractics.View.Tabs
             // создание нового объекта
             if (_selectedIndex == -1)
             {
-                Address address = new Address(
-                    AddressControl.Address.Index, AddressControl.Address.Country,
-                    AddressControl.Address.City, AddressControl.Address.Street,
-                    AddressControl.Address.Building, AddressControl.Address.Apartment);
                 Cart cart = new Cart();
                 _currentCustomer = new Customer(
-                    FullNameTextBox.Text.Trim(), address, cart, IsPriorityCheckBox.Checked);
+                    FullNameTextBox.Text.Trim(), new Address(
+                    AddressControl.Address.Index, AddressControl.Address.Country,
+                    AddressControl.Address.City, AddressControl.Address.Street,
+                    AddressControl.Address.Building, AddressControl.Address.Apartment), 
+                    cart, IsPriorityCheckBox.Checked);
                 _currentCustomer.Order.Address = AddressControl.Address;
                 _currentCustomer.Order.IsPriority = IsPriorityCheckBox.Checked;
                 _customersList.Add(_currentCustomer);
@@ -189,6 +189,7 @@ namespace ObjectOrientedPractics.View.Tabs
             // редактирование объекта
             _customersList[_selectedIndex] = _cloneCurrentCustomer;
             _currentCustomer = _cloneCurrentCustomer;
+            _currentCustomer.Address = AddressControl.Address;
             Sort();
             ToggleInputBoxes(false);
             UpdateCustomerInfo();
