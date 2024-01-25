@@ -133,6 +133,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 && StatusComboBox.Enabled == true)
             {
                 _orders[_selectedRow].OrderStatus = (OrderStatus)StatusComboBox.SelectedValue;
+                OrdersDataGridView.InvalidateRow(_selectedRow);
             }
         }
 
