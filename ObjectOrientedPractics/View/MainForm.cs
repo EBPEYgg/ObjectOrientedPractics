@@ -29,6 +29,8 @@ namespace ObjectOrientedPractics
             ItemsTabs.ItemsChanged += ItemsTabs_ItemsChanged;
             CustomerTabs.CustomersChanged += CustomerTabs_CustomersChanged;
             ListSorting();
+            // скрытие тестовой вкладки PriorityOrdersTab
+            TabControl.TabPages[4].Parent = null;
         }
 
         /// <summary>
