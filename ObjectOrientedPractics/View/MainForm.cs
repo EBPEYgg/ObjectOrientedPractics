@@ -7,12 +7,12 @@ namespace ObjectOrientedPractics
     public partial class MainForm : Form
     {
         /// <summary>
-        /// Инициализация магазина.
+        /// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РјР°РіР°Р·РёРЅР°.
         /// </summary>
         private Store _store = new();
 
         /// <summary>
-        /// Название файла для сохранения или загрузки данных.
+        /// РќР°Р·РІР°РЅРёРµ С„Р°Р№Р»Р° РґР»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ РёР»Рё Р·Р°РіСЂСѓР·РєРё РґР°РЅРЅС‹С….
         /// </summary>
         private string _fileName = "Store.json";
 
@@ -29,12 +29,12 @@ namespace ObjectOrientedPractics
             ItemsTabs.ItemsChanged += ItemsTabs_ItemsChanged;
             CustomerTabs.CustomersChanged += CustomerTabs_CustomersChanged;
             ListSorting();
-            // скрытие тестовой вкладки PriorityOrdersTab
+            // СЃРєСЂС‹С‚РёРµ С‚РµСЃС‚РѕРІРѕР№ РІРєР»Р°РґРєРё PriorityOrdersTab
             TabControl.TabPages[4].Parent = null;
         }
 
         /// <summary>
-        /// Метод, который сохраняет данные при закрытии приложения пользователем.
+        /// РњРµС‚РѕРґ, РєРѕС‚РѕСЂС‹Р№ СЃРѕС…СЂР°РЅСЏРµС‚ РґР°РЅРЅС‹Рµ РїСЂРё Р·Р°РєСЂС‹С‚РёРё РїСЂРёР»РѕР¶РµРЅРёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј.
         /// </summary>
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -58,7 +58,7 @@ namespace ObjectOrientedPractics
         }
 
         /// <summary>
-        /// Метод, который считывает текстовый файл для заполнения списков товара и покупателей.
+        /// РњРµС‚РѕРґ, РєРѕС‚РѕСЂС‹Р№ СЃС‡РёС‚С‹РІР°РµС‚ С‚РµРєСЃС‚РѕРІС‹Р№ С„Р°Р№Р» РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ СЃРїРёСЃРєРѕРІ С‚РѕРІР°СЂР° Рё РїРѕРєСѓРїР°С‚РµР»РµР№.
         /// </summary>
         private void LoadStoreInfo()
         {
@@ -79,7 +79,7 @@ namespace ObjectOrientedPractics
         }
 
         /// <summary>
-        /// Метод, который сортирует списки и листбоксы товаров и покупателей.
+        /// РњРµС‚РѕРґ, РєРѕС‚РѕСЂС‹Р№ СЃРѕСЂС‚РёСЂСѓРµС‚ СЃРїРёСЃРєРё Рё Р»РёСЃС‚Р±РѕРєСЃС‹ С‚РѕРІР°СЂРѕРІ Рё РїРѕРєСѓРїР°С‚РµР»РµР№.
         /// </summary>
         private void ListSorting()
         {
